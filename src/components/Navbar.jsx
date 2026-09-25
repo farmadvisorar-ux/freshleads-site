@@ -24,8 +24,8 @@ export default function Navbar({ onOpenTerritoryModal }) {
           
           {/* Logo & Brand */}
           <a href="#" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-fresh-orange to-fresh-orangeHover flex items-center justify-center shadow-orange-sm group-hover:scale-105 transition-transform">
-              <Zap className="w-6 h-6 text-white fill-white" />
+            <div className="w-10 h-10 rounded-xl overflow-hidden border border-fresh-orange/40 shadow-orange-sm group-hover:scale-105 transition-transform bg-fresh-dark">
+              <img src="/logo.png" alt="FreshLeads.llc Logo" className="w-full h-full object-cover" />
             </div>
             <div>
               <span className="text-xl font-extrabold tracking-tight text-white flex items-center">

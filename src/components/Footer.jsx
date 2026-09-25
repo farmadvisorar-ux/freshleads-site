@@ -16,8 +16,8 @@ export default function Footer({ onOpenTerritoryModal }) {
           {/* Brand Col (2 cols) */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-fresh-orange flex items-center justify-center text-white shadow-orange-sm">
-                <Zap className="w-6 h-6 fill-white" />
+              <div className="w-10 h-10 rounded-xl overflow-hidden border border-fresh-orange/40 shadow-orange-sm bg-fresh-dark">
+                <img src="/logo.png" alt="FreshLeads.llc Logo" className="w-full h-full object-cover" />
               </div>
               <span className="text-2xl font-black tracking-tight text-white">
                 FRESH<span className="text-fresh-orange">LEADS</span>.LLC
