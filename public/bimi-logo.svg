@@ -1,0 +1,32 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
+  <title>FreshLeads.llc BIMI Logo</title>
+  <defs>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF7A18"/>
+      <stop offset="100%" stop-color="#FF4500"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2A1608"/>
+      <stop offset="100%" stop-color="#0E1017"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Dark Rounded Square -->
+  <rect width="180" height="180" rx="36" fill="#07080B"/>
+  
+  <!-- Outer Glow Ring -->
+  <rect x="2" y="2" width="176" height="176" rx="34" fill="none" stroke="#FF5C00" stroke-width="1.5" stroke-opacity="0.3"/>
+
+  <!-- Shield Shape Background -->
+  <path d="M90 28 L138 46 C138 95 116 128 90 148 C64 128 42 95 42 46 Z" fill="url(#shieldGrad)" stroke="url(#orangeGrad)" stroke-width="3.5" stroke-linejoin="round"/>
+
+  <!-- Roof Silhouette Peak -->
+  <path d="M50 82 L90 46 L130 82" fill="none" stroke="url(#orangeGrad)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Chimney Detail -->
+  <path d="M68 64 L68 52 L76 52 L76 71" fill="#FF5C00"/>
+
+  <!-- Lightning Bolt (FreshLeads Energy) -->
+  <polygon points="98,54 72,92 88,92 82,130 114,84 94,84" fill="#FFFFFF"/>
+  <polygon points="98,56 75,90 89,90 84,126 110,86 94,86" fill="url(#orangeGrad)"/>
+</svg>

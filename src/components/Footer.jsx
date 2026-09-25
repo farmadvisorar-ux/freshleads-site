@@ -68,9 +68,9 @@ export default function Footer({ onOpenTerritoryModal }) {
           <div className="space-y-3">
             <h4 className="text-xs uppercase font-extrabold text-white tracking-wider">Contact & Inquiries</h4>
             <div className="space-y-2.5 text-xs sm:text-sm">
-              <a href="mailto:leads@freshleads.llc" className="flex items-center gap-2 hover:text-fresh-orange transition-colors text-slate-200">
+              <a href="mailto:info@freshleads.llc" className="flex items-center gap-2 hover:text-fresh-orange transition-colors text-slate-200">
                 <Mail className="w-4 h-4 text-fresh-orange shrink-0" />
-                <span>leads@freshleads.llc</span>
+                <span>info@freshleads.llc</span>
               </a>
               <div className="flex items-center gap-2 text-slate-300">
                 <MapPin className="w-4 h-4 text-fresh-orange shrink-0" />

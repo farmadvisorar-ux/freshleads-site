@@ -1,7 +1,7 @@
 /**
  * FreshLeads.llc - Transactional & Lead Workflow Email Templates
  * Domain: FreshLeads.llc
- * Contact: leads@freshleads.llc
+ * Contact: info@freshleads.llc
  */
 
 export const emailTemplates = {
@@ -152,7 +152,7 @@ export const emailTemplates = {
       </p>
     </div>
     <div class="footer">
-      © ${new Date().getFullYear()} FreshLeads.llc • Exclusive Roofing Appointments • leads@freshleads.llc
+      © ${new Date().getFullYear()} FreshLeads.llc • Exclusive Roofing Appointments • info@freshleads.llc
     </div>
   </div>
 </body>

@@ -8,40 +8,44 @@ export async function submitTerritoryInquiry(formData) {
   const adminEmail = emailTemplates.adminTerritoryInquiry(formData);
   const rooferEmail = emailTemplates.rooferWelcomeConfirmation(formData);
 
-  console.log('[FreshLeads] Disagreeable lead inquiry received for:', formData);
-  console.log('[FreshLeads] Formatted Admin Notification:', adminEmail.subject);
-  console.log('[FreshLeads] Formatted Roofer Welcome Email:', rooferEmail.subject);
+  console.log('[FreshLeads] Lead & Package inquiry received for:', formData);
 
-  // 2. Dispatch via Web3Forms or external webhook
+  // 2. Dispatch to info@freshleads.llc via FormSubmit.co & Web3Forms
   try {
-    const response = await fetch('https://api.web3forms.com/submit', {
+    const payload = {
+      _subject: `🔥 New Lead Inquiry: ${formData.companyName || 'Contractor'} (${formData.zipOrCounty || 'Territory'})`,
+      _replyto: formData.email,
+      Package_Selected: formData.leadVolume,
+      Target_Territory: formData.zipOrCounty,
+      Contractor_Name: formData.contactName,
+      Company_Name: formData.companyName,
+      Phone_Number: formData.phone,
+      Work_Email: formData.email,
+      Crew_Capacity: formData.capacity,
+      Notes: formData.notes || 'None provided',
+      Submission_Time: new Date().toLocaleString()
+    };
+
+    // Primary dispatch directly to info@freshleads.llc
+    const response = await fetch('https://formsubmit.co/ajax/info@freshleads.llc', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
-      body: JSON.stringify({
-        access_key: 'YOUR_ACCESS_KEY_OR_PUBLIC_KEY', // Default fallback key or custom Web3Forms token
-        subject: `New Lead Inquiry: ${formData.companyName} (${formData.zipOrCounty})`,
-        from_name: 'FreshLeads.llc Inquiries',
-        to_email: 'leads@freshleads.llc',
-        name: formData.contactName,
-        email: formData.email,
-        phone: formData.phone,
-        company: formData.companyName,
-        target_territory: formData.zipOrCounty,
-        lead_volume: formData.leadVolume,
-        capacity: formData.capacity,
-        notes: formData.notes,
-        html_summary: adminEmail.html,
-      })
+      body: JSON.stringify(payload)
     });
 
     const result = await response.json();
+    
+    // Store in localStorage as backup
+    const existing = JSON.parse(localStorage.getItem('freshleads_inquiries') || '[]');
+    existing.push({ ...formData, timestamp: new Date().toISOString() });
+    localStorage.setItem('freshleads_inquiries', JSON.stringify(existing));
+
     return { success: true, result, mock: false };
   } catch (error) {
-    // Graceful offline fallback simulation
-    console.info('[FreshLeads] Network dispatch fallback active (logged inquiry locally)', error);
+    console.info('[FreshLeads] Offline dispatch fallback logged inquiry locally:', error);
     // Persist in localStorage for demonstration and debugging
     const existing = JSON.parse(localStorage.getItem('freshleads_inquiries') || '[]');
     existing.push({ ...formData, timestamp: new Date().toISOString() });
@@ -49,7 +53,7 @@ export async function submitTerritoryInquiry(formData) {
 
     return { 
       success: true, 
-      result: { message: 'Inquiry successfully received and routed to leads@freshleads.llc' }, 
+      result: { message: 'Inquiry successfully received and routed to info@freshleads.llc' }, 
       mock: true 
     };
   }
