@@ -142,7 +142,7 @@ export default function PricingTiers({ onOpenTerritoryModal }) {
                 </div>
 
                 <button
-                  onClick={() => onOpenTerritoryModal({ volume: tier.volume })}
+                  onClick={() => onOpenTerritoryModal({ volume: `${tier.volume} / month (${tier.name})` })}
                   className={`w-full py-4 rounded-xl font-black text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 ${
                     tier.popular
                       ? 'bg-fresh-orange hover:bg-fresh-orangeHover text-white shadow-orange-sm hover:scale-[1.02]'
