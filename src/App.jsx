@@ -5,7 +5,6 @@ import LeadDossierAudio from './components/LeadDossierAudio';
 import QualityEngine from './components/QualityEngine';
 import ConsistencyFormula from './components/ConsistencyFormula';
 import HowItWorks from './components/HowItWorks';
-import RoiCalculator from './components/RoiCalculator';
 import PricingTiers from './components/PricingTiers';
 import FaqSection from './components/FaqSection';
 import Footer from './components/Footer';
@@ -45,9 +44,6 @@ export default function App() {
 
         {/* How It Works - Storm Radar to Closed Claim */}
         <HowItWorks onOpenTerritoryModal={handleOpenTerritoryModal} />
-
-        {/* Interactive Appointment Revenue & ROI Calculator */}
-        <RoiCalculator onOpenTerritoryModal={handleOpenTerritoryModal} />
 
         {/* Pricing Tiers & Appointment Packages */}
         <PricingTiers onOpenTerritoryModal={handleOpenTerritoryModal} />

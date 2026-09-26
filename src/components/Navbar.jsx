@@ -44,7 +44,6 @@ export default function Navbar({ onOpenTerritoryModal }) {
             <a href="#lead-quality" className="hover:text-fresh-orange transition-colors">Lead Quality & Audio</a>
             <a href="#guarantee" className="hover:text-fresh-orange transition-colors">100% Guarantee</a>
             <a href="#consistency" className="hover:text-fresh-orange transition-colors">The 30+ Roofer Proof</a>
-            <a href="#calculator" className="hover:text-fresh-orange transition-colors">ROI Calculator</a>
             <a href="#pricing" className="hover:text-fresh-orange transition-colors">Pricing</a>
             <a href="#faq" className="hover:text-fresh-orange transition-colors">FAQ</a>
           </div>
@@ -121,13 +120,6 @@ export default function Navbar({ onOpenTerritoryModal }) {
               className="py-2 hover:text-fresh-orange border-b border-fresh-border/50"
             >
               The 30+ Roofer Proof (Consistency)
-            </a>
-            <a 
-              href="#calculator" 
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-2 hover:text-fresh-orange border-b border-fresh-border/50"
-            >
-              ROI Revenue Calculator
             </a>
             <a 
               href="#pricing" 

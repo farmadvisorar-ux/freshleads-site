@@ -45,7 +45,6 @@ export default function Footer({ onOpenTerritoryModal }) {
               <li><a href="#lead-quality" className="hover:text-fresh-orange transition-colors">Audio Recordings Demo</a></li>
               <li><a href="#guarantee" className="hover:text-fresh-orange transition-colors">5-Point Quality Engine</a></li>
               <li><a href="#consistency" className="hover:text-fresh-orange transition-colors">The 30+ Roofer Proof</a></li>
-              <li><a href="#calculator" className="hover:text-fresh-orange transition-colors">Revenue Calculator</a></li>
               <li><a href="#pricing" className="hover:text-fresh-orange transition-colors">Appointment Packages</a></li>
               <li><a href="#faq" className="hover:text-fresh-orange transition-colors">FAQ</a></li>
             </ul>
