@@ -13,7 +13,7 @@ export async function submitTerritoryInquiry(formData) {
   // 2. Dispatch to info@freshleads.llc via FormSubmit.co & Web3Forms
   try {
     const payload = {
-      _subject: `🔥 New Lead Inquiry: ${formData.companyName || 'Contractor'} (${formData.zipOrCounty || 'Territory'})`,
+      _subject: `🔥 Success Agent Call Request: ${formData.leadVolume || 'Package'} - ${formData.companyName || formData.contactName || 'Contractor'}`,
       _replyto: formData.email,
       Package_Selected: formData.leadVolume,
       Target_Territory: formData.zipOrCounty,
