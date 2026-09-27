@@ -71,6 +71,15 @@ export default function QualityEngine({ onOpenTerritoryModal }) {
           <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
             Our standard is simple: <strong className="text-white font-bold">If you do not meet with the homeowner or are not allowed on the roof, we replace the lead. Simple as that.</strong> We eliminate the risk of no-shows and wasted drive time with exclusive, pre-set inspections where active insurance and legal storm dates are already verified.
           </p>
+
+          {/* 60% Stat Callout */}
+          <div className="mt-5 inline-flex items-center gap-3 px-5 py-2.5 rounded-xl bg-fresh-card border border-fresh-orange/30">
+            <span className="text-2xl font-black text-fresh-orange shrink-0">60%</span>
+            <span className="text-xs text-slate-200 text-left leading-snug">
+              <strong className="text-white block">Above Industry Standards.</strong>
+              Our clients maintain a 60% inspection rate on all leads — far above what shared lead companies deliver.
+            </span>
+          </div>
         </div>
 
         {/* 5 Pillars Grid */}

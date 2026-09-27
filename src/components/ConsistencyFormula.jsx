@@ -91,7 +91,7 @@ export default function ConsistencyFormula({ onOpenTerritoryModal }) {
               </li>
               <li className="flex items-start gap-3">
                 <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
-                <span><strong>100% Replacement Shield:</strong> If a lead flakes or isn't qualified, it gets replaced immediately at zero cost.</span>
+                <span><strong>100% Replacement Shield:</strong> If you are not able to inspect the roof, we replace the lead immediately — no questions asked, zero cost.</span>
               </li>
             </ul>
 

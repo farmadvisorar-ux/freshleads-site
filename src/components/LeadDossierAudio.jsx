@@ -91,6 +91,17 @@ export default function LeadDossierAudio({ onOpenTerritoryModal }) {
           <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
             Every single lead from FreshLeads.llc includes the full call audio recording. You hear the setter qualify the homeowner, lock in the inspection day/time, confirm active insurance, and verify damage history.
           </p>
+
+          {/* Industry-Beating Stat Banner */}
+          <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
+            <div className="flex flex-col items-center px-6 py-3 rounded-xl bg-fresh-card border border-fresh-orange/30">
+              <span className="text-3xl font-black text-fresh-orange">60%</span>
+              <span className="text-xs font-bold text-slate-300 uppercase tracking-wider mt-0.5">Inspection Rate on All Leads</span>
+            </div>
+            <div className="text-sm text-slate-300 max-w-xs text-center sm:text-left leading-relaxed">
+              The team at FreshLeads understands the quality of the verified lead. <strong className="text-white">These are above industry standards.</strong> Our clients consistently achieve a 60% inspection completion rate on every lead delivered.
+            </div>
+          </div>
         </div>
 
         {/* Lead Tabs */}
@@ -209,7 +220,7 @@ export default function LeadDossierAudio({ onOpenTerritoryModal }) {
             <div className="mt-6 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-start gap-3">
               <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
               <div className="text-xs sm:text-sm text-slate-300">
-                <strong className="text-white font-bold">FreshLeads 100% Replacement Shield:</strong> If the homeowner cancels, turns out not to have insurance, or was outside the storm perimeter, click one button in your roofer dashboard and we replace it immediately.
+                <strong className="text-white font-bold">FreshLeads 100% Replacement Shield:</strong> If you are not able to inspect the roof, we replace the lead. Simple as that — no questions asked, no back and forth.
               </div>
             </div>
 
