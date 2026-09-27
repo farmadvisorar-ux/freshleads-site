@@ -6,71 +6,51 @@ export default function LeadDossierAudio({ onOpenTerritoryModal }) {
   const [selectedLeadIndex, setSelectedLeadIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(222); // ~3m 42s
-  const audioContextRef = useRef(null);
-  const intervalRef = useRef(null);
+  const [duration, setDuration] = useState(107); // ~1m 47s
+  const audioRef = useRef(null);
 
   const activeLead = sampleLeads[selectedLeadIndex];
 
-  // Synthesize realistic subtle audio playback tone pulses using Web Audio API
-  const startAudioSynth = () => {
-    try {
-      if (!audioContextRef.current) {
-        audioContextRef.current = new (window.AudioContext || window.webkitAudioContext)();
-      }
-      if (audioContextRef.current.state === 'suspended') {
-        audioContextRef.current.resume();
-      }
-
-      // Generate a subtle setter voice beep/hum simulation
-      const osc = audioContextRef.current.createOscillator();
-      const gain = audioContextRef.current.createGain();
-      osc.type = 'triangle';
-      osc.frequency.setValueAtTime(260 + (selectedLeadIndex * 40), audioContextRef.current.currentTime);
-      gain.gain.setValueAtTime(0.03, audioContextRef.current.currentTime);
-      osc.connect(gain);
-      gain.connect(audioContextRef.current.destination);
-      osc.start();
-      setTimeout(() => {
-        try {
-          osc.stop();
-          osc.disconnect();
-        } catch (e) {}
-      }, 400);
-    } catch (e) {
-      console.log('Web audio synth skipped', e);
+  const togglePlay = () => {
+    if (!audioRef.current) return;
+    if (isPlaying) {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      audioRef.current.play().catch((err) => console.log('Playback error:', err));
+      setIsPlaying(true);
     }
   };
 
-  const togglePlay = () => {
-    if (isPlaying) {
-      setIsPlaying(false);
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    } else {
-      setIsPlaying(true);
-      startAudioSynth();
-      intervalRef.current = setInterval(() => {
-        setCurrentTime((prev) => {
-          if (prev >= duration) {
-            setIsPlaying(false);
-            clearInterval(intervalRef.current);
-            return 0;
-          }
-          return prev + 1;
-        });
-      }, 1000);
+  const handleRestart = () => {
+    if (!audioRef.current) return;
+    audioRef.current.currentTime = 0;
+    audioRef.current.play().catch(() => {});
+    setIsPlaying(true);
+  };
+
+  const handleSeek = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const pct = Math.max(0, Math.min(1, clickX / rect.width));
+    if (audioRef.current && duration) {
+      audioRef.current.currentTime = pct * duration;
+      setCurrentTime(audioRef.current.currentTime);
     }
   };
 
   useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
     setIsPlaying(false);
     setCurrentTime(0);
-    if (intervalRef.current) clearInterval(intervalRef.current);
   }, [selectedLeadIndex]);
 
   const formatTime = (seconds) => {
     const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
+    const secs = Math.floor(seconds % 60);
     return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
   };
 
@@ -244,8 +224,32 @@ export default function LeadDossierAudio({ onOpenTerritoryModal }) {
             {/* Main Audio Player Module */}
             <div className="bg-fresh-dark rounded-xl border border-fresh-border p-5 mb-6">
               
-              {/* Dynamic Animated Waveform */}
-              <div className="flex items-center justify-between h-14 gap-1 px-2 mb-4 bg-fresh-black/60 rounded-lg">
+              {/* Real HTML5 Audio Element */}
+              <audio
+                ref={audioRef}
+                src="/setter-call-sample.mp3"
+                preload="metadata"
+                onTimeUpdate={() => {
+                  if (audioRef.current) setCurrentTime(audioRef.current.currentTime);
+                }}
+                onLoadedMetadata={() => {
+                  if (audioRef.current && audioRef.current.duration) {
+                    setDuration(audioRef.current.duration);
+                  }
+                }}
+                onEnded={() => {
+                  setIsPlaying(false);
+                  setCurrentTime(0);
+                }}
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
+              />
+
+              {/* Dynamic Animated Waveform (Click any bar to seek) */}
+              <div 
+                className="flex items-center justify-between h-14 gap-1 px-2 mb-4 bg-fresh-black/60 rounded-lg cursor-pointer"
+                title="Click waveform to jump to section"
+              >
                 {activeLead.audioWaveform.map((bar, i) => {
                   const progressPct = (currentTime / duration) * 100;
                   const barPct = (i / activeLead.audioWaveform.length) * 100;
@@ -254,11 +258,22 @@ export default function LeadDossierAudio({ onOpenTerritoryModal }) {
                   return (
                     <div
                       key={i}
+                      onClick={() => {
+                        if (audioRef.current && duration) {
+                          const pct = i / activeLead.audioWaveform.length;
+                          audioRef.current.currentTime = pct * duration;
+                          setCurrentTime(pct * duration);
+                          if (!isPlaying) {
+                            audioRef.current.play().catch(() => {});
+                            setIsPlaying(true);
+                          }
+                        }
+                      }}
                       style={{ 
                         height: isPlaying ? `${Math.max(20, (bar * (0.6 + Math.random() * 0.4)))}%` : `${bar}%`,
                         transition: 'height 0.2s ease'
                       }}
-                      className={`w-1.5 rounded-full transition-colors ${
+                      className={`w-1.5 rounded-full transition-colors hover:bg-fresh-orange ${
                         isPast 
                           ? 'bg-fresh-orange' 
                           : isPlaying && Math.abs(barPct - progressPct) < 10 
@@ -272,22 +287,27 @@ export default function LeadDossierAudio({ onOpenTerritoryModal }) {
 
               {/* Progress Bar & Time */}
               <div className="space-y-1 mb-4">
-                <div className="w-full bg-fresh-card h-2 rounded-full overflow-hidden">
+                <div 
+                  onClick={handleSeek}
+                  className="w-full bg-fresh-card h-2.5 rounded-full overflow-hidden cursor-pointer hover:h-3 transition-all relative group"
+                  title="Click to jump to time"
+                >
                   <div 
-                    className="bg-fresh-orange h-full rounded-full transition-all duration-300"
+                    className="bg-fresh-orange h-full rounded-full transition-all duration-100"
                     style={{ width: `${(currentTime / duration) * 100}%` }}
                   ></div>
                 </div>
                 <div className="flex justify-between text-[11px] font-mono text-slate-400">
                   <span>{formatTime(currentTime)}</span>
-                  <span>{activeLead.callDuration}</span>
+                  <span>{formatTime(duration)}</span>
                 </div>
               </div>
 
               {/* Player Controls */}
               <div className="flex items-center justify-center gap-4">
                 <button
-                  onClick={() => setCurrentTime(0)}
+                  type="button"
+                  onClick={handleRestart}
                   className="p-2.5 rounded-lg bg-fresh-card hover:bg-fresh-cardHover border border-fresh-border text-slate-300 hover:text-white transition-colors"
                   title="Restart Audio"
                 >
@@ -295,8 +315,9 @@ export default function LeadDossierAudio({ onOpenTerritoryModal }) {
                 </button>
 
                 <button
+                  type="button"
                   onClick={togglePlay}
-                  className="px-6 py-3 rounded-xl bg-fresh-orange hover:bg-fresh-orangeHover text-white font-bold text-sm flex items-center gap-2 shadow-orange-sm hover:scale-105 transition-all"
+                  className="px-6 py-3 rounded-xl bg-fresh-orange hover:bg-fresh-orangeHover text-white font-bold text-sm flex items-center gap-2 shadow-orange-sm hover:scale-105 transition-all cursor-pointer"
                 >
                   {isPlaying ? (
                     <>

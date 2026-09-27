@@ -1,7 +1,28 @@
-import React from 'react';
-import { ShieldCheck, Play, CheckCircle2, CloudRain, Clock, MapPin, Sparkles, AlertTriangle, ArrowRight } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { ShieldCheck, Play, Pause, CheckCircle2, CloudRain, Clock, MapPin, Sparkles, AlertTriangle, ArrowRight } from 'lucide-react';
 
 export default function Hero({ onOpenTerritoryModal, onSelectLeadSample }) {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(107);
+  const heroAudioRef = useRef(null);
+
+  const toggleHeroPlay = () => {
+    if (!heroAudioRef.current) return;
+    if (isPlaying) {
+      heroAudioRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      heroAudioRef.current.play().catch(e => console.log('Hero audio play error:', e));
+      setIsPlaying(true);
+    }
+  };
+
+  const formatTime = (seconds) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+  };
   return (
     <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden subtle-grid">
       {/* Ambient background glow effects */}
@@ -153,38 +174,90 @@ export default function Hero({ onOpenTerritoryModal, onSelectLeadSample }) {
               {/* Col 3: Audio Recording Preview Player */}
               <div className="bg-fresh-dark/80 rounded-xl p-4 border border-fresh-border flex flex-col justify-between">
                 <div>
+                  {/* Real Audio Element */}
+                  <audio
+                    ref={heroAudioRef}
+                    src="/setter-call-sample.mp3"
+                    preload="metadata"
+                    onTimeUpdate={() => {
+                      if (heroAudioRef.current) setCurrentTime(heroAudioRef.current.currentTime);
+                    }}
+                    onLoadedMetadata={() => {
+                      if (heroAudioRef.current && heroAudioRef.current.duration) {
+                        setDuration(heroAudioRef.current.duration);
+                      }
+                    }}
+                    onEnded={() => {
+                      setIsPlaying(false);
+                      setCurrentTime(0);
+                    }}
+                    onPlay={() => setIsPlaying(true)}
+                    onPause={() => setIsPlaying(false)}
+                  />
+
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-[11px] uppercase font-extrabold text-fresh-orange tracking-wider">
+                    <span className="text-[11px] uppercase font-extrabold text-fresh-orange tracking-wider flex items-center gap-1.5">
+                      {isPlaying && <span className="w-2 h-2 rounded-full bg-fresh-orange animate-ping"></span>}
                       SETTER AUDIO RECORDING
                     </span>
-                    <span className="text-xs font-mono text-slate-400">3:42</span>
+                    <span className="text-xs font-mono text-slate-400">
+                      {formatTime(currentTime)} / {formatTime(duration)}
+                    </span>
                   </div>
 
                   <p className="text-xs text-slate-300 italic mb-3">
-                    "Setter confirmed homeowner's neighbor got insurance replacement. State Farm active. Locked for 2 PM."
+                    "Setter verified property owner Matt, 10-15 yr shingles, USAA active insurance, locked for Friday 4 PM inspection."
                   </p>
 
                   {/* Audio Waveform visualization */}
-                  <div className="flex items-end justify-between h-10 gap-1 px-1 py-1 bg-fresh-card rounded-lg mb-3">
-                    {[35, 60, 40, 85, 100, 70, 50, 90, 75, 40, 65, 95, 80, 55, 35, 70, 85, 60, 45, 80, 95, 70, 40, 60].map((h, i) => (
-                      <div 
-                        key={i} 
-                        style={{ height: `${h}%` }} 
-                        className={`w-1 rounded-full transition-all ${
-                          i < 10 ? 'bg-fresh-orange' : 'bg-slate-700'
-                        }`}
-                      ></div>
-                    ))}
+                  <div 
+                    onClick={toggleHeroPlay}
+                    className="flex items-end justify-between h-10 gap-1 px-1 py-1 bg-fresh-card rounded-lg mb-3 cursor-pointer hover:border hover:border-fresh-orange/30 transition-all"
+                    title={isPlaying ? "Click to Pause" : "Click to Play"}
+                  >
+                    {[35, 60, 40, 85, 100, 70, 50, 90, 75, 40, 65, 95, 80, 55, 35, 70, 85, 60, 45, 80, 95, 70, 40, 60].map((h, i, arr) => {
+                      const progress = duration > 0 ? (currentTime / duration) * arr.length : 0;
+                      const isPast = i <= progress;
+                      const animatedHeight = isPlaying ? Math.max(25, h * (0.65 + Math.random() * 0.35)) : h;
+                      return (
+                        <div 
+                          key={i} 
+                          style={{ height: `${animatedHeight}%` }} 
+                          className={`w-1 rounded-full transition-all ${
+                            isPast ? 'bg-fresh-orange' : 'bg-slate-700'
+                          }`}
+                        ></div>
+                      );
+                    })}
                   </div>
                 </div>
 
-                <a
-                  href="#lead-quality"
-                  className="w-full py-2.5 px-3 rounded-lg bg-fresh-orange/20 hover:bg-fresh-orange text-fresh-orange hover:text-white border border-fresh-orange/40 font-bold text-xs flex items-center justify-center gap-2 transition-all"
-                >
-                  <Play className="w-3.5 h-3.5 fill-current" />
-                  <span>Listen To Full Recording Demo</span>
-                </a>
+                <div className="space-y-2">
+                  <button
+                    type="button"
+                    onClick={toggleHeroPlay}
+                    className="w-full py-2.5 px-3 rounded-lg bg-fresh-orange hover:bg-fresh-orangeHover text-white font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-orange-sm hover:scale-[1.02] cursor-pointer"
+                  >
+                    {isPlaying ? (
+                      <>
+                        <Pause className="w-3.5 h-3.5 fill-current" />
+                        <span>Pause Recording</span>
+                      </>
+                    ) : (
+                      <>
+                        <Play className="w-3.5 h-3.5 fill-current" />
+                        <span>Play Setter Call ({formatTime(duration)})</span>
+                      </>
+                    )}
+                  </button>
+
+                  <a
+                    href="#lead-quality"
+                    className="w-full text-center block text-[11px] text-slate-400 hover:text-fresh-orange transition-colors font-semibold"
+                  >
+                    View Full Dossier & Transcript ↓
+                  </a>
+                </div>
               </div>
 
             </div>
