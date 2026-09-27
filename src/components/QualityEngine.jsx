@@ -43,8 +43,8 @@ export default function QualityEngine({ onOpenTerritoryModal }) {
       icon: RefreshCw,
       title: "100% Replacement Guarantee",
       tagline: "Zero-Risk Lead Protection",
-      description: "If one of our hot leads isn't good for any legitimate reason (no-show, homeowner denied damage, uninsured), we replace it immediately with a fresh appointment at zero added cost.",
-      highlight: "Zero risk lead replacement policy",
+      description: "If you do not meet with the homeowner or are not allowed on the roof, we replace the lead immediately. Simple as that. No wasted truck rolls, and zero risk to your business.",
+      highlight: "Didn't meet the homeowner or walk the roof? It's replaced.",
       color: "text-emerald-400",
       borderGlow: "group-hover:border-emerald-500/50",
       isSpecial: true
@@ -60,16 +60,16 @@ export default function QualityEngine({ onOpenTerritoryModal }) {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-fresh-card border border-fresh-border text-xs uppercase font-extrabold tracking-wider text-fresh-orange mb-3">
-            <ShieldCheck className="w-4 h-4 text-fresh-orange" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-fresh-card border border-emerald-500/30 text-xs uppercase font-extrabold tracking-wider text-emerald-400 mb-3">
+            <ShieldCheck className="w-4 h-4 text-emerald-400" />
             <span>The FreshLeads Standard</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
             The 5-Point Quality Engine <br />
             <span className="orange-gradient-text">That Guarantees Your Growth.</span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
-            Most lead companies sell shared garbage or digital clicks. FreshLeads.llc delivers fully vetted, pre-set inspections where homeowner insurance and storm dates are already verified.
+          <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
+            Our standard is simple: <strong className="text-white font-bold">If you do not meet with the homeowner or are not allowed on the roof, we replace the lead. Simple as that.</strong> We eliminate the risk of no-shows and wasted drive time with exclusive, pre-set inspections where active insurance and legal storm dates are already verified.
           </p>
         </div>
 
@@ -118,8 +118,8 @@ export default function QualityEngine({ onOpenTerritoryModal }) {
                 {pillar.isSpecial && (
                   <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30">
                     <div className="text-xs text-slate-200">
-                      <strong className="text-emerald-400 block font-bold text-sm">You Never Pay For Bad Appointments:</strong>
-                      We remove the risk so you can focus entirely on inspecting roofs and closing insurance restoration claims.
+                      <strong className="text-emerald-400 block font-bold text-sm">Didn't Meet The Homeowner Or Walk The Roof? You Don't Pay:</strong>
+                      We eliminate the risk so your estimators can focus entirely on inspecting roofs and closing insurance restoration claims.
                     </div>
                     <button
                       onClick={() => onOpenTerritoryModal()}
@@ -141,10 +141,10 @@ export default function QualityEngine({ onOpenTerritoryModal }) {
               100% REPLACEMENT POLICY IN WRITING
             </span>
             <h4 className="text-2xl sm:text-3xl font-black text-white">
-              "If One Of Our Hot Leads Isn't Good, We Replace It."
+              "If You Don't Meet With The Homeowner Or Aren't Allowed On The Roof, We Replace The Lead."
             </h4>
             <p className="text-sm text-slate-300">
-              This gives your roofing business the option to grow rapidly. You no longer carry the risk of no-shows or unqualified contacts.
+              Simple as that. Zero loopholes, zero back-and-forth arguments. If your crew rolls a truck and cannot meet the homeowner or perform the roof inspection, your replacement appointment is dispatched at zero cost.
             </p>
           </div>
 

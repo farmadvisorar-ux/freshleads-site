@@ -33,7 +33,7 @@ export default function Footer({ onOpenTerritoryModal }) {
                 <ShieldCheck className="w-4 h-4" />
                 <span>100% Replacement Guarantee Pledge</span>
               </strong>
-              If one of our hot leads isn't good for any legitimate reason, we replace it immediately. Period.
+              If you do not meet with the homeowner or are not allowed on the roof, we replace the lead. Simple as that.
             </div>
           </div>
 

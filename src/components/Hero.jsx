@@ -40,7 +40,7 @@ export default function Hero({ onOpenTerritoryModal, onSelectLeadSample }) {
           {/* Core Guarantee Statement Highlight */}
           <div className="mt-5 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-fresh-card/80 border border-emerald-500/30 text-emerald-400 text-xs sm:text-sm font-bold">
             <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
-            <span>If one of our hot leads isn't good for any reason, we replace it. Period.</span>
+            <span>If you do not meet with the homeowner or are not allowed on the roof, we replace the lead. Simple as that.</span>
           </div>
 
           {/* CTA Buttons */}

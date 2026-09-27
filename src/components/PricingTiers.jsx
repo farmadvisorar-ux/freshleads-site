@@ -76,7 +76,7 @@ export default function PricingTiers({ onOpenTerritoryModal }) {
             <span className="orange-gradient-text">Zero Lead-Buying Risk.</span>
           </h2>
           <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
-            Every tier is backed by our 100% replacement guarantee. You never pay for unviable or no-show leads. Pick the consistency volume that matches your sales capacity.
+            Every tier is backed by our 100% replacement guarantee: if you don't meet with the homeowner or aren't allowed on the roof, we replace the lead. Simple as that.
           </p>
         </div>
 

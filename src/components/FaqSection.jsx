@@ -7,7 +7,7 @@ export default function FaqSection({ onOpenTerritoryModal }) {
   const faqs = [
     {
       q: "How does the 100% Lead Replacement Guarantee work?",
-      a: "Our policy is simple: You should never pay for bad leads. If a homeowner is a no-show, denies agreeing to an inspection, turns out not to have valid homeowner insurance, or has already signed with another contractor, let us know within 48 hours. We verify the situation and issue an immediate replacement appointment at zero cost to you."
+      a: "Our policy is crystal clear: If you do not meet with the homeowner or are not allowed on the roof to perform the inspection, we replace the lead. Simple as that. You never pay for no-shows, denied roof access, or bad contacts. Simply notify us within 48 hours and an immediate replacement appointment is dispatched at zero cost to you."
     },
     {
       q: "What does 'storm date in the statute of limitations' mean for my roofing claims?",
