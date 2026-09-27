@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Check, ShieldCheck, Zap, ArrowRight, Star, Crown, Gem, Award, PhoneCall, Building2, User, Mail, Phone, Loader2, CheckCircle2 } from 'lucide-react';
+import { Check, ShieldCheck, Zap, ArrowRight, Star, Crown, Gem, Award, Sparkles, PhoneCall, Building2, User, Mail, Phone, Loader2, CheckCircle2 } from 'lucide-react';
 import { submitTerritoryInquiry } from '../services/leadService';
 
 export default function PricingTiers({ onOpenTerritoryModal }) {
