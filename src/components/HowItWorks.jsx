@@ -8,7 +8,7 @@ export default function HowItWorks({ onOpenTerritoryModal }) {
       icon: CloudLightning,
       title: "Storm Radar & Statute Targeting",
       subtitle: "Verified Weather Intelligence",
-      description: "We pinpoint exact hail swaths (1.5\" to 2.75\"+) and severe wind zones where the state's legal statute of limitations to file a property claim is still fully active.",
+      description: "We pinpoint exact hail swaths (0.75\" to 1.00\"+) and severe wind zones where the state's legal statute of limitations to file a property claim is still fully active.",
       detail: "No stale dates or expired insurance claim windows."
     },
     {
