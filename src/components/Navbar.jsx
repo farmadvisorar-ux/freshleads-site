@@ -25,7 +25,7 @@ export default function Navbar({ onOpenTerritoryModal }) {
           {/* Logo & Brand */}
           <a href="#" className="flex items-center gap-3 group">
             <div className="w-10 h-10 rounded-xl overflow-hidden border border-fresh-orange/40 shadow-orange-sm group-hover:scale-105 transition-transform bg-fresh-dark">
-              <img src="/logo.png" alt="FreshLeads.llc Logo" className="w-full h-full object-cover" />
+              <img src="/freshleads-logo-180x180.jpg" alt="FreshLeads.llc Logo" width="40" height="40" className="w-full h-full object-cover" />
             </div>
             <div>
               <span className="text-xl font-extrabold tracking-tight text-white flex items-center">
@@ -57,10 +57,10 @@ export default function Navbar({ onOpenTerritoryModal }) {
 
             <button
               onClick={() => onOpenTerritoryModal()}
-              className="relative inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-fresh-orange hover:bg-fresh-orangeHover text-white font-bold text-sm tracking-wide shadow-orange-sm hover:shadow-orange-glow transition-all active:scale-95"
+              className="relative inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-fresh-orange hover:bg-fresh-orangeHover text-slate-950 font-black text-sm tracking-wide shadow-orange-sm hover:shadow-orange-glow transition-all active:scale-95"
             >
               <span>Check Territory</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 text-slate-950" />
             </button>
           </div>
 
@@ -68,7 +68,7 @@ export default function Navbar({ onOpenTerritoryModal }) {
           <div className="lg:hidden flex items-center gap-2">
             <button
               onClick={() => onOpenTerritoryModal()}
-              className="px-3 py-1.5 rounded bg-fresh-orange text-white text-xs font-bold"
+              className="px-3 py-1.5 rounded bg-fresh-orange text-slate-950 text-xs font-black"
             >
               Check Territory
             </button>
@@ -142,10 +142,10 @@ export default function Navbar({ onOpenTerritoryModal }) {
               setMobileMenuOpen(false);
               onOpenTerritoryModal();
             }}
-            className="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-fresh-orange hover:bg-fresh-orangeHover text-white font-bold text-base shadow-orange-sm"
+            className="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-fresh-orange hover:bg-fresh-orangeHover text-slate-950 font-black text-base shadow-orange-sm"
           >
             <span>Lock In Your Territory</span>
-            <ArrowRight className="w-5 h-5" />
+            <ArrowRight className="w-5 h-5 text-slate-950" />
           </button>
         </div>
       )}

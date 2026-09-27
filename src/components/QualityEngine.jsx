@@ -149,9 +149,9 @@ export default function QualityEngine({ onOpenTerritoryModal }) {
             <span className="text-xs font-extrabold uppercase tracking-wider text-fresh-orange block">
               100% REPLACEMENT POLICY IN WRITING
             </span>
-            <h4 className="text-2xl sm:text-3xl font-black text-white">
+            <h3 className="text-2xl sm:text-3xl font-black text-white">
               "If You Don't Meet With The Homeowner Or Aren't Allowed On The Roof, We Replace The Lead."
-            </h4>
+            </h3>
             <p className="text-sm text-slate-300">
               Simple as that. Zero loopholes, zero back-and-forth arguments. If your crew rolls a truck and cannot meet the homeowner or perform the roof inspection, your replacement appointment is dispatched at zero cost.
             </p>
@@ -159,10 +159,10 @@ export default function QualityEngine({ onOpenTerritoryModal }) {
 
           <button
             onClick={() => onOpenTerritoryModal()}
-            className="px-8 py-4 rounded-xl bg-fresh-orange hover:bg-fresh-orangeHover text-white font-extrabold text-sm uppercase tracking-wider shadow-orange-sm hover:scale-105 transition-all shrink-0 flex items-center gap-2"
+            className="px-8 py-4 rounded-xl bg-fresh-orange hover:bg-fresh-orangeHover text-slate-950 font-black text-sm uppercase tracking-wider shadow-orange-sm hover:scale-105 transition-all shrink-0 flex items-center gap-2"
           >
             <span>Lock Your County In</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 text-slate-950" />
           </button>
         </div>
 

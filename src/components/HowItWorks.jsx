@@ -67,7 +67,7 @@ export default function HowItWorks({ onOpenTerritoryModal }) {
                 <div>
                   {/* Step Top */}
                   <div className="flex items-center justify-between mb-6">
-                    <span className="text-3xl font-black text-fresh-borderLight group-hover:text-fresh-orange transition-colors">
+                    <span className="text-3xl font-black text-slate-400 group-hover:text-fresh-orange transition-colors">
                       {step.num}
                     </span>
                     <div className="w-10 h-10 rounded-xl bg-fresh-dark border border-fresh-border flex items-center justify-center text-fresh-orange">
@@ -100,10 +100,10 @@ export default function HowItWorks({ onOpenTerritoryModal }) {
         <div className="mt-14 text-center">
           <button
             onClick={() => onOpenTerritoryModal()}
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-fresh-orange hover:bg-fresh-orangeHover text-white font-extrabold text-sm uppercase tracking-wider shadow-orange-glow hover:scale-105 transition-all"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-fresh-orange hover:bg-fresh-orangeHover text-slate-950 font-black text-sm uppercase tracking-wider shadow-orange-glow hover:scale-105 transition-all"
           >
             <span>Activate Pipeline In My Zip Code</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 text-slate-950" />
           </button>
         </div>
 

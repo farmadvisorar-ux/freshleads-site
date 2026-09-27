@@ -68,10 +68,10 @@ export default function Hero({ onOpenTerritoryModal, onSelectLeadSample }) {
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={() => onOpenTerritoryModal()}
-              className="w-full sm:w-auto px-8 py-4 rounded-xl bg-fresh-orange hover:bg-fresh-orangeHover text-white font-extrabold text-base tracking-wide shadow-orange-glow hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3"
+              className="w-full sm:w-auto px-8 py-4 rounded-xl bg-fresh-orange hover:bg-fresh-orangeHover text-slate-950 font-black text-base tracking-wide shadow-orange-glow hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3"
             >
               <span>Check My Territory Availability</span>
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-5 h-5 text-slate-950" />
             </button>
 
             <a
@@ -236,16 +236,16 @@ export default function Hero({ onOpenTerritoryModal, onSelectLeadSample }) {
                   <button
                     type="button"
                     onClick={toggleHeroPlay}
-                    className="w-full py-2.5 px-3 rounded-lg bg-fresh-orange hover:bg-fresh-orangeHover text-white font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-orange-sm hover:scale-[1.02] cursor-pointer"
+                    className="w-full py-2.5 px-3 rounded-lg bg-fresh-orange hover:bg-fresh-orangeHover text-slate-950 font-black text-xs flex items-center justify-center gap-2 transition-all shadow-orange-sm hover:scale-[1.02] cursor-pointer"
                   >
                     {isPlaying ? (
                       <>
-                        <Pause className="w-3.5 h-3.5 fill-current" />
+                        <Pause className="w-3.5 h-3.5 fill-slate-950 text-slate-950" />
                         <span>Pause Recording</span>
                       </>
                     ) : (
                       <>
-                        <Play className="w-3.5 h-3.5 fill-current" />
+                        <Play className="w-3.5 h-3.5 fill-slate-950 text-slate-950" />
                         <span>Play Setter Call ({formatTime(duration)})</span>
                       </>
                     )}

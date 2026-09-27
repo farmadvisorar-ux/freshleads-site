@@ -45,7 +45,7 @@ export default function PricingTiers({ onOpenTerritoryModal }) {
       name: "Platinum Package",
       icon: Crown,
       badgeText: "Most Popular • Better Than Gold",
-      badgeColor: "bg-fresh-orange text-white border-fresh-orange",
+      badgeColor: "bg-fresh-orange text-slate-950 font-black border-fresh-orange",
       accentBorder: "border-2 border-fresh-orange shadow-orange-glow",
       tagline: "The sweet spot for scaling 2-3 sales reps",
       volume: "5 Leads",
@@ -167,8 +167,8 @@ export default function PricingTiers({ onOpenTerritoryModal }) {
               >
                 {/* Popular Pill */}
                 {tier.popular && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-fresh-orange text-white text-[10px] font-black uppercase tracking-wider px-3.5 py-1 rounded-full shadow-orange-sm flex items-center gap-1 shrink-0 whitespace-nowrap">
-                    <Star className="w-3 h-3 fill-current" />
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-fresh-orange text-slate-950 text-[10px] font-black uppercase tracking-wider px-3.5 py-1 rounded-full shadow-orange-sm flex items-center gap-1 shrink-0 whitespace-nowrap">
+                    <Star className="w-3 h-3 fill-slate-950 text-slate-950" />
                     <span>Most Popular Choice</span>
                   </div>
                 )}
@@ -220,12 +220,12 @@ export default function PricingTiers({ onOpenTerritoryModal }) {
                     onClick={() => onOpenTerritoryModal({ volume: `${tier.name} (${tier.volume} / Week)` })}
                     className={`w-full py-3.5 rounded-xl font-black text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer ${
                       tier.popular
-                        ? 'bg-fresh-orange hover:bg-fresh-orangeHover text-white shadow-orange-sm hover:scale-[1.02]'
+                        ? 'bg-fresh-orange hover:bg-fresh-orangeHover text-slate-950 shadow-orange-sm hover:scale-[1.02]'
                         : 'bg-fresh-dark hover:bg-fresh-cardHover text-white border border-fresh-border hover:border-fresh-orange/50'
                     }`}
                   >
                     <span>{tier.cta}</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <ArrowRight className={`w-3.5 h-3.5 ${tier.popular ? 'text-slate-950' : 'text-white'}`} />
                   </button>
                 </div>
 
@@ -350,11 +350,13 @@ export default function PricingTiers({ onOpenTerritoryModal }) {
               {/* Package Selector & County */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
                 <div>
-                  <label className="text-xs uppercase font-extrabold tracking-wider text-slate-200 block mb-1.5">
+                  <label htmlFor="inlineLeadVolume" className="text-xs uppercase font-extrabold tracking-wider text-slate-200 block mb-1.5">
                     Weekly Package Selection
                   </label>
                   <select
+                    id="inlineLeadVolume"
                     name="leadVolume"
+                    aria-label="Weekly Package Selection"
                     value={inlineForm.leadVolume}
                     onChange={handleInlineChange}
                     className="w-full px-4 py-3 bg-fresh-dark border border-fresh-border rounded-xl text-white focus:outline-none focus:border-fresh-orange text-sm font-medium cursor-pointer"
@@ -368,10 +370,11 @@ export default function PricingTiers({ onOpenTerritoryModal }) {
                 </div>
 
                 <div>
-                  <label className="text-xs uppercase font-extrabold tracking-wider text-slate-200 block mb-1.5">
+                  <label htmlFor="inlineZipOrCounty" className="text-xs uppercase font-extrabold tracking-wider text-slate-200 block mb-1.5">
                     Target County / Zip (Optional)
                   </label>
                   <input
+                    id="inlineZipOrCounty"
                     type="text"
                     name="zipOrCounty"
                     placeholder="e.g. Collin County, TX or 75070"
@@ -387,16 +390,16 @@ export default function PricingTiers({ onOpenTerritoryModal }) {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-4 rounded-xl bg-fresh-orange hover:bg-fresh-orangeHover text-white font-black text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-orange-glow hover:scale-[1.01] active:scale-95 transition-all cursor-pointer disabled:opacity-50"
+                  className="w-full py-4 rounded-xl bg-fresh-orange hover:bg-fresh-orangeHover text-slate-950 font-black text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-orange-glow hover:scale-[1.01] active:scale-95 transition-all cursor-pointer disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <>
-                      <Loader2 className="w-5 h-5 animate-spin" />
+                      <Loader2 className="w-5 h-5 animate-spin text-slate-950" />
                       <span>Submitting Request...</span>
                     </>
                   ) : (
                     <>
-                      <PhoneCall className="w-5 h-5" />
+                      <PhoneCall className="w-5 h-5 text-slate-950" />
                       <span>Request A Call From A Customer Success Agent</span>
                     </>
                   )}

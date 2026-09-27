@@ -90,13 +90,13 @@ export default function LeadDossierAudio({ onOpenTerritoryModal }) {
             <button
               key={lead.id}
               onClick={() => setSelectedLeadIndex(idx)}
-              className={`px-4 sm:px-6 py-3 rounded-xl font-bold text-xs sm:text-sm tracking-wide transition-all flex items-center gap-2.5 ${
+              className={`px-4 sm:px-6 py-3 rounded-xl font-black text-xs sm:text-sm tracking-wide transition-all flex items-center gap-2.5 ${
                 selectedLeadIndex === idx
-                  ? 'bg-fresh-orange text-white shadow-orange-sm scale-105'
+                  ? 'bg-fresh-orange text-slate-950 shadow-orange-sm scale-105'
                   : 'bg-fresh-card border border-fresh-border text-slate-300 hover:text-white hover:border-fresh-orange/40'
               }`}
             >
-              <span className={`w-2 h-2 rounded-full ${selectedLeadIndex === idx ? 'bg-white' : 'bg-emerald-400'}`}></span>
+              <span className={`w-2 h-2 rounded-full ${selectedLeadIndex === idx ? 'bg-slate-950' : 'bg-emerald-400'}`}></span>
               <span>Sample Lead #{lead.id}: {lead.homeownerName.split(' ')[0]} ({lead.carrier.split(' ')[0]})</span>
             </button>
           ))}
@@ -317,16 +317,16 @@ export default function LeadDossierAudio({ onOpenTerritoryModal }) {
                 <button
                   type="button"
                   onClick={togglePlay}
-                  className="px-6 py-3 rounded-xl bg-fresh-orange hover:bg-fresh-orangeHover text-white font-bold text-sm flex items-center gap-2 shadow-orange-sm hover:scale-105 transition-all cursor-pointer"
+                  className="px-6 py-3 rounded-xl bg-fresh-orange hover:bg-fresh-orangeHover text-slate-950 font-black text-sm flex items-center gap-2 shadow-orange-sm hover:scale-105 transition-all cursor-pointer"
                 >
                   {isPlaying ? (
                     <>
-                      <Pause className="w-4 h-4 fill-white" />
+                      <Pause className="w-4 h-4 fill-slate-950 text-slate-950" />
                       <span>Pause Recording</span>
                     </>
                   ) : (
                     <>
-                      <Play className="w-4 h-4 fill-white" />
+                      <Play className="w-4 h-4 fill-slate-950 text-slate-950" />
                       <span>Play Setter Call</span>
                     </>
                   )}

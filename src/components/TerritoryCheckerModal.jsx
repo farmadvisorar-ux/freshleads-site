@@ -128,16 +128,18 @@ export default function TerritoryCheckerModal({ isOpen, onClose, initialData = {
               {/* Selected Package Banner */}
               <div className="px-4 py-3 bg-fresh-dark border border-fresh-border rounded-xl">
                 <div className="flex items-center justify-between mb-1.5">
-                  <span className="text-[11px] uppercase font-bold text-slate-400 tracking-wider">
+                  <label htmlFor="modalLeadVolume" className="text-[11px] uppercase font-bold text-slate-400 tracking-wider cursor-pointer">
                     Selected Package:
-                  </span>
+                  </label>
                   <span className="text-[11px] text-emerald-400 font-bold flex items-center gap-1">
                     <ShieldCheck className="w-3.5 h-3.5" />
                     <span>100% Guaranteed</span>
                   </span>
                 </div>
                 <select
+                  id="modalLeadVolume"
                   name="leadVolume"
+                  aria-label="Selected Package"
                   value={formData.leadVolume}
                   onChange={handleInputChange}
                   className="w-full bg-fresh-card border border-fresh-border rounded-lg text-white font-bold text-sm px-3 py-2 focus:outline-none focus:border-fresh-orange cursor-pointer"
@@ -251,16 +253,16 @@ export default function TerritoryCheckerModal({ isOpen, onClose, initialData = {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-4 rounded-xl bg-fresh-orange hover:bg-fresh-orangeHover text-white font-black text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-orange-glow hover:scale-[1.01] active:scale-95 transition-all cursor-pointer disabled:opacity-50"
+                  className="w-full py-4 rounded-xl bg-fresh-orange hover:bg-fresh-orangeHover text-slate-950 font-black text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-orange-glow hover:scale-[1.01] active:scale-95 transition-all cursor-pointer disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <>
-                      <Loader2 className="w-5 h-5 animate-spin" />
+                      <Loader2 className="w-5 h-5 animate-spin text-slate-950" />
                       <span>Submitting Request...</span>
                     </>
                   ) : (
                     <>
-                      <PhoneCall className="w-5 h-5" />
+                      <PhoneCall className="w-5 h-5 text-slate-950" />
                       <span>Request Call From Customer Success Agent</span>
                     </>
                   )}

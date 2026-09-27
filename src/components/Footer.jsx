@@ -17,7 +17,7 @@ export default function Footer({ onOpenTerritoryModal }) {
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl overflow-hidden border border-fresh-orange/40 shadow-orange-sm bg-fresh-dark">
-                <img src="/logo.png" alt="FreshLeads.llc Logo" className="w-full h-full object-cover" />
+                <img src="/freshleads-logo-180x180.jpg" alt="FreshLeads.llc Logo" width="40" height="40" className="w-full h-full object-cover" />
               </div>
               <span className="text-2xl font-black tracking-tight text-white">
                 FRESH<span className="text-fresh-orange">LEADS</span>.LLC
@@ -39,7 +39,7 @@ export default function Footer({ onOpenTerritoryModal }) {
 
           {/* Quick Links */}
           <div className="space-y-3">
-            <h4 className="text-xs uppercase font-extrabold text-white tracking-wider">Platform</h4>
+            <h3 className="text-xs uppercase font-extrabold text-white tracking-wider">Platform</h3>
             <ul className="space-y-2 text-xs sm:text-sm font-medium">
               <li><a href="#how-it-works" className="hover:text-fresh-orange transition-colors">How It Works</a></li>
               <li><a href="#lead-quality" className="hover:text-fresh-orange transition-colors">Audio Recordings Demo</a></li>
@@ -52,8 +52,8 @@ export default function Footer({ onOpenTerritoryModal }) {
 
           {/* Lead Standards */}
           <div className="space-y-3">
-            <h4 className="text-xs uppercase font-extrabold text-white tracking-wider">Quality Standards</h4>
-            <ul className="space-y-2 text-xs sm:text-sm text-slate-400">
+            <h3 className="text-xs uppercase font-extrabold text-white tracking-wider">Quality Standards</h3>
+            <ul className="space-y-2 text-xs sm:text-sm text-slate-300">
               <li className="flex items-center gap-1.5"><span className="text-fresh-orange">✓</span> Pre-Set Confirmed Time</li>
               <li className="flex items-center gap-1.5"><span className="text-fresh-orange">✓</span> Full Audio Call Recording</li>
               <li className="flex items-center gap-1.5"><span className="text-fresh-orange">✓</span> Active Insurance Verified</li>
@@ -65,7 +65,7 @@ export default function Footer({ onOpenTerritoryModal }) {
 
           {/* Contact & Domain */}
           <div className="space-y-3">
-            <h4 className="text-xs uppercase font-extrabold text-white tracking-wider">Contact & Inquiries</h4>
+            <h3 className="text-xs uppercase font-extrabold text-white tracking-wider">Contact & Inquiries</h3>
             <div className="space-y-2.5 text-xs sm:text-sm">
               <a href="mailto:info@freshleads.llc" className="flex items-center gap-2 hover:text-fresh-orange transition-colors text-slate-200">
                 <Mail className="w-4 h-4 text-fresh-orange shrink-0" />
@@ -80,7 +80,7 @@ export default function Footer({ onOpenTerritoryModal }) {
             <div className="pt-2">
               <button
                 onClick={() => onOpenTerritoryModal()}
-                className="w-full py-2.5 px-3 rounded-lg bg-fresh-orange hover:bg-fresh-orangeHover text-white font-bold text-xs uppercase tracking-wider transition-all"
+                className="w-full py-2.5 px-3 rounded-lg bg-fresh-orange hover:bg-fresh-orangeHover text-slate-950 font-black text-xs uppercase tracking-wider transition-all"
               >
                 Check Territory
               </button>
@@ -90,13 +90,13 @@ export default function Footer({ onOpenTerritoryModal }) {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-300">
           <div>
             © {new Date().getFullYear()} FreshLeads.llc. All rights reserved. Specialized Storm Damage Roofing Appointment Leads.
           </div>
 
           <div className="flex items-center gap-6">
-            <span>Domain: <strong className="text-slate-300">FreshLeads.llc</strong></span>
+            <span className="text-slate-300">Domain: <strong className="text-white">FreshLeads.llc</strong></span>
             <button
               onClick={scrollToTop}
               className="p-2 rounded-lg bg-fresh-card hover:bg-fresh-cardHover border border-fresh-border text-slate-300 hover:text-white transition-colors"
