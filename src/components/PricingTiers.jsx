@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Check, ShieldCheck, Zap, ArrowRight, Star, Crown, Gem, Award, Sparkles, PhoneCall, Building2, User, Mail, Phone, Loader2, CheckCircle2 } from 'lucide-react';
 import { submitTerritoryInquiry } from '../services/leadService';
 
-export default function PricingTiers({ onOpenTerritoryModal }) {
+export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy, onNavigateToTerms }) {
   // State for inline quick request form
   const [inlineForm, setInlineForm] = useState({
     contactName: '',
@@ -10,7 +10,8 @@ export default function PricingTiers({ onOpenTerritoryModal }) {
     phone: '',
     email: '',
     leadVolume: 'Platinum Package (5 Leads / Week)',
-    zipOrCounty: ''
+    zipOrCounty: '',
+    smsConsent: false
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -385,8 +386,39 @@ export default function PricingTiers({ onOpenTerritoryModal }) {
                 </div>
               </div>
 
+              {/* Zoho Voice, TCPA & 10DLC Opt-In Consent Checkbox */}
+              <div className="pt-2 pb-1">
+                <label className="flex items-start gap-2.5 cursor-pointer text-left select-none group">
+                  <input
+                    type="checkbox"
+                    name="smsConsent"
+                    required
+                    checked={inlineForm.smsConsent}
+                    onChange={(e) => setInlineForm({ ...inlineForm, smsConsent: e.target.checked })}
+                    className="mt-1 w-4 h-4 rounded border-fresh-border bg-fresh-dark text-fresh-orange focus:ring-fresh-orange accent-fresh-orange cursor-pointer shrink-0"
+                  />
+                  <span className="text-[11px] leading-relaxed text-slate-300 group-hover:text-white">
+                    I consent to receive calls and SMS text messages from FreshLeads LLC at the phone number provided above regarding roofing appointments, lead volume, and customer support (including calls placed via Zoho Voice telephony). Consent is not a condition of purchase. Message frequency varies. Msg & data rates may apply. Reply <strong className="text-white">STOP</strong> to opt out, or <strong className="text-white">HELP</strong> for support. I agree to the{' '}
+                    <a 
+                      href="/terms" 
+                      onClick={(e) => { e.preventDefault(); onNavigateToTerms?.(); }} 
+                      className="text-fresh-orange underline hover:text-white font-bold"
+                    >
+                      Terms of Service
+                    </a>{' '}and{' '}
+                    <a 
+                      href="/privacy" 
+                      onClick={(e) => { e.preventDefault(); onNavigateToPrivacy?.(); }} 
+                      className="text-fresh-orange underline hover:text-white font-bold"
+                    >
+                      Privacy Policy
+                    </a>.
+                  </span>
+                </label>
+              </div>
+
               {/* Submit Button */}
-              <div className="pt-3">
+              <div className="pt-2">
                 <button
                   type="submit"
                   disabled={isSubmitting}
@@ -405,6 +437,18 @@ export default function PricingTiers({ onOpenTerritoryModal }) {
                   )}
                 </button>
               </div>
+
+              {/* Explicit TCPA / 10DLC Notice */}
+              <p className="text-[10px] text-center text-slate-400 leading-tight">
+                🔒 By submitting, you authorize FreshLeads LLC to contact you via telephone call or SMS in accordance with our{' '}
+                <button 
+                  type="button" 
+                  onClick={onNavigateToPrivacy} 
+                  className="text-fresh-orange underline hover:text-white cursor-pointer"
+                >
+                  Mobile Privacy Policy
+                </button>. No mobile information is ever shared with third parties for marketing purposes.
+              </p>
 
               {/* Guarantee Footer Note */}
               <div className="flex items-center justify-center gap-2 text-xs text-slate-400 pt-1 text-center">

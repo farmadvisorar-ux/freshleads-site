@@ -2,7 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { X, ShieldCheck, CheckCircle2, ArrowRight, Zap, MapPin, Building, Mail, Phone, User, Loader2, PhoneCall } from 'lucide-react';
 import { submitTerritoryInquiry } from '../services/leadService';
 
-export default function TerritoryCheckerModal({ isOpen, onClose, initialData = {} }) {
+export default function TerritoryCheckerModal({ 
+  isOpen, 
+  onClose, 
+  initialData = {},
+  onNavigateToPrivacy,
+  onNavigateToTerms 
+}) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -13,7 +19,8 @@ export default function TerritoryCheckerModal({ isOpen, onClose, initialData = {
     companyName: '',
     email: '',
     phone: '',
-    notes: ''
+    notes: '',
+    smsConsent: false
   });
 
   useEffect(() => {
@@ -248,6 +255,37 @@ export default function TerritoryCheckerModal({ isOpen, onClose, initialData = {
                 </div>
               </div>
 
+              {/* Zoho Voice, TCPA & 10DLC Opt-In Consent */}
+              <div className="pt-1 pb-1">
+                <label className="flex items-start gap-2.5 cursor-pointer text-left select-none group">
+                  <input
+                    type="checkbox"
+                    name="smsConsent"
+                    required
+                    checked={formData.smsConsent}
+                    onChange={(e) => setFormData({ ...formData, smsConsent: e.target.checked })}
+                    className="mt-1 w-4 h-4 rounded border-fresh-border bg-fresh-dark text-fresh-orange focus:ring-fresh-orange accent-fresh-orange cursor-pointer shrink-0"
+                  />
+                  <span className="text-[11px] leading-relaxed text-slate-300 group-hover:text-white">
+                    I consent to receive calls and SMS text messages from FreshLeads LLC at the phone number provided above regarding roofing appointments, territory availability, and services (including calls and alerts placed via Zoho Voice telephony). Consent is not a condition of purchase. Message frequency varies. Msg & data rates may apply. Reply <strong className="text-white">STOP</strong> to opt out, or <strong className="text-white">HELP</strong> for support. I agree to the{' '}
+                    <a 
+                      href="/terms" 
+                      onClick={(e) => { e.preventDefault(); onClose(); onNavigateToTerms?.(); }} 
+                      className="text-fresh-orange underline hover:text-white font-bold"
+                    >
+                      Terms of Service
+                    </a>{' '}and{' '}
+                    <a 
+                      href="/privacy" 
+                      onClick={(e) => { e.preventDefault(); onClose(); onNavigateToPrivacy?.(); }} 
+                      className="text-fresh-orange underline hover:text-white font-bold"
+                    >
+                      Privacy Policy
+                    </a>.
+                  </span>
+                </label>
+              </div>
+
               {/* Submit CTA */}
               <div className="pt-2">
                 <button
@@ -268,6 +306,18 @@ export default function TerritoryCheckerModal({ isOpen, onClose, initialData = {
                   )}
                 </button>
               </div>
+
+              {/* Explicit TCPA / 10DLC Notice */}
+              <p className="text-[10px] text-center text-slate-400 leading-tight">
+                🔒 By submitting, you authorize FreshLeads LLC to contact you via telephone call or SMS in accordance with our{' '}
+                <button 
+                  type="button" 
+                  onClick={() => { onClose(); onNavigateToPrivacy?.(); }} 
+                  className="text-fresh-orange underline hover:text-white cursor-pointer"
+                >
+                  Mobile Privacy Policy
+                </button>. No mobile information is ever shared with third parties for marketing purposes.
+              </p>
 
               {/* Guarantee Footer */}
               <div className="p-2.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-center">

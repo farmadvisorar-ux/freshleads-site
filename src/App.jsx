@@ -10,6 +10,8 @@ import FaqSection from './components/FaqSection';
 import Footer from './components/Footer';
 import TerritoryCheckerModal from './components/TerritoryCheckerModal';
 import Blog from './components/Blog';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import TermsOfService from './components/TermsOfService';
 
 export default function App() {
   const [isTerritoryModalOpen, setIsTerritoryModalOpen] = useState(false);
@@ -20,6 +22,12 @@ export default function App() {
       const hash = window.location.hash.toLowerCase();
       if (path === '/blog' || path.startsWith('/blog/') || hash === '#blog') {
         return 'blog';
+      }
+      if (path === '/privacy' || path.startsWith('/privacy/') || hash === '#privacy') {
+        return 'privacy';
+      }
+      if (path === '/terms' || path.startsWith('/terms/') || hash === '#terms') {
+        return 'terms';
       }
     }
     return 'home';
@@ -32,6 +40,10 @@ export default function App() {
       const hash = window.location.hash.toLowerCase();
       if (path === '/blog' || path.startsWith('/blog/') || hash === '#blog') {
         setCurrentView('blog');
+      } else if (path === '/privacy' || path.startsWith('/privacy/') || hash === '#privacy') {
+        setCurrentView('privacy');
+      } else if (path === '/terms' || path.startsWith('/terms/') || hash === '#terms') {
+        setCurrentView('terms');
       } else {
         setCurrentView('home');
       }
@@ -49,6 +61,22 @@ export default function App() {
     setCurrentView('blog');
     if (typeof window !== 'undefined') {
       window.history.pushState({}, '', '/blog');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const navigateToPrivacy = () => {
+    setCurrentView('privacy');
+    if (typeof window !== 'undefined') {
+      window.history.pushState({}, '', '/privacy');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const navigateToTerms = () => {
+    setCurrentView('terms');
+    if (typeof window !== 'undefined') {
+      window.history.pushState({}, '', '/terms');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
@@ -84,6 +112,39 @@ export default function App() {
             onOpenTerritoryModal={handleOpenTerritoryModal} 
             onNavigateToBlog={navigateToBlog}
             onNavigateHome={navigateToHome}
+            onNavigateToPrivacy={navigateToPrivacy}
+            onNavigateToTerms={navigateToTerms}
+          />
+        </>
+      ) : currentView === 'privacy' ? (
+        /* Privacy Policy View (Zoho Voice & 10DLC Compliance) */
+        <>
+          <PrivacyPolicy 
+            onNavigateHome={navigateToHome}
+            onOpenTerritoryModal={handleOpenTerritoryModal}
+          />
+          <Footer 
+            onOpenTerritoryModal={handleOpenTerritoryModal} 
+            onNavigateToBlog={navigateToBlog}
+            onNavigateHome={navigateToHome}
+            onNavigateToPrivacy={navigateToPrivacy}
+            onNavigateToTerms={navigateToTerms}
+          />
+        </>
+      ) : currentView === 'terms' ? (
+        /* Terms of Service & SMS View (TCPA & CTIA Compliance) */
+        <>
+          <TermsOfService 
+            onNavigateHome={navigateToHome}
+            onOpenTerritoryModal={handleOpenTerritoryModal}
+            onNavigateToPrivacy={navigateToPrivacy}
+          />
+          <Footer 
+            onOpenTerritoryModal={handleOpenTerritoryModal} 
+            onNavigateToBlog={navigateToBlog}
+            onNavigateHome={navigateToHome}
+            onNavigateToPrivacy={navigateToPrivacy}
+            onNavigateToTerms={navigateToTerms}
           />
         </>
       ) : (
@@ -114,7 +175,11 @@ export default function App() {
             <HowItWorks onOpenTerritoryModal={handleOpenTerritoryModal} />
 
             {/* Pricing Tiers & Appointment Packages */}
-            <PricingTiers onOpenTerritoryModal={handleOpenTerritoryModal} />
+            <PricingTiers 
+              onOpenTerritoryModal={handleOpenTerritoryModal} 
+              onNavigateToPrivacy={navigateToPrivacy}
+              onNavigateToTerms={navigateToTerms}
+            />
 
             {/* FAQ Section */}
             <FaqSection onOpenTerritoryModal={handleOpenTerritoryModal} />
@@ -125,6 +190,8 @@ export default function App() {
             onOpenTerritoryModal={handleOpenTerritoryModal} 
             onNavigateToBlog={navigateToBlog}
             onNavigateHome={navigateToHome}
+            onNavigateToPrivacy={navigateToPrivacy}
+            onNavigateToTerms={navigateToTerms}
           />
         </>
       )}
@@ -134,6 +201,8 @@ export default function App() {
         isOpen={isTerritoryModalOpen}
         onClose={handleCloseTerritoryModal}
         initialData={modalInitialData}
+        onNavigateToPrivacy={navigateToPrivacy}
+        onNavigateToTerms={navigateToTerms}
       />
     </div>
   );

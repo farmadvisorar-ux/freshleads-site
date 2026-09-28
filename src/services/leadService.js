@@ -21,6 +21,7 @@ export async function submitTerritoryInquiry(formData) {
       Company_Name: formData.companyName,
       Phone_Number: formData.phone,
       Work_Email: formData.email,
+      SMS_Voice_Consent: formData.smsConsent !== false ? 'EXPRESS CONSENT GRANTED (Opt-In Checked - TCPA / Zoho Voice Compliant)' : 'Web Form Submission',
       Crew_Capacity: formData.capacity,
       Notes: formData.notes || 'None provided',
       Submission_Time: new Date().toLocaleString()

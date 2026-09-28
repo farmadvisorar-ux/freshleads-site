@@ -1,7 +1,13 @@
 import React from 'react';
 import { Zap, ShieldCheck, Mail, MapPin, Phone, ArrowUp } from 'lucide-react';
 
-export default function Footer({ onOpenTerritoryModal, onNavigateToBlog, onNavigateHome }) {
+export default function Footer({ 
+  onOpenTerritoryModal, 
+  onNavigateToBlog, 
+  onNavigateHome,
+  onNavigateToPrivacy,
+  onNavigateToTerms
+}) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -62,6 +68,28 @@ export default function Footer({ onOpenTerritoryModal, onNavigateToBlog, onNavig
                   </button>
                 </li>
               )}
+              {onNavigateToPrivacy && (
+                <li>
+                  <button 
+                    type="button" 
+                    onClick={onNavigateToPrivacy} 
+                    className="hover:text-fresh-orange transition-colors"
+                  >
+                    Privacy Policy
+                  </button>
+                </li>
+              )}
+              {onNavigateToTerms && (
+                <li>
+                  <button 
+                    type="button" 
+                    onClick={onNavigateToTerms} 
+                    className="hover:text-fresh-orange transition-colors"
+                  >
+                    Terms of Service & SMS
+                  </button>
+                </li>
+              )}
             </ul>
           </div>
 
@@ -105,21 +133,53 @@ export default function Footer({ onOpenTerritoryModal, onNavigateToBlog, onNavig
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-300">
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-300">
           <div>
             © {new Date().getFullYear()} FreshLeads.llc. All rights reserved. Specialized Storm Damage Roofing Appointment Leads.
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center gap-4 text-xs">
+            <button 
+              type="button" 
+              onClick={onNavigateToPrivacy} 
+              className="text-slate-400 hover:text-fresh-orange underline transition-colors cursor-pointer"
+            >
+              Privacy Policy
+            </button>
+            <span className="text-slate-600">•</span>
+            <button 
+              type="button" 
+              onClick={onNavigateToTerms} 
+              className="text-slate-400 hover:text-fresh-orange underline transition-colors cursor-pointer"
+            >
+              Terms of Service & SMS
+            </button>
+            <span className="text-slate-600">•</span>
             <span className="text-slate-300">Domain: <strong className="text-white">FreshLeads.llc</strong></span>
             <button
               onClick={scrollToTop}
-              className="p-2 rounded-lg bg-fresh-card hover:bg-fresh-cardHover border border-fresh-border text-slate-300 hover:text-white transition-colors"
+              className="p-2 rounded-lg bg-fresh-card hover:bg-fresh-cardHover border border-fresh-border text-slate-300 hover:text-white transition-colors ml-2"
               title="Scroll to Top"
             >
               <ArrowUp className="w-4 h-4" />
             </button>
           </div>
+        </div>
+
+        {/* TCPA / CTIA / 10DLC Carrier Communications Notice */}
+        <div className="mt-8 pt-6 border-t border-fresh-border/50 text-[11px] text-slate-400 leading-relaxed text-center sm:text-left space-y-1">
+          <p>
+            <strong className="text-slate-200">TCPA & 10DLC Communications Disclosure:</strong> By submitting your contact details or requesting territory information on FreshLeads.llc, you grant prior express consent to receive telephone calls and SMS/MMS text messages from FreshLeads LLC (including communications via Zoho Voice telephony) at the number provided. Consent is not a condition of purchase. Message frequency varies. Message & data rates may apply. You may reply <strong className="text-slate-200">STOP</strong> to cancel at any time, or <strong className="text-slate-200">HELP</strong> for support.
+          </p>
+          <p className="text-slate-400">
+            <strong className="text-slate-200">Mobile Privacy Guarantee:</strong> No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. Review our full{' '}
+            <button type="button" onClick={onNavigateToPrivacy} className="text-fresh-orange underline hover:text-white">
+              Privacy Policy
+            </button>{' '}and{' '}
+            <button type="button" onClick={onNavigateToTerms} className="text-fresh-orange underline hover:text-white">
+              Terms of Service
+            </button>.
+          </p>
         </div>
 
       </div>
