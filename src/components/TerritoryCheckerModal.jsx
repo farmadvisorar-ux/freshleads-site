@@ -276,20 +276,20 @@ export default function TerritoryCheckerModal({
                     className="mt-1 w-4 h-4 rounded border-fresh-border bg-fresh-dark text-fresh-orange focus:ring-fresh-orange accent-fresh-orange cursor-pointer shrink-0"
                   />
                   <span className="text-[11px] leading-relaxed text-slate-300 group-hover:text-white">
-                    I consent to receive calls and SMS text messages from FreshLeads LLC at the phone number provided above regarding roofing appointments, territory availability, and services (including calls and alerts placed via Zoho Voice telephony). Consent is not a condition of purchase. Message frequency varies. Msg & data rates may apply. Reply <strong className="text-white">STOP</strong> to opt out, or <strong className="text-white">HELP</strong> for support. I agree to the{' '}
+                    You are agreeing to receive sms customer care-related or one-on-one communication messages from FreshLeads LLC. Message frequency may vary. Standard Message and Data Rates may apply. Reply STOP to opt out. Reply Help for help.{' '}
                     <a 
-                      href="/terms" 
-                      onClick={(e) => { e.preventDefault(); onClose(); onNavigateToTerms?.(); }} 
-                      className="text-fresh-orange underline hover:text-white font-bold"
-                    >
-                      Terms of Service
-                    </a>{' '}and{' '}
-                    <a 
-                      href="/privacy" 
+                      href="https://freshleads.llc/privacy" 
                       onClick={(e) => { e.preventDefault(); onClose(); onNavigateToPrivacy?.(); }} 
                       className="text-fresh-orange underline hover:text-white font-bold"
                     >
-                      Privacy Policy
+                      https://freshleads.llc/privacy
+                    </a>{' '}
+                    <a 
+                      href="https://freshleads.llc/terms" 
+                      onClick={(e) => { e.preventDefault(); onClose(); onNavigateToTerms?.(); }} 
+                      className="text-fresh-orange underline hover:text-white font-bold"
+                    >
+                      https://freshleads.llc/terms
                     </a>.
                   </span>
                 </label>

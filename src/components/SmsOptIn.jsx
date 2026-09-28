@@ -246,7 +246,7 @@ export default function SmsOptIn({ onNavigateHome, onNavigateToPrivacy, onNaviga
                 </div>
               )}
 
-              {/* The Mandatory Opt-In Consent Checkbox */}
+              {/* The Mandatory Opt-In Consent Checkbox (TCR Standardized Formula) */}
               <div className="p-4 rounded-xl bg-fresh-dark border-2 border-fresh-border hover:border-fresh-orange/50 transition-colors">
                 <label htmlFor="smsConsentCheckbox" className="flex items-start gap-3 cursor-pointer text-left select-none">
                   <input
@@ -260,81 +260,91 @@ export default function SmsOptIn({ onNavigateHome, onNavigateToPrivacy, onNaviga
                   />
                   <span className="text-xs sm:text-sm leading-relaxed text-slate-200 font-medium">
                     <strong className="text-white block font-bold mb-1">
-                      ☑ Yes, I agree to receive SMS text messages from FreshLeads LLC
+                      ☑ Yes, I agree to receive SMS messages from FreshLeads LLC
                     </strong>
-                    By checking this box, I consent to receive recurring informational and transactional SMS text messages from FreshLeads LLC at the mobile phone number provided above regarding roofing leads, territory availability, appointment scheduling, and account updates. I understand that consent is not a condition of purchasing any services, message and data rates may apply, and message frequency varies. I can unsubscribe at any time by replying <strong className="text-white">STOP</strong>, or reply <strong className="text-white">HELP</strong> for assistance. I have read and agree to the{' '}
-                    <button 
-                      type="button" 
-                      onClick={onNavigateToPrivacy}
-                      className="text-fresh-orange underline hover:text-white font-bold cursor-pointer"
+                    You are agreeing to receive sms customer care-related or one-on-one communication messages from FreshLeads LLC. Message frequency may vary. Standard Message and Data Rates may apply. Reply STOP to opt out. Reply Help for help.{' '}
+                    <a 
+                      href="https://freshleads.llc/privacy"
+                      onClick={(e) => { e.preventDefault(); onNavigateToPrivacy?.(); }}
+                      className="text-fresh-orange underline hover:text-white font-bold"
                     >
-                      Privacy Policy
-                    </button>{' '}and{' '}
-                    <button 
-                      type="button" 
-                      onClick={onNavigateToTerms}
-                      className="text-fresh-orange underline hover:text-white font-bold cursor-pointer"
+                      https://freshleads.llc/privacy
+                    </a>{' '}
+                    <a 
+                      href="https://freshleads.llc/terms"
+                      onClick={(e) => { e.preventDefault(); onNavigateToTerms?.(); }}
+                      className="text-fresh-orange underline hover:text-white font-bold"
                     >
-                      Terms of Service
-                    </button>.
+                      https://freshleads.llc/terms
+                    </a>.
                   </span>
                 </label>
               </div>
 
               {/* Comprehensive Consent Breakdown Box (Covering Opt-In, Opt-Out, Help, & Privacy Link Explaining Data Usage) */}
-              <div className="p-5 rounded-xl bg-fresh-card border border-fresh-border text-xs text-slate-300 space-y-3">
+              <div className="p-5 rounded-xl bg-fresh-card border border-fresh-border text-xs text-slate-300 space-y-4">
                 <div className="font-extrabold text-white text-xs uppercase tracking-wider flex items-center gap-1.5 border-b border-fresh-border pb-2">
                   <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                  <span>Program Disclosures & Compliance Details</span>
+                  <span>TCR 10DLC Standardized Opt-In Disclosures</span>
+                </div>
+
+                {/* Exact Formula Display for Reviewers */}
+                <div className="p-3.5 rounded-lg bg-fresh-dark border border-fresh-border/80 text-[11px] font-mono text-slate-200 leading-relaxed">
+                  &quot;You are agreeing to receive sms customer care-related or one-on-one communication messages from FreshLeads LLC. Message frequency may vary. Standard Message and Data Rates may apply. Reply STOP to opt out. Reply Help for help. https://freshleads.llc/privacy https://freshleads.llc/terms&quot;
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-1">
                   <div className="space-y-1">
                     <strong className="text-emerald-400 block font-bold">1. Opt-In Confirmation</strong>
                     <p className="text-[11px] text-slate-400 leading-relaxed">
-                      By submitting your information and checking the box above, you authorize FreshLeads LLC to send text messages (SMS/MMS) to your mobile number.
+                      By submitting your information and checking the box above, you authorize FreshLeads LLC to send customer care or one-on-one text messages (SMS/MMS) to your mobile number.
                     </p>
                   </div>
 
                   <div className="space-y-1">
                     <strong className="text-amber-400 block font-bold">2. Opt-Out Options (STOP)</strong>
                     <p className="text-[11px] text-slate-400 leading-relaxed">
-                      You may opt out at any time. Simply reply <strong className="text-white">STOP</strong>, <strong className="text-white">CANCEL</strong>, <strong className="text-white">END</strong>, or <strong className="text-white">QUIT</strong> to any SMS message to immediately cancel.
+                      Reply <strong className="text-white">STOP</strong> to opt out at any time. You can also reply <strong className="text-white">CANCEL</strong>, <strong className="text-white">END</strong>, or <strong className="text-white">QUIT</strong>.
                     </p>
                   </div>
 
                   <div className="space-y-1">
                     <strong className="text-sky-400 block font-bold">3. Help & Support (HELP)</strong>
                     <p className="text-[11px] text-slate-400 leading-relaxed">
-                      For help, reply <strong className="text-white">HELP</strong> to any message, email <a href="mailto:info@freshleads.llc" className="text-fresh-orange underline">info@freshleads.llc</a>, or call our direct phone line at <a href="tel:2148314653" className="text-white font-bold hover:text-fresh-orange underline">(214) 831-4653</a>.
+                      Reply <strong className="text-white">HELP</strong> for help, email <a href="mailto:info@freshleads.llc" className="text-fresh-orange underline">info@freshleads.llc</a>, or call <a href="tel:2148314653" className="text-white font-bold hover:text-fresh-orange underline">(214) 831-4653</a>.
                     </p>
                   </div>
                 </div>
 
-                {/* Data Usage & Privacy Guarantee with Direct Link */}
-                <div className="pt-2 border-t border-fresh-border/60 text-[11px] text-slate-300 leading-relaxed space-y-1">
+                {/* Exact TCR Privacy Statement Embedded */}
+                <div className="pt-3 border-t border-fresh-border/60 text-[11px] text-slate-300 leading-relaxed space-y-2">
                   <div className="font-bold text-white flex items-center gap-1">
                     <Lock className="w-3.5 h-3.5 text-fresh-orange" />
-                    <span>How Your Data Is Used & Mobile Privacy Guarantee:</span>
+                    <span>Privacy Policy Statement (Data Usage):</span>
                   </div>
-                  <p className="text-slate-400">
-                    We collect your name, company, and phone number solely to send you transactional lead alerts and service notifications. <strong className="text-white">No mobile information will be shared with third parties or affiliates for marketing or promotional purposes.</strong> All originator opt-in data and consent records exclude third-party sharing.
-                  </p>
-                  <p>
-                    Please review our full{' '}
+                  <div className="p-3 rounded-lg bg-fresh-dark/90 border border-fresh-border/60 text-slate-200 space-y-2 font-sans">
+                    <p>
+                      &quot;We will not share your opt-in to an SMS campaign with any third party for purposes unrelated to providing you with the services of that campaign. We may share your Personal Data, including your SMS opt-in or consent status, with third parties that help us provide our messaging services, including but not limited to platform providers, phone companies, and any other vendors who assist us in the delivery of text messages.
+                    </p>
+                    <p className="font-bold text-white border-t border-fresh-border/40 pt-2">
+                      All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.&quot;
+                    </p>
+                  </div>
+                  <p className="pt-1">
+                    Read the complete{' '}
                     <button 
                       type="button" 
                       onClick={onNavigateToPrivacy} 
                       className="text-fresh-orange underline hover:text-white font-bold cursor-pointer"
                     >
-                      Privacy Policy (Data Usage & Mobile Protection)
+                      Privacy Policy (https://freshleads.llc/privacy)
                     </button>{' '}and{' '}
                     <button 
                       type="button" 
                       onClick={onNavigateToTerms} 
                       className="text-fresh-orange underline hover:text-white font-bold cursor-pointer"
                     >
-                      Terms of Service
+                      Terms of Service (https://freshleads.llc/terms)
                     </button>.
                   </p>
                 </div>

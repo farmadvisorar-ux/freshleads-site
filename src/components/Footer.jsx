@@ -198,16 +198,16 @@ export default function Footer({
         {/* TCPA / CTIA / 10DLC Carrier Communications Notice */}
         <div className="mt-8 pt-6 border-t border-fresh-border/50 text-[11px] text-slate-400 leading-relaxed text-center sm:text-left space-y-1">
           <p>
-            <strong className="text-slate-200">TCPA & 10DLC Communications Disclosure:</strong> By submitting your contact details or requesting territory information on FreshLeads.llc, you grant prior express consent to receive telephone calls and SMS/MMS text messages from FreshLeads LLC (including communications via Zoho Voice telephony) at the number provided. Consent is not a condition of purchase. Message frequency varies. Message & data rates may apply. You may reply <strong className="text-slate-200">STOP</strong> to cancel at any time, or <strong className="text-slate-200">HELP</strong> for support.
+            <strong className="text-slate-200">TCPA & 10DLC Communications Disclosure:</strong> You are agreeing to receive sms customer care-related or one-on-one communication messages from FreshLeads LLC. Message frequency may vary. Standard Message and Data Rates may apply. Reply STOP to opt out. Reply Help for help.{' '}
+            <a href="https://freshleads.llc/privacy" onClick={(e) => { e.preventDefault(); onNavigateToPrivacy?.(); }} className="text-fresh-orange underline hover:text-white">
+              https://freshleads.llc/privacy
+            </a>{' '}
+            <a href="https://freshleads.llc/terms" onClick={(e) => { e.preventDefault(); onNavigateToTerms?.(); }} className="text-fresh-orange underline hover:text-white">
+              https://freshleads.llc/terms
+            </a>.
           </p>
           <p className="text-slate-400">
-            <strong className="text-slate-200">Mobile Privacy Guarantee:</strong> No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. Review our full{' '}
-            <button type="button" onClick={onNavigateToPrivacy} className="text-fresh-orange underline hover:text-white">
-              Privacy Policy
-            </button>{' '}and{' '}
-            <button type="button" onClick={onNavigateToTerms} className="text-fresh-orange underline hover:text-white">
-              Terms of Service
-            </button>.
+            <strong className="text-slate-200">Mobile Privacy Guarantee:</strong> We will not share your opt-in to an SMS campaign with any third party for purposes unrelated to providing you with the services of that campaign. All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties. Direct support: <a href="tel:2148314653" className="text-white hover:text-fresh-orange font-bold">(214) 831-4653</a>.
           </p>
         </div>
 

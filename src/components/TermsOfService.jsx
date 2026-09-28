@@ -108,16 +108,24 @@ export default function TermsOfService({ onNavigateHome, onOpenTerritoryModal, o
               <span>Carriers (including but not limited to AT&T, T-Mobile, Verizon, Sprint, and regional mobile networks) are not liable for delayed or undelivered messages.</span>
             </div>
 
-            <div className="p-3.5 rounded-xl bg-fresh-card border border-fresh-border">
+            <div className="p-3.5 rounded-xl bg-fresh-card border border-fresh-border space-y-2">
               <strong className="text-white block font-bold mb-1">Privacy & Data Protection:</strong>
-              <span>Your mobile opt-in information and phone number will never be sold or shared with third parties for marketing or promotional purposes. Review our full{' '}
+              <p className="text-slate-300 leading-relaxed">
+                We will not share your opt-in to an SMS campaign with any third party for purposes unrelated to providing you with the services of that campaign. We may share your Personal Data, including your SMS opt-in or consent status, with third parties that help us provide our messaging services, including but not limited to platform providers, phone companies, and any other vendors who assist us in the delivery of text messages.
+              </p>
+              <p className="text-white font-bold">
+                All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.
+              </p>
+              <p className="text-xs text-slate-400 pt-1">
+                Review our full{' '}
                 <button 
                   type="button" 
                   onClick={onNavigateToPrivacy} 
                   className="text-fresh-orange underline hover:text-white font-bold cursor-pointer"
                 >
                   Privacy Policy
-                </button>{' '}for details.</span>
+                </button>{' '}for details.
+              </p>
             </div>
           </div>
         </section>

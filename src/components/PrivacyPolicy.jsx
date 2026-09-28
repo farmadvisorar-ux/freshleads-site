@@ -48,20 +48,24 @@ export default function PrivacyPolicy({ onNavigateHome, onOpenTerritoryModal }) 
           </p>
         </div>
 
-        {/* Highlight Box: Zoho Voice & 10DLC Mandatory Non-Sharing Clause */}
-        <div className="p-6 rounded-2xl bg-fresh-dark border-2 border-fresh-orange/40 shadow-orange-sm space-y-3">
+        {/* Highlight Box: TCR & 10DLC Mandatory Privacy Policy Statement */}
+        <div className="p-6 rounded-2xl bg-fresh-dark border-2 border-fresh-orange/50 shadow-orange-sm space-y-4">
           <div className="flex items-center gap-2.5 text-fresh-orange font-black text-base uppercase tracking-wider">
             <ShieldCheck className="w-6 h-6 shrink-0" />
-            <span>CRITICAL MOBILE / SMS PRIVACY COMMITMENT (10DLC & TCPA)</span>
+            <span>TCR & 10DLC MANDATORY PRIVACY POLICY STATEMENT</span>
           </div>
-          <p className="text-slate-100 text-sm sm:text-base font-semibold leading-relaxed">
-            <strong className="text-white underline decoration-fresh-orange decoration-2">
-              No mobile information will be shared with third parties or affiliates for marketing or promotional purposes.
-            </strong>{' '}
-            All other categories exclude text messaging originator opt-in data and consent; this information will not be shared with, sold to, or transferred to any third parties for any purpose.
-          </p>
-          <div className="text-xs text-slate-400 pt-1">
-            FreshLeads LLC strictly enforces zero third-party disclosure for phone numbers, mobile consent records, or caller information collected via our website, Zoho Voice telephony system, or customer intake workflows.
+          
+          <div className="p-4 rounded-xl bg-fresh-black/90 border border-fresh-border text-slate-100 text-sm sm:text-base leading-relaxed space-y-3 font-medium">
+            <p className="text-white">
+              &quot;We will not share your opt-in to an SMS campaign with any third party for purposes unrelated to providing you with the services of that campaign. We may share your Personal Data, including your SMS opt-in or consent status, with third parties that help us provide our messaging services, including but not limited to platform providers, phone companies, and any other vendors who assist us in the delivery of text messages.&quot;
+            </p>
+            <p className="text-white font-bold border-t border-fresh-border/60 pt-3">
+              &quot;All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.&quot;
+            </p>
+          </div>
+
+          <div className="text-xs text-slate-300 pt-1 leading-relaxed">
+            FreshLeads LLC strictly enforces this policy across our website, Zoho Voice telephony systems, and SMS customer care notification services.
           </div>
         </div>
 
@@ -169,12 +173,12 @@ export default function PrivacyPolicy({ onNavigateHome, onOpenTerritoryModal }) 
           <p>
             We do not sell, rent, lease, trade, or distribute your personal contact information to any third-party marketing companies, lead aggregators, or affiliates.
           </p>
-          <div className="p-4 rounded-xl bg-fresh-dark border border-fresh-border text-xs sm:text-sm text-slate-300 space-y-2">
-            <p>
-              <strong className="text-white">Authorized Operational Service Providers:</strong> We may share data strictly with trusted technology infrastructure providers (such as Zoho Voice for voice telephony and enterprise email hosting) solely to transmit communications initiated by or directed to you. These providers are bound by strict non-disclosure obligations and are prohibited from using your information for any independent purpose.
+          <div className="p-5 rounded-xl bg-fresh-dark border border-fresh-border text-xs sm:text-sm text-slate-200 space-y-3">
+            <p className="leading-relaxed">
+              We will not share your opt-in to an SMS campaign with any third party for purposes unrelated to providing you with the services of that campaign. We may share your Personal Data, including your SMS opt-in or consent status, with third parties that help us provide our messaging services, including but not limited to platform providers, phone companies, and any other vendors who assist us in the delivery of text messages.
             </p>
-            <p className="font-semibold text-emerald-400">
-              *Reminder: As stated above, mobile originator opt-in data and consent records will never be shared with third parties under any circumstances.
+            <p className="font-bold text-emerald-400 border-t border-fresh-border/60 pt-2">
+              All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.
             </p>
           </div>
         </section>
