@@ -1,7 +1,7 @@
 import React from 'react';
 import { Zap, ShieldCheck, Mail, MapPin, Phone, ArrowUp } from 'lucide-react';
 
-export default function Footer({ onOpenTerritoryModal }) {
+export default function Footer({ onOpenTerritoryModal, onNavigateToBlog, onNavigateHome }) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -15,11 +15,14 @@ export default function Footer({ onOpenTerritoryModal }) {
           
           {/* Brand Col (2 cols) */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-3">
+            <div 
+              className="flex items-center gap-3 cursor-pointer group"
+              onClick={onNavigateHome}
+            >
               <div className="w-10 h-10 rounded-xl overflow-hidden border border-fresh-orange/40 shadow-orange-sm bg-fresh-dark">
                 <img src="/freshleads-logo-180x180.jpg" alt="FreshLeads.llc Logo" width="40" height="40" className="w-full h-full object-cover" />
               </div>
-              <span className="text-2xl font-black tracking-tight text-white">
+              <span className="text-2xl font-black tracking-tight text-white group-hover:text-fresh-orange transition-colors">
                 FRESH<span className="text-fresh-orange">LEADS</span>.LLC
               </span>
             </div>
@@ -47,6 +50,18 @@ export default function Footer({ onOpenTerritoryModal }) {
               <li><a href="#consistency" className="hover:text-fresh-orange transition-colors">The 30+ Roofer Proof</a></li>
               <li><a href="#pricing" className="hover:text-fresh-orange transition-colors">Appointment Packages</a></li>
               <li><a href="#faq" className="hover:text-fresh-orange transition-colors">FAQ</a></li>
+              {onNavigateToBlog && (
+                <li>
+                  <button 
+                    type="button" 
+                    onClick={onNavigateToBlog} 
+                    className="hover:text-fresh-orange transition-colors font-bold text-fresh-orange flex items-center gap-1.5"
+                  >
+                    <span>Blog & Cost Guide</span>
+                    <span className="text-[9px] bg-fresh-orange text-slate-950 font-black px-1.5 py-0.2 rounded-full">New</span>
+                  </button>
+                </li>
+              )}
             </ul>
           </div>
 

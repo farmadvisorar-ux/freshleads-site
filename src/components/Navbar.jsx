@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ShieldCheck, Phone, Zap, Menu, X, ArrowRight } from 'lucide-react';
 
-export default function Navbar({ onOpenTerritoryModal }) {
+export default function Navbar({ onOpenTerritoryModal, onNavigateToBlog, onNavigateHome }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -23,7 +23,16 @@ export default function Navbar({ onOpenTerritoryModal }) {
         <div className="flex items-center justify-between">
           
           {/* Logo & Brand */}
-          <a href="#" className="flex items-center gap-3 group">
+          <a 
+            href="/" 
+            onClick={(e) => {
+              if (onNavigateHome) {
+                e.preventDefault();
+                onNavigateHome();
+              }
+            }}
+            className="flex items-center gap-3 group cursor-pointer"
+          >
             <div className="w-10 h-10 rounded-xl overflow-hidden border border-fresh-orange/40 shadow-orange-sm group-hover:scale-105 transition-transform bg-fresh-dark">
               <img src="/freshleads-logo-180x180.jpg" alt="FreshLeads.llc Logo" width="40" height="40" className="w-full h-full object-cover" />
             </div>
@@ -39,13 +48,21 @@ export default function Navbar({ onOpenTerritoryModal }) {
           </a>
 
           {/* Center Navigation Links (Desktop) */}
-          <div className="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300">
+          <div className="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-300">
             <a href="#how-it-works" className="hover:text-fresh-orange transition-colors">How It Works</a>
             <a href="#lead-quality" className="hover:text-fresh-orange transition-colors">Lead Quality & Audio</a>
             <a href="#guarantee" className="hover:text-fresh-orange transition-colors">100% Guarantee</a>
             <a href="#consistency" className="hover:text-fresh-orange transition-colors">The 30+ Roofer Proof</a>
             <a href="#pricing" className="hover:text-fresh-orange transition-colors">Pricing</a>
             <a href="#faq" className="hover:text-fresh-orange transition-colors">FAQ</a>
+            <button
+              type="button"
+              onClick={onNavigateToBlog}
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-fresh-card hover:bg-fresh-cardHover border border-fresh-orange/40 text-fresh-orange hover:text-white font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer"
+            >
+              <span>Blog</span>
+              <span className="text-[10px] bg-fresh-orange text-slate-950 font-black px-1.5 py-0.2 rounded-full">New</span>
+            </button>
           </div>
 
           {/* Right Action & Territory Status */}
@@ -131,10 +148,18 @@ export default function Navbar({ onOpenTerritoryModal }) {
             <a 
               href="#faq" 
               onClick={() => setMobileMenuOpen(false)}
-              className="py-2 hover:text-fresh-orange"
+              className="py-2 hover:text-fresh-orange border-b border-fresh-border/50"
             >
               FAQ
             </a>
+            <button 
+              type="button" 
+              onClick={() => { setMobileMenuOpen(false); onNavigateToBlog(); }} 
+              className="w-full text-left py-2 hover:text-fresh-orange font-bold text-fresh-orange flex items-center justify-between"
+            >
+              <span>Blog & 2026 Cost Guide</span>
+              <span className="text-[10px] bg-fresh-orange text-slate-950 font-black px-2 py-0.5 rounded-full">New</span>
+            </button>
           </div>
 
           <button
