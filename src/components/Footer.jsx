@@ -123,6 +123,10 @@ export default function Footer({
           <div className="space-y-3">
             <h3 className="text-xs uppercase font-extrabold text-white tracking-wider">Contact & Inquiries</h3>
             <div className="space-y-2.5 text-xs sm:text-sm">
+              <a href="tel:2148314653" className="flex items-center gap-2 hover:text-fresh-orange transition-colors text-white font-bold group">
+                <Phone className="w-4 h-4 text-fresh-orange shrink-0 group-hover:scale-110 transition-transform" />
+                <span>(214) 831-4653</span>
+              </a>
               <a href="mailto:info@freshleads.llc" className="flex items-center gap-2 hover:text-fresh-orange transition-colors text-slate-200">
                 <Mail className="w-4 h-4 text-fresh-orange shrink-0" />
                 <span>info@freshleads.llc</span>

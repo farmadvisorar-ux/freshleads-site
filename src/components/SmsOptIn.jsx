@@ -137,7 +137,7 @@ export default function SmsOptIn({ onNavigateHome, onNavigateToPrivacy, onNaviga
               {/* Terms Reminder */}
               <div className="text-xs text-slate-400 max-w-md mx-auto leading-relaxed space-y-1">
                 <p>• You can opt out at any time by texting <strong className="text-white">STOP</strong> to any message.</p>
-                <p>• Need help? Text <strong className="text-white">HELP</strong> or contact <a href="mailto:info@freshleads.llc" className="text-fresh-orange underline">info@freshleads.llc</a>.</p>
+                <p>• Need help? Text <strong className="text-white">HELP</strong>, email <a href="mailto:info@freshleads.llc" className="text-fresh-orange underline">info@freshleads.llc</a>, or call our team directly at <a href="tel:2148314653" className="text-white font-bold hover:text-fresh-orange underline">(214) 831-4653</a>.</p>
               </div>
 
               <div className="pt-2">
@@ -306,7 +306,7 @@ export default function SmsOptIn({ onNavigateHome, onNavigateToPrivacy, onNaviga
                   <div className="space-y-1">
                     <strong className="text-sky-400 block font-bold">3. Help & Support (HELP)</strong>
                     <p className="text-[11px] text-slate-400 leading-relaxed">
-                      For help, reply <strong className="text-white">HELP</strong> to any message, or contact our support team at <a href="mailto:info@freshleads.llc" className="text-fresh-orange underline">info@freshleads.llc</a>.
+                      For help, reply <strong className="text-white">HELP</strong> to any message, email <a href="mailto:info@freshleads.llc" className="text-fresh-orange underline">info@freshleads.llc</a>, or call our direct phone line at <a href="tel:2148314653" className="text-white font-bold hover:text-fresh-orange underline">(214) 831-4653</a>.
                     </p>
                   </div>
                 </div>

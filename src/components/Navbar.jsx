@@ -75,7 +75,16 @@ export default function Navbar({ onOpenTerritoryModal, onNavigateToBlog, onNavig
           </div>
 
           {/* Right Action & Territory Status */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-3">
+            <a
+              href="tel:2148314653"
+              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-fresh-card hover:bg-fresh-cardHover border border-fresh-border hover:border-fresh-orange/60 text-white font-extrabold text-xs tracking-wide transition-all group shadow-sm"
+              title="Call FreshLeads Main Line: (214) 831-4653"
+            >
+              <Phone className="w-3.5 h-3.5 text-fresh-orange group-hover:scale-110 transition-transform" />
+              <span>(214) 831-4653</span>
+            </a>
+
             <div className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-fresh-card border border-fresh-border text-xs text-slate-300">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
               <span className="text-white font-medium">Statute Active Zones</span>
@@ -181,16 +190,26 @@ export default function Navbar({ onOpenTerritoryModal, onNavigateToBlog, onNavig
             )}
           </div>
 
-          <button
-            onClick={() => {
-              setMobileMenuOpen(false);
-              onOpenTerritoryModal();
-            }}
-            className="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-fresh-orange hover:bg-fresh-orangeHover text-slate-950 font-black text-base shadow-orange-sm"
-          >
-            <span>Lock In Your Territory</span>
-            <ArrowRight className="w-5 h-5 text-slate-950" />
-          </button>
+          <div className="pt-2 space-y-2">
+            <a
+              href="tel:2148314653"
+              className="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-fresh-card border border-fresh-border hover:border-fresh-orange text-white font-extrabold text-sm transition-colors"
+            >
+              <Phone className="w-4 h-4 text-fresh-orange" />
+              <span>Call Us: (214) 831-4653</span>
+            </a>
+
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenTerritoryModal();
+              }}
+              className="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-fresh-orange hover:bg-fresh-orangeHover text-slate-950 font-black text-base shadow-orange-sm"
+            >
+              <span>Lock In Your Territory</span>
+              <ArrowRight className="w-5 h-5 text-slate-950" />
+            </button>
+          </div>
         </div>
       )}
     </nav>

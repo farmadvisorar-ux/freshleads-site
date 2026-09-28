@@ -250,6 +250,13 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
             <p className="text-xs sm:text-sm text-slate-300 mt-2">
               Fill out this short form. One of our dedicated Customer Success Agents will call you directly to verify your storm county and lock in your weekly inspection schedule.
             </p>
+            <p className="text-xs text-slate-400 mt-2">
+              Prefer to speak right now? Call our direct line:{' '}
+              <a href="tel:2148314653" className="text-fresh-orange hover:text-white font-extrabold underline inline-flex items-center gap-1">
+                <Phone className="w-3 h-3 inline" />
+                <span>(214) 831-4653</span>
+              </a>
+            </p>
           </div>
 
           {submitted ? (

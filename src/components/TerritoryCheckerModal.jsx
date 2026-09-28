@@ -132,6 +132,15 @@ export default function TerritoryCheckerModal({
             /* Short Single-Step Form */
             <form onSubmit={handleSubmit} className="space-y-4">
               
+              {/* Direct Call Banner */}
+              <div className="flex items-center justify-between px-3.5 py-2 bg-fresh-dark/90 border border-fresh-border rounded-xl text-xs">
+                <span className="text-slate-400">Need immediate help?</span>
+                <a href="tel:2148314653" className="flex items-center gap-1.5 text-fresh-orange hover:text-white font-extrabold transition-colors">
+                  <Phone className="w-3.5 h-3.5" />
+                  <span>Call (214) 831-4653</span>
+                </a>
+              </div>
+
               {/* Selected Package Banner */}
               <div className="px-4 py-3 bg-fresh-dark border border-fresh-border rounded-xl">
                 <div className="flex items-center justify-between mb-1.5">

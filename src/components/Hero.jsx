@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { ShieldCheck, Play, Pause, CheckCircle2, CloudRain, Clock, MapPin, Sparkles, AlertTriangle, ArrowRight } from 'lucide-react';
+import { ShieldCheck, Play, Pause, CheckCircle2, CloudRain, Clock, MapPin, Sparkles, AlertTriangle, ArrowRight, Phone } from 'lucide-react';
 
 export default function Hero({ onOpenTerritoryModal, onSelectLeadSample }) {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -80,6 +80,18 @@ export default function Hero({ onOpenTerritoryModal, onSelectLeadSample }) {
             >
               <Play className="w-4 h-4 text-fresh-orange fill-fresh-orange" />
               <span>Listen To Sample Setter Call</span>
+            </a>
+          </div>
+
+          {/* Direct Phone Call Line */}
+          <div className="mt-4 flex items-center justify-center gap-2 text-xs sm:text-sm text-slate-300">
+            <span>Speak with a Customer Success Manager now:</span>
+            <a 
+              href="tel:2148314653" 
+              className="inline-flex items-center gap-1.5 text-fresh-orange hover:text-white font-black underline tracking-wide transition-colors"
+            >
+              <Phone className="w-3.5 h-3.5 shrink-0" />
+              <span>(214) 831-4653</span>
             </a>
           </div>
         </div>

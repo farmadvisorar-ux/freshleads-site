@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, ShieldCheck, FileText, Mail, Phone, CheckCircle2, HelpCircle } from 'lucide-react';
+import { ArrowLeft, ShieldCheck, FileText, Mail, Phone, CheckCircle2, HelpCircle, Globe } from 'lucide-react';
 
 export default function TermsOfService({ onNavigateHome, onOpenTerritoryModal, onNavigateToPrivacy }) {
   return (
@@ -196,11 +196,15 @@ export default function TermsOfService({ onNavigateHome, onOpenTerritoryModal, o
           <div className="p-5 rounded-xl bg-fresh-card border border-fresh-border space-y-2">
             <div className="font-bold text-white text-base">FreshLeads LLC — Legal & Operations</div>
             <div className="flex items-center gap-2 text-sm text-slate-300">
+              <Phone className="w-4 h-4 text-fresh-orange shrink-0" />
+              <span>Telephone: <a href="tel:2148314653" className="text-white font-bold hover:text-fresh-orange">(214) 831-4653</a></span>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-slate-300">
               <Mail className="w-4 h-4 text-fresh-orange shrink-0" />
               <span>Email: <a href="mailto:info@freshleads.llc" className="text-fresh-orange underline hover:text-white">info@freshleads.llc</a></span>
             </div>
             <div className="flex items-center gap-2 text-sm text-slate-300">
-              <Phone className="w-4 h-4 text-fresh-orange shrink-0" />
+              <Globe className="w-4 h-4 text-fresh-orange shrink-0" />
               <span>Official Website: <strong className="text-white">https://freshleads.llc</strong></span>
             </div>
           </div>

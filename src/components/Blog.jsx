@@ -22,6 +22,13 @@ export default function Blog({ onNavigateHome, onOpenTerritoryModal }) {
           </button>
 
           <div className="flex items-center gap-3">
+            <a
+              href="tel:2148314653"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-fresh-card hover:bg-fresh-cardHover border border-fresh-border text-xs font-bold text-white transition-colors"
+            >
+              <PhoneCall className="w-3.5 h-3.5 text-fresh-orange" />
+              <span>(214) 831-4653</span>
+            </a>
             <button
               type="button"
               onClick={() => onOpenTerritoryModal({ volume: 'Free Roof Estimate Request (From Blog)' })}
@@ -658,6 +665,14 @@ export default function Blog({ onNavigateHome, onOpenTerritoryModal }) {
               <span>👉 Click Here to Get a Free, Itemized Roof Replacement Estimate in Your Area</span>
               <ArrowRight className="w-5 h-5 text-slate-950 shrink-0" />
             </button>
+          </div>
+
+          <div className="pt-2 flex items-center justify-center gap-2 text-xs text-slate-400">
+            <span>Prefer to call for your estimate? Call our dispatch line:</span>
+            <a href="tel:2148314653" className="text-fresh-orange hover:text-white font-extrabold underline inline-flex items-center gap-1">
+              <PhoneCall className="w-3.5 h-3.5 inline" />
+              <span>(214) 831-4653</span>
+            </a>
           </div>
         </section>
 
