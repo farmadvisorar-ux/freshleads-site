@@ -12,6 +12,7 @@ import TerritoryCheckerModal from './components/TerritoryCheckerModal';
 import Blog from './components/Blog';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
+import SmsOptIn from './components/SmsOptIn';
 
 export default function App() {
   const [isTerritoryModalOpen, setIsTerritoryModalOpen] = useState(false);
@@ -29,6 +30,9 @@ export default function App() {
       if (path === '/terms' || path.startsWith('/terms/') || hash === '#terms') {
         return 'terms';
       }
+      if (path === '/sms-opt-in' || path.startsWith('/sms-opt-in/') || path === '/opt-in' || hash === '#sms-opt-in') {
+        return 'sms-opt-in';
+      }
     }
     return 'home';
   });
@@ -44,6 +48,8 @@ export default function App() {
         setCurrentView('privacy');
       } else if (path === '/terms' || path.startsWith('/terms/') || hash === '#terms') {
         setCurrentView('terms');
+      } else if (path === '/sms-opt-in' || path.startsWith('/sms-opt-in/') || path === '/opt-in' || hash === '#sms-opt-in') {
+        setCurrentView('sms-opt-in');
       } else {
         setCurrentView('home');
       }
@@ -61,6 +67,14 @@ export default function App() {
     setCurrentView('blog');
     if (typeof window !== 'undefined') {
       window.history.pushState({}, '', '/blog');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const navigateToSmsOptIn = () => {
+    setCurrentView('sms-opt-in');
+    if (typeof window !== 'undefined') {
+      window.history.pushState({}, '', '/sms-opt-in');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
@@ -131,6 +145,23 @@ export default function App() {
             onNavigateToTerms={navigateToTerms}
           />
         </>
+      ) : currentView === 'sms-opt-in' ? (
+        /* Dedicated SMS Opt-In & Verification View (10DLC & TCPA Flow) */
+        <>
+          <SmsOptIn 
+            onNavigateHome={navigateToHome}
+            onNavigateToPrivacy={navigateToPrivacy}
+            onNavigateToTerms={navigateToTerms}
+          />
+          <Footer 
+            onOpenTerritoryModal={handleOpenTerritoryModal} 
+            onNavigateToBlog={navigateToBlog}
+            onNavigateHome={navigateToHome}
+            onNavigateToPrivacy={navigateToPrivacy}
+            onNavigateToTerms={navigateToTerms}
+            onNavigateToSmsOptIn={navigateToSmsOptIn}
+          />
+        </>
       ) : currentView === 'terms' ? (
         /* Terms of Service & SMS View (TCPA & CTIA Compliance) */
         <>
@@ -145,6 +176,7 @@ export default function App() {
             onNavigateHome={navigateToHome}
             onNavigateToPrivacy={navigateToPrivacy}
             onNavigateToTerms={navigateToTerms}
+            onNavigateToSmsOptIn={navigateToSmsOptIn}
           />
         </>
       ) : (
@@ -155,6 +187,7 @@ export default function App() {
             onOpenTerritoryModal={handleOpenTerritoryModal} 
             onNavigateToBlog={navigateToBlog}
             onNavigateHome={navigateToHome}
+            onNavigateToSmsOptIn={navigateToSmsOptIn}
           />
 
           {/* Main Content Sections */}
@@ -179,6 +212,7 @@ export default function App() {
               onOpenTerritoryModal={handleOpenTerritoryModal} 
               onNavigateToPrivacy={navigateToPrivacy}
               onNavigateToTerms={navigateToTerms}
+              onNavigateToSmsOptIn={navigateToSmsOptIn}
             />
 
             {/* FAQ Section */}
@@ -192,6 +226,7 @@ export default function App() {
             onNavigateHome={navigateToHome}
             onNavigateToPrivacy={navigateToPrivacy}
             onNavigateToTerms={navigateToTerms}
+            onNavigateToSmsOptIn={navigateToSmsOptIn}
           />
         </>
       )}
@@ -203,6 +238,7 @@ export default function App() {
         initialData={modalInitialData}
         onNavigateToPrivacy={navigateToPrivacy}
         onNavigateToTerms={navigateToTerms}
+        onNavigateToSmsOptIn={navigateToSmsOptIn}
       />
     </div>
   );

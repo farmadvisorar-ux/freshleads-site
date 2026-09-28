@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ShieldCheck, Phone, Zap, Menu, X, ArrowRight } from 'lucide-react';
 
-export default function Navbar({ onOpenTerritoryModal, onNavigateToBlog, onNavigateHome }) {
+export default function Navbar({ onOpenTerritoryModal, onNavigateToBlog, onNavigateHome, onNavigateToSmsOptIn }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -48,13 +48,22 @@ export default function Navbar({ onOpenTerritoryModal, onNavigateToBlog, onNavig
           </a>
 
           {/* Center Navigation Links (Desktop) */}
-          <div className="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-300">
+          <div className="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-300">
             <a href="#how-it-works" className="hover:text-fresh-orange transition-colors">How It Works</a>
             <a href="#lead-quality" className="hover:text-fresh-orange transition-colors">Lead Quality & Audio</a>
             <a href="#guarantee" className="hover:text-fresh-orange transition-colors">100% Guarantee</a>
             <a href="#consistency" className="hover:text-fresh-orange transition-colors">The 30+ Roofer Proof</a>
             <a href="#pricing" className="hover:text-fresh-orange transition-colors">Pricing</a>
             <a href="#faq" className="hover:text-fresh-orange transition-colors">FAQ</a>
+            {onNavigateToSmsOptIn && (
+              <button
+                type="button"
+                onClick={onNavigateToSmsOptIn}
+                className="hover:text-fresh-orange transition-colors cursor-pointer text-slate-300"
+              >
+                SMS Opt-In
+              </button>
+            )}
             <button
               type="button"
               onClick={onNavigateToBlog}
@@ -155,11 +164,21 @@ export default function Navbar({ onOpenTerritoryModal, onNavigateToBlog, onNavig
             <button 
               type="button" 
               onClick={() => { setMobileMenuOpen(false); onNavigateToBlog(); }} 
-              className="w-full text-left py-2 hover:text-fresh-orange font-bold text-fresh-orange flex items-center justify-between"
+              className="w-full text-left py-2 hover:text-fresh-orange font-bold text-fresh-orange flex items-center justify-between border-b border-fresh-border/50"
             >
               <span>Blog & 2026 Cost Guide</span>
               <span className="text-[10px] bg-fresh-orange text-slate-950 font-black px-2 py-0.5 rounded-full">New</span>
             </button>
+            {onNavigateToSmsOptIn && (
+              <button 
+                type="button" 
+                onClick={() => { setMobileMenuOpen(false); onNavigateToSmsOptIn(); }} 
+                className="w-full text-left py-2 hover:text-fresh-orange font-bold text-slate-200 flex items-center justify-between"
+              >
+                <span>SMS Opt-In & Alerts</span>
+                <span className="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded-full">TCPA</span>
+              </button>
+            )}
           </div>
 
           <button

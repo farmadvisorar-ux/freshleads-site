@@ -6,7 +6,8 @@ export default function Footer({
   onNavigateToBlog, 
   onNavigateHome,
   onNavigateToPrivacy,
-  onNavigateToTerms
+  onNavigateToTerms,
+  onNavigateToSmsOptIn
 }) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -90,6 +91,18 @@ export default function Footer({
                   </button>
                 </li>
               )}
+              {onNavigateToSmsOptIn && (
+                <li>
+                  <button 
+                    type="button" 
+                    onClick={onNavigateToSmsOptIn} 
+                    className="hover:text-fresh-orange transition-colors text-fresh-orange font-medium flex items-center gap-1.5"
+                  >
+                    <span>SMS Opt-In & Alerts</span>
+                    <span className="text-[9px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-1.5 py-0.2 rounded-full">TCPA</span>
+                  </button>
+                </li>
+              )}
             </ul>
           </div>
 
@@ -155,6 +168,18 @@ export default function Footer({
               Terms of Service & SMS
             </button>
             <span className="text-slate-600">•</span>
+            {onNavigateToSmsOptIn && (
+              <>
+                <button 
+                  type="button" 
+                  onClick={onNavigateToSmsOptIn} 
+                  className="text-slate-400 hover:text-fresh-orange underline transition-colors cursor-pointer"
+                >
+                  SMS Opt-In
+                </button>
+                <span className="text-slate-600">•</span>
+              </>
+            )}
             <span className="text-slate-300">Domain: <strong className="text-white">FreshLeads.llc</strong></span>
             <button
               onClick={scrollToTop}
