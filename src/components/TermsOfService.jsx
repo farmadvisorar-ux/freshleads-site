@@ -85,7 +85,7 @@ export default function TermsOfService({ onNavigateHome, onOpenTerritoryModal, o
 
             <div className="p-3.5 rounded-xl bg-fresh-card border border-fresh-border">
               <strong className="text-white block font-bold mb-1">Message Frequency:</strong>
-              <span>Message frequency varies depending on your selected lead volume package (e.g. 3, 5, 7, or 9+ appointments/week) and active storm weather events in your contracted county.</span>
+              <span>Message frequency varies depending on your selected lead volume package (e.g. 5, 7, 12, 20, or 25+ appointments/week) and active storm weather events in your contracted county.</span>
             </div>
 
             <div className="p-3.5 rounded-xl bg-fresh-card border border-fresh-border">

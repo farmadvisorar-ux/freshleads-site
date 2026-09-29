@@ -93,7 +93,7 @@ export default function PrivacyPolicy({ onNavigateHome, onOpenTerritoryModal }) 
           <ul className="list-disc pl-6 space-y-1.5 text-slate-300">
             <li><strong className="text-white">Contact Details:</strong> First and last name, business email address, company name, and direct telephone/mobile phone number.</li>
             <li><strong className="text-white">Territory Specifications:</strong> Desired target zip codes, counties, states, and storm swath markets.</li>
-            <li><strong className="text-white">Operational Parameters:</strong> Desired weekly lead volume package (e.g. Gold, Platinum, Diamond, Titanium Elite) and roof inspection crew capacity.</li>
+            <li><strong className="text-white">Operational Parameters:</strong> Desired weekly lead volume package (e.g. 5, 7, 12, 20, or 25+ Enterprise) and roof inspection crew capacity.</li>
             <li><strong className="text-white">Communications Records:</strong> Call notes, correspondence via email, and call recordings conducted with our setters or customer success agents for quality assurance and training purposes.</li>
           </ul>
         </section>

@@ -9,7 +9,7 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
     companyName: '',
     phone: '',
     email: '',
-    leadVolume: 'Platinum Package (5 Leads / Week)',
+    leadVolume: '7 Leads / Week Package',
     zipOrCounty: '',
     smsConsent: false
   });
@@ -18,44 +18,44 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
 
   const tiers = [
     {
-      id: "gold",
-      name: "Gold Package",
+      id: "5-leads",
+      name: "5 Leads / Week",
       icon: Award,
-      badgeText: "Starter Consistency",
+      badgeText: "Starter Pace",
       badgeColor: "bg-amber-500/20 text-amber-300 border-amber-500/30",
       accentBorder: "border-amber-500/30 hover:border-amber-400/80",
       tagline: "For solo owners or 1-2 hungry estimators",
-      volume: "3 Leads",
+      volume: "5 Leads",
       frequency: "/ week",
-      monthlyEquivalent: "~12 pre-set inspections / mo",
+      monthlyEquivalent: "~20 pre-set inspections / mo",
       description: "Consistent weekly flow to establish predictable roof walk momentum without cold-knocking doors.",
       popular: false,
       features: [
-        "3 Pre-Set Homeowner Inspections / Week",
+        "5 Pre-Set Homeowner Inspections / Week",
         "100% Call Audio Recordings Included",
         "Active Homeowner Insurance Confirmed",
         "Storm Date Within Legal Statute",
         "100% Lead Replacement Guarantee",
         "Direct SMS & Email Dispatch",
-        "Single County Exclusivity"
+        "Single County Territory Protection"
       ],
-      cta: "Claim Gold (3/wk)"
+      cta: "Claim 5 Leads / Wk"
     },
     {
-      id: "platinum",
-      name: "Platinum Package",
+      id: "7-leads",
+      name: "7 Leads / Week",
       icon: Crown,
-      badgeText: "Most Popular • Better Than Gold",
+      badgeText: "Most Popular • High Producer",
       badgeColor: "bg-fresh-orange text-slate-950 font-black border-fresh-orange",
       accentBorder: "border-2 border-fresh-orange shadow-orange-glow",
       tagline: "The sweet spot for scaling 2-3 sales reps",
-      volume: "5 Leads",
+      volume: "7 Leads",
       frequency: "/ week",
-      monthlyEquivalent: "~20 pre-set inspections / mo",
-      description: "Our top-rated consistency pace. Keeps your top field reps continually closing 7 to 10+ signed insurance jobs a month.",
+      monthlyEquivalent: "~28 pre-set inspections / mo",
+      description: "Our top-rated consistency pace. Keeps your top field reps continually closing 8 to 12+ signed insurance jobs a month.",
       popular: true,
       features: [
-        "5 Pre-Set Homeowner Inspections / Week",
+        "7 Pre-Set Homeowner Inspections / Week",
         "100% Call Audio Recordings Included",
         "Active Homeowner Insurance Confirmed",
         "Storm Date Within Legal Statute",
@@ -64,23 +64,23 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
         "Full County Territory Exclusivity",
         "Direct Calendar & CRM Support"
       ],
-      cta: "Claim Platinum (5/wk)"
+      cta: "Claim 7 Leads / Wk"
     },
     {
-      id: "diamond",
-      name: "Diamond Package",
+      id: "12-leads",
+      name: "12 Leads / Week",
       icon: Gem,
-      badgeText: "High Producer • Better Than Platinum",
+      badgeText: "Accelerated Growth",
       badgeColor: "bg-cyan-500/20 text-cyan-300 border-cyan-500/40",
       accentBorder: "border-cyan-500/30 hover:border-cyan-400/80",
-      tagline: "For established storm restoration powerhouses",
-      volume: "7 Leads",
+      tagline: "For expanding teams & multi-rep branches",
+      volume: "12 Leads",
       frequency: "/ week",
-      monthlyEquivalent: "~28 pre-set inspections / mo",
-      description: "High-volume acceleration. One confirmed roof inspection booked for your team every single business day.",
+      monthlyEquivalent: "~48 pre-set inspections / mo",
+      description: "High-volume acceleration. Multiple confirmed roof inspections booked for your estimators every single day.",
       popular: false,
       features: [
-        "7 Pre-Set Homeowner Inspections / Week",
+        "12 Pre-Set Homeowner Inspections / Week",
         "100% Call Audio Recordings Included",
         "Active Homeowner Insurance Confirmed",
         "Storm Date Within Legal Statute",
@@ -89,32 +89,57 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
         "Multi-County Territory Coverage",
         "Direct Webhook to JobNimbus / AccuLynx"
       ],
-      cta: "Claim Diamond (7/wk)"
+      cta: "Claim 12 Leads / Wk"
     },
     {
-      id: "titanium",
-      name: "Titanium Elite Package",
+      id: "20-leads",
+      name: "20 Leads / Week",
       icon: Sparkles,
-      badgeText: "Market Dominance • Total Lockout",
+      badgeText: "Market Dominance",
       badgeColor: "bg-purple-500/20 text-purple-300 border-purple-500/40",
       accentBorder: "border-purple-500/30 hover:border-purple-400/80",
-      tagline: "Complete county lockout for multi-crew operators",
-      volume: "9+ Leads",
+      tagline: "High-capacity volume for multi-crew operators",
+      volume: "20 Leads",
       frequency: "/ week",
-      monthlyEquivalent: "36+ pre-set inspections / mo",
-      description: "Maximum market dominance. We lock out competitors in your county and build a dedicated pod around your company.",
+      monthlyEquivalent: "~80 pre-set inspections / mo",
+      description: "Complete county takeover. 4 daily inspections to keep 4-6 sales reps fully booked across your service area.",
       popular: false,
       features: [
-        "9 to 15+ Inspections / Week (Custom Pod)",
+        "20 Pre-Set Homeowner Inspections / Week",
         "100% Call Audio Recordings Included",
         "Active Homeowner Insurance Confirmed",
         "Storm Date Within Legal Statute",
         "100% Lead Replacement Guarantee",
-        "Total Competitor Lockout in County",
-        "Senior Setter Management Hotline",
-        "Enterprise CRM & Calendar Sync"
+        "Dedicated Full-Time Setter Pod",
+        "Regional Territory Lockout",
+        "Priority Lead Dispatch & Real-Time Sync"
       ],
-      cta: "Claim Titanium (9+/wk)"
+      cta: "Claim 20 Leads / Wk"
+    },
+    {
+      id: "25-enterprise",
+      name: "25+ Enterprise",
+      icon: Building2,
+      badgeText: "Custom Pod • Total Lockout",
+      badgeColor: "bg-emerald-500/20 text-emerald-300 border-emerald-500/40",
+      accentBorder: "border-emerald-500/30 hover:border-emerald-400/80",
+      tagline: "Exclusive dedicated pod for regional powerhouses",
+      volume: "25+ Leads",
+      frequency: "/ week",
+      monthlyEquivalent: "100+ pre-set inspections / mo",
+      description: "Total competitor lockout. We build and dedicate an exclusive outbound storm setter team solely focused on your brand.",
+      popular: false,
+      features: [
+        "25+ Inspections / Week (Custom Pod Capacity)",
+        "100% Call Audio Recordings Included",
+        "Active Homeowner Insurance Confirmed",
+        "Storm Date Within Legal Statute",
+        "100% Lead Replacement Guarantee",
+        "Total Competitor Lockout in Target Markets",
+        "Dedicated Account Director & Daily War Room",
+        "Enterprise CRM, Custom API & Webhook Sync"
+      ],
+      cta: "Claim 25+ Enterprise"
     }
   ];
 
@@ -155,15 +180,15 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
           </p>
         </div>
 
-        {/* 4 Weekly Pricing Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch mb-16">
+        {/* 5 Weekly Pricing Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 items-stretch mb-16">
           {tiers.map((tier) => {
             const TierIcon = tier.icon;
             return (
               <div
                 key={tier.id}
-                className={`rounded-2xl flex flex-col justify-between transition-all duration-300 relative bg-fresh-card p-6 sm:p-7 ${
-                  tier.popular ? 'lg:-translate-y-2' : ''
+                className={`rounded-2xl flex flex-col justify-between transition-all duration-300 relative bg-fresh-card p-5 sm:p-6 ${
+                  tier.popular ? 'xl:-translate-y-2' : ''
                 } ${tier.accentBorder}`}
               >
                 {/* Popular Pill */}
@@ -176,40 +201,40 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
 
                 <div>
                   {/* Tier Badge & Name */}
-                  <div className="mb-5">
-                    <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wider border mb-2.5 ${tier.badgeColor}`}>
+                  <div className="mb-4">
+                    <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider border mb-2 ${tier.badgeColor}`}>
                       <TierIcon className="w-3.5 h-3.5" />
                       <span>{tier.badgeText}</span>
                     </div>
-                    <h3 className="text-2xl font-black text-white">{tier.name}</h3>
+                    <h3 className="text-xl sm:text-2xl font-black text-white">{tier.name}</h3>
                     <p className="text-xs text-slate-400 font-medium mt-1 leading-snug">{tier.tagline}</p>
                   </div>
 
                   {/* Volume Display */}
-                  <div className="pb-5 mb-5 border-b border-fresh-border">
+                  <div className="pb-4 mb-4 border-b border-fresh-border">
                     <div className="flex items-baseline gap-1.5">
-                      <span className="text-3xl sm:text-4xl font-black text-white">{tier.volume}</span>
-                      <span className="text-fresh-orange text-sm font-bold uppercase">{tier.frequency}</span>
+                      <span className="text-2xl sm:text-3xl font-black text-white">{tier.volume}</span>
+                      <span className="text-fresh-orange text-xs sm:text-sm font-bold uppercase">{tier.frequency}</span>
                     </div>
                     <span className="text-[11px] text-emerald-400 font-semibold block mt-1">
                       {tier.monthlyEquivalent}
                     </span>
-                    <p className="text-xs text-slate-300 mt-2.5 leading-relaxed">
+                    <p className="text-xs text-slate-300 mt-2 leading-relaxed">
                       {tier.description}
                     </p>
                   </div>
 
                   {/* Feature List */}
-                  <div className="space-y-2.5 mb-6">
+                  <div className="space-y-2 mb-6">
                     <span className="text-[10px] uppercase font-extrabold text-slate-400 tracking-wider block">
                       Package Includes:
                     </span>
                     {tier.features.map((feat, fIdx) => (
-                      <div key={fIdx} className="flex items-start gap-2 text-xs text-slate-200">
+                      <div key={fIdx} className="flex items-start gap-1.5 text-xs text-slate-200">
                         <div className="w-3.5 h-3.5 rounded-full bg-fresh-orange/20 text-fresh-orange flex items-center justify-center shrink-0 mt-0.5">
                           <Check className="w-2.5 h-2.5 stroke-[3]" />
                         </div>
-                        <span>{feat}</span>
+                        <span className="leading-snug">{feat}</span>
                       </div>
                     ))}
                   </div>
@@ -218,7 +243,7 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
                 {/* Card CTA Button */}
                 <div className="pt-2">
                   <button
-                    onClick={() => onOpenTerritoryModal({ volume: `${tier.name} (${tier.volume} / Week)` })}
+                    onClick={() => onOpenTerritoryModal({ volume: `${tier.name} Package` })}
                     className={`w-full py-3.5 rounded-xl font-black text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer ${
                       tier.popular
                         ? 'bg-fresh-orange hover:bg-fresh-orangeHover text-slate-950 shadow-orange-sm hover:scale-[1.02]'
@@ -369,11 +394,11 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
                     onChange={handleInlineChange}
                     className="w-full px-4 py-3 bg-fresh-dark border border-fresh-border rounded-xl text-white focus:outline-none focus:border-fresh-orange text-sm font-medium cursor-pointer"
                   >
-                    <option value="Gold Package (3 Leads / Week)">Gold Package (3 Leads / Week)</option>
-                    <option value="Platinum Package (5 Leads / Week)">Platinum Package (5 Leads / Week) - Most Popular</option>
-                    <option value="Diamond Package (7 Leads / Week)">Diamond Package (7 Leads / Week)</option>
-                    <option value="Titanium Elite Package (9+ Leads / Week)">Titanium Elite Package (9+ Leads / Week)</option>
-                    <option value="Custom Enterprise Volume">Custom Enterprise Volume (10+ Leads / Week)</option>
+                    <option value="5 Leads / Week Package">5 Leads / Week Package</option>
+                    <option value="7 Leads / Week Package">7 Leads / Week Package - Most Popular</option>
+                    <option value="12 Leads / Week Package">12 Leads / Week Package</option>
+                    <option value="20 Leads / Week Package">20 Leads / Week Package</option>
+                    <option value="25+ Enterprise Package">25+ Enterprise Package (25+ Leads / Week)</option>
                   </select>
                 </div>
 

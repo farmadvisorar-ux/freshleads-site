@@ -14,7 +14,7 @@ export default function TerritoryCheckerModal({
 
   const [formData, setFormData] = useState({
     zipOrCounty: initialData.zipOrCounty || '',
-    leadVolume: initialData.volume || 'Platinum Package (5 Leads / Week)',
+    leadVolume: initialData.volume || '7 Leads / Week Package',
     contactName: '',
     companyName: '',
     email: '',
@@ -160,11 +160,11 @@ export default function TerritoryCheckerModal({
                   onChange={handleInputChange}
                   className="w-full bg-fresh-card border border-fresh-border rounded-lg text-white font-bold text-sm px-3 py-2 focus:outline-none focus:border-fresh-orange cursor-pointer"
                 >
-                  <option value="Gold Package (3 Leads / Week)">Gold Package (3 Leads / Week)</option>
-                  <option value="Platinum Package (5 Leads / Week)">Platinum Package (5 Leads / Week) - Most Popular</option>
-                  <option value="Diamond Package (7 Leads / Week)">Diamond Package (7 Leads / Week)</option>
-                  <option value="Titanium Elite Package (9+ Leads / Week)">Titanium Elite Package (9+ Leads / Week)</option>
-                  <option value="Custom Enterprise Volume">Custom Enterprise Volume (10+ Leads / Week)</option>
+                  <option value="5 Leads / Week Package">5 Leads / Week Package</option>
+                  <option value="7 Leads / Week Package">7 Leads / Week Package - Most Popular</option>
+                  <option value="12 Leads / Week Package">12 Leads / Week Package</option>
+                  <option value="20 Leads / Week Package">20 Leads / Week Package</option>
+                  <option value="25+ Enterprise Package">25+ Enterprise Package (25+ Leads / Week)</option>
                 </select>
               </div>
 
