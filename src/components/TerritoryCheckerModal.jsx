@@ -14,7 +14,7 @@ export default function TerritoryCheckerModal({
 
   const [formData, setFormData] = useState({
     zipOrCounty: initialData.zipOrCounty || '',
-    leadVolume: initialData.volume || '7 Leads / Week Package',
+    leadVolume: initialData.volume || '7 Leads / Week (Weekly - $1,650)',
     contactName: '',
     companyName: '',
     email: '',
@@ -160,11 +160,34 @@ export default function TerritoryCheckerModal({
                   onChange={handleInputChange}
                   className="w-full bg-fresh-card border border-fresh-border rounded-lg text-white font-bold text-sm px-3 py-2 focus:outline-none focus:border-fresh-orange cursor-pointer"
                 >
-                  <option value="5 Leads / Week Package">5 Leads / Week Package</option>
-                  <option value="7 Leads / Week Package">7 Leads / Week Package - Most Popular</option>
-                  <option value="12 Leads / Week Package">12 Leads / Week Package</option>
-                  <option value="20 Leads / Week Package">20 Leads / Week Package</option>
-                  <option value="25+ Enterprise Package">25+ Enterprise Package (25+ Leads / Week)</option>
+                  <optgroup label="Weekly Billing Packages">
+                    <option value="5 Leads / Week (Weekly - $1,250)">5 Leads / Week ($1,250 / week)</option>
+                    <option value="7 Leads / Week (Weekly - $1,650)">7 Leads / Week ($1,650 / week) - Most Popular</option>
+                    <option value="12 Leads / Week (Weekly - $2,650)">12 Leads / Week ($2,650 / week)</option>
+                    <option value="20 Leads / Week (Weekly - $4,000)">20 Leads / Week ($4,000 / week)</option>
+                    <option value="25+ Enterprise (Weekly - $4,950+)">25+ Enterprise ($4,950+ / week)</option>
+                  </optgroup>
+                  <optgroup label="Monthly Billing Packages (Discounted)">
+                    <option value="5 Leads / Week (Monthly - $4,500)">5 Leads / Week ($4,500 / month - Save $500)</option>
+                    <option value="7 Leads / Week (Monthly - $5,900)">7 Leads / Week ($5,900 / month - Save $700)</option>
+                    <option value="12 Leads / Week (Monthly - $9,400)">12 Leads / Week ($9,400 / month - Save $1,200)</option>
+                    <option value="20 Leads / Week (Monthly - $14,200)">20 Leads / Week ($14,200 / month - Save $1,800)</option>
+                    <option value="25+ Enterprise (Monthly - $17,500+)">25+ Enterprise ($17,500+ / month - Save $2,300+)</option>
+                  </optgroup>
+                  {formData.leadVolume && ![
+                    '5 Leads / Week (Weekly - $1,250)',
+                    '7 Leads / Week (Weekly - $1,650)',
+                    '12 Leads / Week (Weekly - $2,650)',
+                    '20 Leads / Week (Weekly - $4,000)',
+                    '25+ Enterprise (Weekly - $4,950+)',
+                    '5 Leads / Week (Monthly - $4,500)',
+                    '7 Leads / Week (Monthly - $5,900)',
+                    '12 Leads / Week (Monthly - $9,400)',
+                    '20 Leads / Week (Monthly - $14,200)',
+                    '25+ Enterprise (Monthly - $17,500+)'
+                  ].includes(formData.leadVolume) && (
+                    <option value={formData.leadVolume}>{formData.leadVolume}</option>
+                  )}
                 </select>
               </div>
 

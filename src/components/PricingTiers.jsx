@@ -9,12 +9,57 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
     companyName: '',
     phone: '',
     email: '',
-    leadVolume: '7 Leads / Week Package',
+    leadVolume: '7 Leads / Week ($1,650 / week) - Most Popular',
     zipOrCounty: '',
     smsConsent: false
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+
+  // Billing cycle per tier: 'weekly' | 'monthly'
+  const [billingCycles, setBillingCycles] = useState({
+    '5-leads': 'weekly',
+    '7-leads': 'weekly',
+    '12-leads': 'weekly',
+    '20-leads': 'weekly',
+    '25-enterprise': 'weekly',
+  });
+
+  const setAllBilling = (cycle) => {
+    setBillingCycles({
+      '5-leads': cycle,
+      '7-leads': cycle,
+      '12-leads': cycle,
+      '20-leads': cycle,
+      '25-enterprise': cycle,
+    });
+  };
+
+  const setCardBilling = (tierId, cycle) => {
+    setBillingCycles((prev) => ({ ...prev, [tierId]: cycle }));
+  };
+
+  const allWeekly = Object.values(billingCycles).every((c) => c === 'weekly');
+  const allMonthly = Object.values(billingCycles).every((c) => c === 'monthly');
+
+  const handleCtaClick = (e, tier, cycle) => {
+    const currentPricing = tier.pricing[cycle];
+    const targetLink = currentPricing.link;
+
+    // If external payment URL (e.g. direct Stripe checkout buy.stripe.com)
+    if (targetLink && targetLink.startsWith('https://buy.stripe.com')) {
+      return; // Follow link directly
+    }
+
+    // Default action: open territory & onboarding modal with selected tier + cycle pre-filled
+    e.preventDefault();
+    onOpenTerritoryModal({
+      volume: `${tier.name} (${cycle === 'weekly' ? 'Weekly' : 'Monthly'} - ${currentPricing.price})`,
+      billing: cycle,
+      price: currentPricing.price,
+      checkoutUrl: targetLink
+    });
+  };
 
   const tiers = [
     {
@@ -25,11 +70,31 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
       badgeColor: "bg-amber-500/20 text-amber-300 border-amber-500/30",
       accentBorder: "border-amber-500/30 hover:border-amber-400/80",
       tagline: "For solo owners or 1-2 hungry estimators",
-      volume: "5 Leads",
-      frequency: "/ week",
-      monthlyEquivalent: "~20 pre-set inspections / mo",
-      description: "Consistent weekly flow to establish predictable roof walk momentum without cold-knocking doors.",
       popular: false,
+      pricing: {
+        weekly: {
+          price: "$1,250",
+          period: "/ week",
+          rate: "$250 / pre-set inspection",
+          leadCount: "5 Pre-Set Leads / Wk",
+          monthlyEquivalent: "~20 pre-set inspections / mo",
+          subtext: "Consistent weekly flow to establish predictable momentum. Billed weekly.",
+          savingsBadge: null,
+          cta: "Claim 5 Leads / Wk ($1,250)",
+          link: "https://freshleads.llc/checkout/5-leads-weekly"
+        },
+        monthly: {
+          price: "$4,500",
+          period: "/ month",
+          rate: "$225 / pre-set inspection",
+          leadCount: "20 Pre-Set Leads / Mo",
+          monthlyEquivalent: "5 pre-set inspections / week",
+          subtext: "Save $500/mo with monthly billing. Priority setter allocation reserved.",
+          savingsBadge: "Save $500/mo",
+          cta: "Claim 20 Leads / Mo ($4,500)",
+          link: "https://freshleads.llc/checkout/5-leads-monthly"
+        }
+      },
       features: [
         "5 Pre-Set Homeowner Inspections / Week",
         "100% Call Audio Recordings Included",
@@ -38,8 +103,7 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
         "100% Lead Replacement Guarantee",
         "Direct SMS & Email Dispatch",
         "Single County Territory Protection"
-      ],
-      cta: "Claim 5 Leads / Wk"
+      ]
     },
     {
       id: "7-leads",
@@ -49,11 +113,31 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
       badgeColor: "bg-fresh-orange text-slate-950 font-black border-fresh-orange",
       accentBorder: "border-2 border-fresh-orange shadow-orange-glow",
       tagline: "The sweet spot for scaling 2-3 sales reps",
-      volume: "7 Leads",
-      frequency: "/ week",
-      monthlyEquivalent: "~28 pre-set inspections / mo",
-      description: "Our top-rated consistency pace. Keeps your top field reps continually closing 8 to 12+ signed insurance jobs a month.",
       popular: true,
+      pricing: {
+        weekly: {
+          price: "$1,650",
+          period: "/ week",
+          rate: "$235 / pre-set inspection",
+          leadCount: "7 Pre-Set Leads / Wk",
+          monthlyEquivalent: "~28 pre-set inspections / mo",
+          subtext: "Our top-rated pace. One confirmed inspection booked every business day.",
+          savingsBadge: null,
+          cta: "Claim 7 Leads / Wk ($1,650)",
+          link: "https://freshleads.llc/checkout/7-leads-weekly"
+        },
+        monthly: {
+          price: "$5,900",
+          period: "/ month",
+          rate: "$210 / pre-set inspection",
+          leadCount: "28 Pre-Set Leads / Mo",
+          monthlyEquivalent: "7 pre-set inspections / week",
+          subtext: "Save $700/mo. Keeps estimators closing 8-12+ signed insurance claims monthly.",
+          savingsBadge: "Save $700/mo",
+          cta: "Claim 28 Leads / Mo ($5,900)",
+          link: "https://freshleads.llc/checkout/7-leads-monthly"
+        }
+      },
       features: [
         "7 Pre-Set Homeowner Inspections / Week",
         "100% Call Audio Recordings Included",
@@ -63,8 +147,7 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
         "Priority Setter Queue & Fast Dispatch",
         "Full County Territory Exclusivity",
         "Direct Calendar & CRM Support"
-      ],
-      cta: "Claim 7 Leads / Wk"
+      ]
     },
     {
       id: "12-leads",
@@ -74,11 +157,31 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
       badgeColor: "bg-cyan-500/20 text-cyan-300 border-cyan-500/40",
       accentBorder: "border-cyan-500/30 hover:border-cyan-400/80",
       tagline: "For expanding teams & multi-rep branches",
-      volume: "12 Leads",
-      frequency: "/ week",
-      monthlyEquivalent: "~48 pre-set inspections / mo",
-      description: "High-volume acceleration. Multiple confirmed roof inspections booked for your estimators every single day.",
       popular: false,
+      pricing: {
+        weekly: {
+          price: "$2,650",
+          period: "/ week",
+          rate: "$220 / pre-set inspection",
+          leadCount: "12 Pre-Set Leads / Wk",
+          monthlyEquivalent: "~48 pre-set inspections / mo",
+          subtext: "High-volume acceleration. Multiple confirmed roof walks booked daily.",
+          savingsBadge: null,
+          cta: "Claim 12 Leads / Wk ($2,650)",
+          link: "https://freshleads.llc/checkout/12-leads-weekly"
+        },
+        monthly: {
+          price: "$9,400",
+          period: "/ month",
+          rate: "$195 / pre-set inspection",
+          leadCount: "48 Pre-Set Leads / Mo",
+          monthlyEquivalent: "12 pre-set inspections / week",
+          subtext: "Save $1,200/mo. Dedicated setter pod allocated across target counties.",
+          savingsBadge: "Save $1,200/mo",
+          cta: "Claim 48 Leads / Mo ($9,400)",
+          link: "https://freshleads.llc/checkout/12-leads-monthly"
+        }
+      },
       features: [
         "12 Pre-Set Homeowner Inspections / Week",
         "100% Call Audio Recordings Included",
@@ -88,8 +191,7 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
         "Dedicated Setter Team Allocation",
         "Multi-County Territory Coverage",
         "Direct Webhook to JobNimbus / AccuLynx"
-      ],
-      cta: "Claim 12 Leads / Wk"
+      ]
     },
     {
       id: "20-leads",
@@ -99,11 +201,31 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
       badgeColor: "bg-purple-500/20 text-purple-300 border-purple-500/40",
       accentBorder: "border-purple-500/30 hover:border-purple-400/80",
       tagline: "High-capacity volume for multi-crew operators",
-      volume: "20 Leads",
-      frequency: "/ week",
-      monthlyEquivalent: "~80 pre-set inspections / mo",
-      description: "Complete county takeover. 4 daily inspections to keep 4-6 sales reps fully booked across your service area.",
       popular: false,
+      pricing: {
+        weekly: {
+          price: "$4,000",
+          period: "/ week",
+          rate: "$200 / pre-set inspection",
+          leadCount: "20 Pre-Set Leads / Wk",
+          monthlyEquivalent: "~80 pre-set inspections / mo",
+          subtext: "County dominance. 4 daily inspections to keep 4-6 estimators fully booked.",
+          savingsBadge: null,
+          cta: "Claim 20 Leads / Wk ($4,000)",
+          link: "https://freshleads.llc/checkout/20-leads-weekly"
+        },
+        monthly: {
+          price: "$14,200",
+          period: "/ month",
+          rate: "$177 / pre-set inspection",
+          leadCount: "80 Pre-Set Leads / Mo",
+          monthlyEquivalent: "20 pre-set inspections / week",
+          subtext: "Save $1,800/mo. Dedicated full-time setter pod locked to your brand.",
+          savingsBadge: "Save $1,800/mo",
+          cta: "Claim 80 Leads / Mo ($14,200)",
+          link: "https://freshleads.llc/checkout/20-leads-monthly"
+        }
+      },
       features: [
         "20 Pre-Set Homeowner Inspections / Week",
         "100% Call Audio Recordings Included",
@@ -113,8 +235,7 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
         "Dedicated Full-Time Setter Pod",
         "Regional Territory Lockout",
         "Priority Lead Dispatch & Real-Time Sync"
-      ],
-      cta: "Claim 20 Leads / Wk"
+      ]
     },
     {
       id: "25-enterprise",
@@ -124,11 +245,31 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
       badgeColor: "bg-emerald-500/20 text-emerald-300 border-emerald-500/40",
       accentBorder: "border-emerald-500/30 hover:border-emerald-400/80",
       tagline: "Exclusive dedicated pod for regional powerhouses",
-      volume: "25+ Leads",
-      frequency: "/ week",
-      monthlyEquivalent: "100+ pre-set inspections / mo",
-      description: "Total competitor lockout. We build and dedicate an exclusive outbound storm setter team solely focused on your brand.",
       popular: false,
+      pricing: {
+        weekly: {
+          price: "$4,950+",
+          period: "/ week",
+          rate: "Custom volume rate",
+          leadCount: "25+ Leads / Wk (Custom)",
+          monthlyEquivalent: "100+ pre-set inspections / mo",
+          subtext: "Total competitor lockout. Custom pod built exclusively around your company.",
+          savingsBadge: null,
+          cta: "Claim 25+ Enterprise",
+          link: "https://freshleads.llc/checkout/25-enterprise-weekly"
+        },
+        monthly: {
+          price: "$17,500+",
+          period: "/ month",
+          rate: "Discounted custom rate",
+          leadCount: "100+ Leads / Mo (Custom)",
+          monthlyEquivalent: "25+ pre-set inspections / week",
+          subtext: "Save $2,300+/mo. Senior setter manager & daily inspection war room.",
+          savingsBadge: "Save $2,300+/mo",
+          cta: "Claim 25+ Enterprise",
+          link: "https://freshleads.llc/checkout/25-enterprise-monthly"
+        }
+      },
       features: [
         "25+ Inspections / Week (Custom Pod Capacity)",
         "100% Call Audio Recordings Included",
@@ -138,8 +279,7 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
         "Total Competitor Lockout in Target Markets",
         "Dedicated Account Director & Daily War Room",
         "Enterprise CRM, Custom API & Webhook Sync"
-      ],
-      cta: "Claim 25+ Enterprise"
+      ]
     }
   ];
 
@@ -166,24 +306,58 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-fresh-card border border-fresh-border text-xs uppercase font-extrabold tracking-wider text-fresh-orange mb-3">
             <Zap className="w-4 h-4 text-fresh-orange" />
-            <span>Customized Weekly Lead Schedules</span>
+            <span>Weekly & Monthly Flexible Lead Schedules</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
-            Predictable Weekly Volume. <br />
+            Predictable Lead Flow. <br />
             <span className="orange-gradient-text">Zero Lead-Buying Risk.</span>
           </h2>
           <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
-            Choose your weekly appointment volume. Every tier is backed by our 100% replacement guarantee: <strong className="text-white">if you do not meet with the homeowner or are not allowed on the roof, we replace the lead. Simple as that.</strong>
+            Choose between weekly flexibility or discounted monthly consistency. Every tier is backed by our 100% replacement guarantee: <strong className="text-white">if you do not meet with the homeowner or are not allowed on the roof, we replace the lead.</strong>
           </p>
         </div>
 
-        {/* 5 Weekly Pricing Cards Grid */}
+        {/* Master Billing Cycle Toggle */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-12">
+          <div className="inline-flex p-1.5 rounded-2xl bg-fresh-card border-2 border-fresh-border shadow-xl">
+            <button
+              type="button"
+              onClick={() => setAllBilling('weekly')}
+              className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold uppercase tracking-wider transition-all cursor-pointer ${
+                allWeekly
+                  ? 'bg-fresh-orange text-slate-950 shadow-orange-sm scale-[1.02]'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              Weekly Billing
+            </button>
+            <button
+              type="button"
+              onClick={() => setAllBilling('monthly')}
+              className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer ${
+                allMonthly
+                  ? 'bg-fresh-orange text-slate-950 shadow-orange-sm scale-[1.02]'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              <span>Monthly Billing</span>
+              <span className="px-2 py-0.5 text-[10px] font-black rounded-full bg-emerald-500 text-slate-950 uppercase tracking-tight">
+                Save Up To $2,300/mo
+              </span>
+            </button>
+          </div>
+        </div>
+
+        {/* 5 Weekly / Monthly Pricing Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 items-stretch mb-16">
           {tiers.map((tier) => {
             const TierIcon = tier.icon;
+            const currentCycle = billingCycles[tier.id] || 'weekly';
+            const currentPricing = tier.pricing[currentCycle];
+
             return (
               <div
                 key={tier.id}
@@ -193,13 +367,46 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
               >
                 {/* Popular Pill */}
                 {tier.popular && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-fresh-orange text-slate-950 text-[10px] font-black uppercase tracking-wider px-3.5 py-1 rounded-full shadow-orange-sm flex items-center gap-1 shrink-0 whitespace-nowrap">
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-fresh-orange text-slate-950 text-[10px] font-black uppercase tracking-wider px-3.5 py-1 rounded-full shadow-orange-sm flex items-center gap-1 shrink-0 whitespace-nowrap z-10">
                     <Star className="w-3 h-3 fill-slate-950 text-slate-950" />
                     <span>Most Popular Choice</span>
                   </div>
                 )}
 
                 <div>
+                  {/* Dedicated Week / Month Toggle on top of each card */}
+                  <div className="bg-fresh-dark/95 p-1 rounded-xl border border-fresh-border flex items-center justify-between gap-1 mb-4 select-none">
+                    <button
+                      type="button"
+                      onClick={() => setCardBilling(tier.id, 'weekly')}
+                      className={`flex-1 py-1.5 px-2 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all cursor-pointer ${
+                        currentCycle === 'weekly'
+                          ? 'bg-fresh-orange text-slate-950 shadow-orange-sm'
+                          : 'text-slate-400 hover:text-white'
+                      }`}
+                    >
+                      Week
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setCardBilling(tier.id, 'monthly')}
+                      className={`flex-1 py-1.5 px-2 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all flex items-center justify-center gap-1 cursor-pointer ${
+                        currentCycle === 'monthly'
+                          ? 'bg-fresh-orange text-slate-950 shadow-orange-sm'
+                          : 'text-slate-400 hover:text-white'
+                      }`}
+                    >
+                      <span>Month</span>
+                      {tier.pricing.monthly.savingsBadge && (
+                        <span className={`text-[8px] px-1 py-0.2 rounded font-black tracking-tight ${
+                          currentCycle === 'monthly' ? 'bg-slate-950 text-fresh-orange' : 'bg-emerald-500/20 text-emerald-400'
+                        }`}>
+                          SAVE
+                        </span>
+                      )}
+                    </button>
+                  </div>
+
                   {/* Tier Badge & Name */}
                   <div className="mb-4">
                     <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider border mb-2 ${tier.badgeColor}`}>
@@ -210,17 +417,34 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
                     <p className="text-xs text-slate-400 font-medium mt-1 leading-snug">{tier.tagline}</p>
                   </div>
 
-                  {/* Volume Display */}
+                  {/* Price & Billing Display */}
                   <div className="pb-4 mb-4 border-b border-fresh-border">
                     <div className="flex items-baseline gap-1.5">
-                      <span className="text-2xl sm:text-3xl font-black text-white">{tier.volume}</span>
-                      <span className="text-fresh-orange text-xs sm:text-sm font-bold uppercase">{tier.frequency}</span>
+                      <span className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+                        {currentPricing.price}
+                      </span>
+                      <span className="text-fresh-orange text-xs sm:text-sm font-bold uppercase">
+                        {currentPricing.period}
+                      </span>
                     </div>
-                    <span className="text-[11px] text-emerald-400 font-semibold block mt-1">
-                      {tier.monthlyEquivalent}
+
+                    <div className="flex items-center justify-between mt-1 text-[11px]">
+                      <span className="text-emerald-400 font-bold">
+                        {currentPricing.leadCount}
+                      </span>
+                      {currentCycle === 'monthly' && currentPricing.savingsBadge && (
+                        <span className="text-fresh-orange font-extrabold bg-fresh-orange/15 border border-fresh-orange/30 px-1.5 py-0.5 rounded text-[10px]">
+                          {currentPricing.savingsBadge}
+                        </span>
+                      )}
+                    </div>
+
+                    <span className="text-[10px] text-slate-400 block mt-1 font-mono">
+                      {currentPricing.rate}
                     </span>
+
                     <p className="text-xs text-slate-300 mt-2 leading-relaxed">
-                      {tier.description}
+                      {currentPricing.subtext}
                     </p>
                   </div>
 
@@ -240,19 +464,28 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
                   </div>
                 </div>
 
-                {/* Card CTA Button */}
+                {/* Card CTA Button with Dynamic Link */}
                 <div className="pt-2">
-                  <button
-                    onClick={() => onOpenTerritoryModal({ volume: `${tier.name} Package` })}
+                  <a
+                    href={currentPricing.link}
+                    onClick={(e) => handleCtaClick(e, tier, currentCycle)}
+                    target={currentPricing.link.startsWith('http') && !currentPricing.link.includes('freshleads.llc/checkout') ? '_blank' : '_self'}
+                    rel="noopener noreferrer"
                     className={`w-full py-3.5 rounded-xl font-black text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer ${
                       tier.popular
                         ? 'bg-fresh-orange hover:bg-fresh-orangeHover text-slate-950 shadow-orange-sm hover:scale-[1.02]'
                         : 'bg-fresh-dark hover:bg-fresh-cardHover text-white border border-fresh-border hover:border-fresh-orange/50'
                     }`}
                   >
-                    <span>{tier.cta}</span>
+                    <span>{currentPricing.cta}</span>
                     <ArrowRight className={`w-3.5 h-3.5 ${tier.popular ? 'text-slate-950' : 'text-white'}`} />
-                  </button>
+                  </a>
+                  <div className="text-center mt-2">
+                    <span className="text-[10px] text-slate-400 flex items-center justify-center gap-1">
+                      <ShieldCheck className="w-3 h-3 text-emerald-400" />
+                      <span>100% Replacement Guarantee</span>
+                    </span>
+                  </div>
                 </div>
 
               </div>
@@ -384,21 +617,30 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
                 <div>
                   <label htmlFor="inlineLeadVolume" className="text-xs uppercase font-extrabold tracking-wider text-slate-200 block mb-1.5">
-                    Weekly Package Selection
+                    Weekly or Monthly Package Selection
                   </label>
                   <select
                     id="inlineLeadVolume"
                     name="leadVolume"
-                    aria-label="Weekly Package Selection"
+                    aria-label="Weekly or Monthly Package Selection"
                     value={inlineForm.leadVolume}
                     onChange={handleInlineChange}
                     className="w-full px-4 py-3 bg-fresh-dark border border-fresh-border rounded-xl text-white focus:outline-none focus:border-fresh-orange text-sm font-medium cursor-pointer"
                   >
-                    <option value="5 Leads / Week Package">5 Leads / Week Package</option>
-                    <option value="7 Leads / Week Package">7 Leads / Week Package - Most Popular</option>
-                    <option value="12 Leads / Week Package">12 Leads / Week Package</option>
-                    <option value="20 Leads / Week Package">20 Leads / Week Package</option>
-                    <option value="25+ Enterprise Package">25+ Enterprise Package (25+ Leads / Week)</option>
+                    <optgroup label="Weekly Billing Packages">
+                      <option value="5 Leads / Week ($1,250 / week)">5 Leads / Week ($1,250 / week)</option>
+                      <option value="7 Leads / Week ($1,650 / week) - Most Popular">7 Leads / Week ($1,650 / week) - Most Popular</option>
+                      <option value="12 Leads / Week ($2,650 / week)">12 Leads / Week ($2,650 / week)</option>
+                      <option value="20 Leads / Week ($4,000 / week)">20 Leads / Week ($4,000 / week)</option>
+                      <option value="25+ Enterprise ($4,950+ / week)">25+ Enterprise ($4,950+ / week)</option>
+                    </optgroup>
+                    <optgroup label="Monthly Billing Packages (Discounted)">
+                      <option value="5 Leads / Week ($4,500 / month - Save $500)">5 Leads / Week ($4,500 / month - Save $500)</option>
+                      <option value="7 Leads / Week ($5,900 / month - Save $700)">7 Leads / Week ($5,900 / month - Save $700)</option>
+                      <option value="12 Leads / Week ($9,400 / month - Save $1,200)">12 Leads / Week ($9,400 / month - Save $1,200)</option>
+                      <option value="20 Leads / Week ($14,200 / month - Save $1,800)">20 Leads / Week ($14,200 / month - Save $1,800)</option>
+                      <option value="25+ Enterprise ($17,500+ / month - Save $2,300+)">25+ Enterprise ($17,500+ / month - Save $2,300+)</option>
+                    </optgroup>
                   </select>
                 </div>
 
