@@ -9,7 +9,7 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
     companyName: '',
     phone: '',
     email: '',
-    leadVolume: '7 Leads / Week ($1,650 / week) - Most Popular',
+    leadVolume: '7 Leads / Week ($1,050 / week) - Most Popular',
     zipOrCounty: '',
     smsConsent: false
   });
@@ -46,9 +46,9 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
     const currentPricing = tier.pricing[cycle];
     const targetLink = currentPricing.link;
 
-    // If external payment URL (e.g. direct Stripe checkout buy.stripe.com)
-    if (targetLink && targetLink.startsWith('https://buy.stripe.com')) {
-      return; // Follow link directly
+    // If email link or external payment URL (e.g. mailto: or buy.stripe.com)
+    if (targetLink && (targetLink.startsWith('mailto:') || targetLink.startsWith('https://buy.stripe.com'))) {
+      return; // Follow link directly (opens email client or payment link)
     }
 
     // Default action: open territory & onboarding modal with selected tier + cycle pre-filled
@@ -73,25 +73,25 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
       popular: false,
       pricing: {
         weekly: {
-          price: "$1,250",
+          price: "$750",
           period: "/ week",
-          rate: "$250 / pre-set inspection",
+          rate: "$150 / lead",
           leadCount: "5 Pre-Set Leads / Wk",
           monthlyEquivalent: "~20 pre-set inspections / mo",
-          subtext: "Consistent weekly flow to establish predictable momentum. Billed weekly.",
+          subtext: "5 pre-set inspection appointments per week at $150 per lead. Billed weekly.",
           savingsBadge: null,
-          cta: "Claim 5 Leads / Wk ($1,250)",
+          cta: "Claim 5 Leads / Wk ($750)",
           link: "https://freshleads.llc/checkout/5-leads-weekly"
         },
         monthly: {
-          price: "$4,500",
+          price: "$2,700",
           period: "/ month",
-          rate: "$225 / pre-set inspection",
-          leadCount: "20 Pre-Set Leads / Mo",
+          rate: "$135 / lead",
+          leadCount: "20 Leads / Mo (5 / wk)",
           monthlyEquivalent: "5 pre-set inspections / week",
-          subtext: "Save $500/mo with monthly billing. Priority setter allocation reserved.",
-          savingsBadge: "Save $500/mo",
-          cta: "Claim 20 Leads / Mo ($4,500)",
+          subtext: "Total of 20 leads per month at $135 per lead. Save $300/mo vs weekly.",
+          savingsBadge: "Save $300/mo",
+          cta: "Claim 20 Leads / Mo ($2,700)",
           link: "https://freshleads.llc/checkout/5-leads-monthly"
         }
       },
@@ -116,25 +116,25 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
       popular: true,
       pricing: {
         weekly: {
-          price: "$1,650",
+          price: "$1,050",
           period: "/ week",
-          rate: "$235 / pre-set inspection",
+          rate: "$150 / lead",
           leadCount: "7 Pre-Set Leads / Wk",
           monthlyEquivalent: "~28 pre-set inspections / mo",
-          subtext: "Our top-rated pace. One confirmed inspection booked every business day.",
+          subtext: "7 pre-set inspection appointments per week at $150 per lead. One booked daily.",
           savingsBadge: null,
-          cta: "Claim 7 Leads / Wk ($1,650)",
+          cta: "Claim 7 Leads / Wk ($1,050)",
           link: "https://freshleads.llc/checkout/7-leads-weekly"
         },
         monthly: {
-          price: "$5,900",
+          price: "$3,780",
           period: "/ month",
-          rate: "$210 / pre-set inspection",
-          leadCount: "28 Pre-Set Leads / Mo",
+          rate: "$135 / lead",
+          leadCount: "28 Leads / Mo (7 / wk)",
           monthlyEquivalent: "7 pre-set inspections / week",
-          subtext: "Save $700/mo. Keeps estimators closing 8-12+ signed insurance claims monthly.",
-          savingsBadge: "Save $700/mo",
-          cta: "Claim 28 Leads / Mo ($5,900)",
+          subtext: "Total of 28 leads per month at $135 per lead. Save $420/mo vs weekly.",
+          savingsBadge: "Save $420/mo",
+          cta: "Claim 28 Leads / Mo ($3,780)",
           link: "https://freshleads.llc/checkout/7-leads-monthly"
         }
       },
@@ -160,25 +160,25 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
       popular: false,
       pricing: {
         weekly: {
-          price: "$2,650",
+          price: "$1,680",
           period: "/ week",
-          rate: "$220 / pre-set inspection",
+          rate: "$140 / lead",
           leadCount: "12 Pre-Set Leads / Wk",
           monthlyEquivalent: "~48 pre-set inspections / mo",
-          subtext: "High-volume acceleration. Multiple confirmed roof walks booked daily.",
+          subtext: "12 pre-set inspection appointments per week at $140 per lead. Billed weekly.",
           savingsBadge: null,
-          cta: "Claim 12 Leads / Wk ($2,650)",
+          cta: "Claim 12 Leads / Wk ($1,680)",
           link: "https://freshleads.llc/checkout/12-leads-weekly"
         },
         monthly: {
-          price: "$9,400",
+          price: "$5,760",
           period: "/ month",
-          rate: "$195 / pre-set inspection",
-          leadCount: "48 Pre-Set Leads / Mo",
+          rate: "$120 / lead",
+          leadCount: "48 Leads / Mo (12 / wk)",
           monthlyEquivalent: "12 pre-set inspections / week",
-          subtext: "Save $1,200/mo. Dedicated setter pod allocated across target counties.",
-          savingsBadge: "Save $1,200/mo",
-          cta: "Claim 48 Leads / Mo ($9,400)",
+          subtext: "Total of 48 leads per month at $120 per lead. Save $960/mo vs weekly.",
+          savingsBadge: "Save $960/mo",
+          cta: "Claim 48 Leads / Mo ($5,760)",
           link: "https://freshleads.llc/checkout/12-leads-monthly"
         }
       },
@@ -204,25 +204,25 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
       popular: false,
       pricing: {
         weekly: {
-          price: "$4,000",
+          price: "$2,500",
           period: "/ week",
-          rate: "$200 / pre-set inspection",
+          rate: "$125 / lead",
           leadCount: "20 Pre-Set Leads / Wk",
           monthlyEquivalent: "~80 pre-set inspections / mo",
-          subtext: "County dominance. 4 daily inspections to keep 4-6 estimators fully booked.",
+          subtext: "20 pre-set inspection appointments per week at $125 per lead. Billed weekly.",
           savingsBadge: null,
-          cta: "Claim 20 Leads / Wk ($4,000)",
+          cta: "Claim 20 Leads / Wk ($2,500)",
           link: "https://freshleads.llc/checkout/20-leads-weekly"
         },
         monthly: {
-          price: "$14,200",
+          price: "$8,800",
           period: "/ month",
-          rate: "$177 / pre-set inspection",
-          leadCount: "80 Pre-Set Leads / Mo",
+          rate: "$110 / lead",
+          leadCount: "80 Leads / Mo (20 / wk)",
           monthlyEquivalent: "20 pre-set inspections / week",
-          subtext: "Save $1,800/mo. Dedicated full-time setter pod locked to your brand.",
-          savingsBadge: "Save $1,800/mo",
-          cta: "Claim 80 Leads / Mo ($14,200)",
+          subtext: "Total of 80 leads per month at $110 per lead. Save $1,200/mo vs weekly.",
+          savingsBadge: "Save $1,200/mo",
+          cta: "Claim 80 Leads / Mo ($8,800)",
           link: "https://freshleads.llc/checkout/20-leads-monthly"
         }
       },
@@ -248,26 +248,26 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
       popular: false,
       pricing: {
         weekly: {
-          price: "$4,950+",
-          period: "/ week",
-          rate: "Custom volume rate",
-          leadCount: "25+ Leads / Wk (Custom)",
-          monthlyEquivalent: "100+ pre-set inspections / mo",
-          subtext: "Total competitor lockout. Custom pod built exclusively around your company.",
+          price: "Custom",
+          period: "",
+          rate: "Connect by email for pricing",
+          leadCount: "25+ Leads / Wk",
+          monthlyEquivalent: "Custom weekly pod capacity",
+          subtext: "Enterprise volume is custom structured. Connect with us by email for pricing and county lockout availability.",
           savingsBadge: null,
-          cta: "Claim 25+ Enterprise",
-          link: "https://freshleads.llc/checkout/25-enterprise-weekly"
+          cta: "Email Us For Pricing",
+          link: "mailto:info@freshleads.llc?subject=25%2B%20Enterprise%20Weekly%20Package%20Pricing%20Inquiry"
         },
         monthly: {
-          price: "$17,500+",
-          period: "/ month",
-          rate: "Discounted custom rate",
-          leadCount: "100+ Leads / Mo (Custom)",
+          price: "Custom",
+          period: "",
+          rate: "Connect by email for pricing",
+          leadCount: "100+ Leads / Mo",
           monthlyEquivalent: "25+ pre-set inspections / week",
-          subtext: "Save $2,300+/mo. Senior setter manager & daily inspection war room.",
-          savingsBadge: "Save $2,300+/mo",
-          cta: "Claim 25+ Enterprise",
-          link: "https://freshleads.llc/checkout/25-enterprise-monthly"
+          subtext: "Enterprise volume is custom structured. Connect with us by email for pricing and county lockout availability.",
+          savingsBadge: "Email For Pricing",
+          cta: "Email Us For Pricing",
+          link: "mailto:info@freshleads.llc?subject=25%2B%20Enterprise%20Monthly%20Package%20Pricing%20Inquiry"
         }
       },
       features: [
@@ -345,7 +345,7 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
             >
               <span>Monthly Billing</span>
               <span className="px-2 py-0.5 text-[10px] font-black rounded-full bg-emerald-500 text-slate-950 uppercase tracking-tight">
-                Save Up To $2,300/mo
+                Save Up To $1,200/mo
               </span>
             </button>
           </div>
@@ -423,9 +423,11 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
                       <span className="text-3xl sm:text-4xl font-black text-white tracking-tight">
                         {currentPricing.price}
                       </span>
-                      <span className="text-fresh-orange text-xs sm:text-sm font-bold uppercase">
-                        {currentPricing.period}
-                      </span>
+                      {currentPricing.period && (
+                        <span className="text-fresh-orange text-xs sm:text-sm font-bold uppercase">
+                          {currentPricing.period}
+                        </span>
+                      )}
                     </div>
 
                     <div className="flex items-center justify-between mt-1 text-[11px]">
@@ -628,18 +630,18 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
                     className="w-full px-4 py-3 bg-fresh-dark border border-fresh-border rounded-xl text-white focus:outline-none focus:border-fresh-orange text-sm font-medium cursor-pointer"
                   >
                     <optgroup label="Weekly Billing Packages">
-                      <option value="5 Leads / Week ($1,250 / week)">5 Leads / Week ($1,250 / week)</option>
-                      <option value="7 Leads / Week ($1,650 / week) - Most Popular">7 Leads / Week ($1,650 / week) - Most Popular</option>
-                      <option value="12 Leads / Week ($2,650 / week)">12 Leads / Week ($2,650 / week)</option>
-                      <option value="20 Leads / Week ($4,000 / week)">20 Leads / Week ($4,000 / week)</option>
-                      <option value="25+ Enterprise ($4,950+ / week)">25+ Enterprise ($4,950+ / week)</option>
+                      <option value="5 Leads / Week ($750 / week)">5 Leads / Week ($750 / week - $150/lead)</option>
+                      <option value="7 Leads / Week ($1,050 / week) - Most Popular">7 Leads / Week ($1,050 / week - $150/lead) - Most Popular</option>
+                      <option value="12 Leads / Week ($1,680 / week)">12 Leads / Week ($1,680 / week - $140/lead)</option>
+                      <option value="20 Leads / Week ($2,500 / week)">20 Leads / Week ($2,500 / week - $125/lead)</option>
+                      <option value="25+ Enterprise (Weekly - Connect By Email)">25+ Enterprise (Weekly - Connect By Email for Pricing)</option>
                     </optgroup>
                     <optgroup label="Monthly Billing Packages (Discounted)">
-                      <option value="5 Leads / Week ($4,500 / month - Save $500)">5 Leads / Week ($4,500 / month - Save $500)</option>
-                      <option value="7 Leads / Week ($5,900 / month - Save $700)">7 Leads / Week ($5,900 / month - Save $700)</option>
-                      <option value="12 Leads / Week ($9,400 / month - Save $1,200)">12 Leads / Week ($9,400 / month - Save $1,200)</option>
-                      <option value="20 Leads / Week ($14,200 / month - Save $1,800)">20 Leads / Week ($14,200 / month - Save $1,800)</option>
-                      <option value="25+ Enterprise ($17,500+ / month - Save $2,300+)">25+ Enterprise ($17,500+ / month - Save $2,300+)</option>
+                      <option value="5 Leads / Week ($2,700 / month - Save $300)">5 Leads / Week ($2,700 / month - 20 leads at $135/lead)</option>
+                      <option value="7 Leads / Week ($3,780 / month - Save $420)">7 Leads / Week ($3,780 / month - 28 leads at $135/lead)</option>
+                      <option value="12 Leads / Week ($5,760 / month - Save $960)">12 Leads / Week ($5,760 / month - 48 leads at $120/lead)</option>
+                      <option value="20 Leads / Week ($8,800 / month - Save $1,200)">20 Leads / Week ($8,800 / month - 80 leads at $110/lead)</option>
+                      <option value="25+ Enterprise (Monthly - Connect By Email)">25+ Enterprise (Monthly - Connect By Email for Pricing)</option>
                     </optgroup>
                   </select>
                 </div>
