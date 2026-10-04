@@ -33,7 +33,11 @@ export default function PaymentConfirmation({ onNavigateHome }) {
         initialPackage = '7 Leads / Week ($1,050 / week)';
         initialCycle = 'Weekly';
         initialAmount = '$1,050';
-      } else if (pkgParam.includes('12-leads')) {
+      } else if (pkgParam.includes('12-leads-monthly') || pkgParam.includes('12-monthly')) {
+        initialPackage = '12 Leads / Week ($5,760 / month - 48 leads)';
+        initialCycle = 'Monthly';
+        initialAmount = '$5,760';
+      } else if (pkgParam.includes('12-leads') || pkgParam.includes('12-weekly')) {
         initialPackage = '12 Leads / Week ($1,680 / week)';
         initialCycle = 'Weekly';
         initialAmount = '$1,680';
