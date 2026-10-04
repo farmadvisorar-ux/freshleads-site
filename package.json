@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "postbuild": "node -e \"import('fs').then(fs => { ['blog', 'privacy', 'terms', 'sms-opt-in', 'opt-in'].forEach(dir => { fs.mkdirSync('dist/' + dir, { recursive: true }); fs.copyFileSync('dist/index.html', 'dist/' + dir + '/index.html'); }); });\"",
+    "postbuild": "node -e \"import('fs').then(fs => { ['blog', 'privacy', 'terms', 'sms-opt-in', 'opt-in', 'checkout/success', 'success', 'order-confirmation'].forEach(dir => { fs.mkdirSync('dist/' + dir, { recursive: true }); fs.copyFileSync('dist/index.html', 'dist/' + dir + '/index.html'); }); });\"",
     "preview": "vite preview"
   },
   "dependencies": {

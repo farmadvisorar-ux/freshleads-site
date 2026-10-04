@@ -13,6 +13,7 @@ import Blog from './components/Blog';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
 import SmsOptIn from './components/SmsOptIn';
+import PaymentConfirmation from './components/PaymentConfirmation';
 
 export default function App() {
   const [isTerritoryModalOpen, setIsTerritoryModalOpen] = useState(false);
@@ -33,6 +34,9 @@ export default function App() {
       if (path === '/sms-opt-in' || path.startsWith('/sms-opt-in/') || path === '/opt-in' || hash === '#sms-opt-in') {
         return 'sms-opt-in';
       }
+      if (path === '/checkout/success' || path.startsWith('/checkout/success') || path === '/success' || path === '/order-confirmation' || hash === '#success' || hash === '#checkout-success') {
+        return 'payment-confirmation';
+      }
     }
     return 'home';
   });
@@ -50,6 +54,8 @@ export default function App() {
         setCurrentView('terms');
       } else if (path === '/sms-opt-in' || path.startsWith('/sms-opt-in/') || path === '/opt-in' || hash === '#sms-opt-in') {
         setCurrentView('sms-opt-in');
+      } else if (path === '/checkout/success' || path.startsWith('/checkout/success') || path === '/success' || path === '/order-confirmation' || hash === '#success' || hash === '#checkout-success') {
+        setCurrentView('payment-confirmation');
       } else {
         setCurrentView('home');
       }
@@ -115,7 +121,10 @@ export default function App() {
   return (
     <div className="min-h-screen bg-fresh-black text-slate-100 flex flex-col font-sans selection:bg-fresh-orange selection:text-white">
       
-      {currentView === 'blog' ? (
+      {currentView === 'payment-confirmation' ? (
+        /* Post-Checkout Payment Confirmation & Lead Setup View */
+        <PaymentConfirmation onNavigateHome={navigateToHome} />
+      ) : currentView === 'blog' ? (
         /* Blog View */
         <>
           <Blog 

@@ -283,5 +283,181 @@ export const emailTemplates = {
 </body>
 </html>
 `
+  }),
+
+  /**
+   * Template 4: Customer Order & Payment Confirmation Email
+   * Sent to the contractor upon completing Stripe checkout
+   */
+  paymentConfirmationCustomer: (data) => ({
+    subject: `🎉 [FreshLeads.llc] Payment Confirmed: ${data.packageName || 'Roofing Lead Package'}`,
+    html: `
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #07080B; color: #F1F5F9; margin: 0; padding: 20px; }
+    .card { background-color: #13161F; border: 1px solid #202636; border-radius: 12px; max-width: 600px; margin: 0 auto; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+    .header { background: linear-gradient(135deg, #181C28 0%, #0D0F14 100%); border-bottom: 3px solid #10B981; padding: 28px 24px; text-align: center; }
+    .logo { color: #FFFFFF; font-size: 24px; font-weight: 900; letter-spacing: -0.5px; }
+    .logo span { color: #FF5C00; }
+    .tag { display: inline-block; background: rgba(16, 185, 129, 0.15); border: 1px solid #10B981; color: #10B981; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 800; margin-top: 10px; text-transform: uppercase; }
+    .body { padding: 28px 24px; line-height: 1.6; font-size: 15px; color: #CBD5E1; }
+    .box { background: #0D0F14; border: 1px solid #202636; border-radius: 10px; padding: 20px; margin: 20px 0; }
+    .highlight { color: #FF5C00; font-weight: 800; }
+    .bullet { display: flex; align-items: flex-start; margin-bottom: 12px; }
+    .check { color: #10B981; font-weight: bold; margin-right: 10px; font-size: 16px; }
+    .footer { background: #0D0F14; padding: 20px; font-size: 12px; color: #64748B; border-top: 1px solid #202636; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <div class="logo">FRESH<span>LEADS</span>.LLC</div>
+      <div class="tag">✓ Payment & Order Confirmed</div>
+    </div>
+    <div class="body">
+      <p style="font-size: 16px; color: #FFFFFF; font-weight: 700;">
+        Welcome aboard, ${data.customerName || data.contactName || 'Valued Partner'}!
+      </p>
+      <p>
+        Your payment for <strong class="highlight">${data.packageName || 'FreshLeads Roofing Package'}</strong> has been successfully processed. Your exclusive lead dispatch queue is now active.
+      </p>
+
+      <div class="box">
+        <div style="font-size: 12px; text-transform: uppercase; color: #94A3B8; font-weight: 700; margin-bottom: 12px; border-bottom: 1px solid #202636; padding-bottom: 8px;">
+          Order Details
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+          <span style="color: #94A3B8;">Package:</span>
+          <strong style="color: #FFFFFF;">${data.packageName || 'Selected Tier'}</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+          <span style="color: #94A3B8;">Billing Schedule:</span>
+          <strong style="color: #FF5C00;">${data.billingCycle || 'Active Cycle'}</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+          <span style="color: #94A3B8;">Amount Paid:</span>
+          <strong style="color: #10B981; font-size: 16px;">${data.amountPaid || 'Confirmed via Stripe'}</strong>
+        </div>
+        ${data.targetCounty ? `
+        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+          <span style="color: #94A3B8;">Target Territory:</span>
+          <strong style="color: #FFFFFF;">${data.targetCounty}</strong>
+        </div>` : ''}
+      </div>
+
+      <div style="font-size: 14px; font-weight: 700; color: #FFFFFF; margin-bottom: 12px;">What Happens Next:</div>
+      
+      <div class="bullet">
+        <span class="check">✓</span>
+        <div><strong>Setter Pod Assignment:</strong> Our senior phone setters are assigned to your target territory immediately.</div>
+      </div>
+      <div class="bullet">
+        <span class="check">✓</span>
+        <div><strong>Territory Lockout:</strong> We lock out other contractors from receiving leads in your agreed zip/county.</div>
+      </div>
+      <div class="bullet">
+        <span class="check">✓</span>
+        <div><strong>100% Replacement Guarantee:</strong> Every lead includes verified call audio. If you do not meet the homeowner or are not allowed on the roof, we replace it at zero charge.</div>
+      </div>
+
+      <p style="margin-top: 24px; font-size: 13px; color: #94A3B8;">
+        Have questions or need to adjust your schedule? Contact our team directly at 
+        <a href="mailto:admin@freshleads.llc" style="color: #FF5C00; font-weight: 700;">admin@freshleads.llc</a> or 
+        <a href="mailto:info@freshleads.llc" style="color: #FF5C00; font-weight: 700;">info@freshleads.llc</a>, or call 
+        <a href="tel:2148314653" style="color: #FF5C00; font-weight: 700;">(214) 831-4653</a>.
+      </p>
+    </div>
+    <div class="footer">
+      © ${new Date().getFullYear()} FreshLeads.llc • 100% Guaranteed Pre-Set Roofing Leads • All Rights Reserved
+    </div>
+  </div>
+</body>
+</html>
+`
+  }),
+
+  /**
+   * Template 5: High Priority Alert to FreshLeads Admin & Operations Team
+   * Dispatched immediately to admin@freshleads.llc and info@freshleads.llc upon completed payment
+   */
+  paymentConfirmationAdmin: (data) => ({
+    subject: `💰 [NEW PAID CLIENT] ${data.packageName || 'Lead Package'} - ${data.companyName || data.customerName || 'Contractor'}`,
+    html: `
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #07080B; color: #F1F5F9; margin: 0; padding: 20px; }
+    .card { background-color: #13161F; border: 2px solid #10B981; border-radius: 12px; max-width: 600px; margin: 0 auto; overflow: hidden; }
+    .header { background: linear-gradient(135deg, #064E3B 0%, #0D0F14 100%); border-bottom: 2px solid #10B981; padding: 24px; text-align: center; }
+    .title { color: #FFFFFF; font-size: 22px; font-weight: 900; }
+    .badge { display: inline-block; background: rgba(16, 185, 129, 0.2); border: 1px solid #10B981; color: #34D399; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 800; margin-top: 8px; }
+    .body { padding: 24px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .field { margin-bottom: 14px; }
+    .label { font-size: 11px; text-transform: uppercase; color: #94A3B8; font-weight: 700; margin-bottom: 4px; }
+    .value { font-size: 15px; color: #FFFFFF; font-weight: 600; }
+    .box { background: #0D0F14; border: 1px solid #202636; border-radius: 8px; padding: 14px; margin-bottom: 16px; }
+    .footer { background: #0D0F14; padding: 16px; font-size: 12px; color: #64748B; border-top: 1px solid #202636; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <div class="title">💰 NEW PAYMENT COMPLETED</div>
+      <div class="badge">FRESHLEADS.LLC STRIPE CLIENT DISPATCH</div>
+    </div>
+    <div class="body">
+      <div class="box">
+        <div class="label">Package Purchased</div>
+        <div style="font-size: 18px; color: #10B981; font-weight: 900;">${data.packageName || 'N/A'}</div>
+        <div style="font-size: 13px; color: #94A3B8; margin-top: 4px;">Billing Schedule: <strong style="color: #FF5C00;">${data.billingCycle || 'N/A'}</strong> | Amount: <strong style="color: #FFFFFF;">${data.amountPaid || 'Confirmed'}</strong></div>
+      </div>
+
+      <div class="grid">
+        <div class="field">
+          <div class="label">Contractor Name</div>
+          <div class="value">${data.customerName || data.contactName || 'Not Provided'}</div>
+        </div>
+        <div class="field">
+          <div class="label">Company Name</div>
+          <div class="value">${data.companyName || 'Not Provided'}</div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="field">
+          <div class="label">Customer Email</div>
+          <div class="value"><a href="mailto:${data.customerEmail || data.email}" style="color: #FF5C00;">${data.customerEmail || data.email || 'N/A'}</a></div>
+        </div>
+        <div class="field">
+          <div class="label">Customer Phone</div>
+          <div class="value"><a href="tel:${data.customerPhone || data.phone}" style="color: #FF5C00;">${data.customerPhone || data.phone || 'N/A'}</a></div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="label">Target Territory / County</div>
+        <div class="value" style="color: #FF7A29; font-weight: 800;">${data.targetCounty || data.zipOrCounty || 'Pending Contractor Setup'}</div>
+      </div>
+
+      <div class="box" style="margin-top: 16px; border-left: 4px solid #10B981;">
+        <div style="font-size: 13px; font-weight: 700; color: #FFFFFF; margin-bottom: 6px;">Immediate Action Required:</div>
+        <div style="font-size: 12px; color: #CBD5E1; line-height: 1.5;">
+          1. Lock out requested territory in the FreshLeads CRM.<br/>
+          2. Assign dedicated setter pod to start calling homeowners within legal statute of limitations.<br/>
+          3. Confirm lead delivery method (SMS / Email / CRM webhook).
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      Dispatched to admin@freshleads.llc & info@freshleads.llc • Timestamp: ${new Date().toLocaleString()}
+    </div>
+  </div>
+</body>
+</html>
+`
   })
 };
