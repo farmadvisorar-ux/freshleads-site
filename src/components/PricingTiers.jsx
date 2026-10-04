@@ -212,7 +212,7 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
           subtext: "20 pre-set inspection appointments per week at $125 per lead. Billed weekly.",
           savingsBadge: null,
           cta: "Claim 20 Leads / Wk ($2,500)",
-          link: "https://freshleads.llc/checkout/20-leads-weekly"
+          link: "https://buy.stripe.com/14AaEX2jl8xX4ys7ik6Vq02"
         },
         monthly: {
           price: "$8,800",
@@ -223,7 +223,7 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
           subtext: "Total of 80 leads per month at $110 per lead. Save $1,200/mo vs weekly.",
           savingsBadge: "Save $1,200/mo",
           cta: "Claim 80 Leads / Mo ($8,800)",
-          link: "https://freshleads.llc/checkout/20-leads-monthly"
+          link: "https://buy.stripe.com/dRm00jf67bK9fd6fOQ6Vq01"
         }
       },
       features: [
