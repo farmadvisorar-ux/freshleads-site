@@ -38,11 +38,11 @@ export default function HowItWorks({ onOpenTerritoryModal }) {
   ];
 
   return (
-    <section id="how-it-works" className="py-24 bg-fresh-dark/60 relative border-t border-fresh-border">
+    <section id="how-it-works" className="py-14 sm:py-24 bg-fresh-dark/60 relative border-t border-fresh-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-fresh-card border border-fresh-border text-xs uppercase font-extrabold tracking-wider text-fresh-orange mb-3">
             <span>The FreshLeads Pipeline</span>
           </div>
@@ -50,23 +50,23 @@ export default function HowItWorks({ onOpenTerritoryModal }) {
             From Hail Storm Radar <br />
             <span className="orange-gradient-text">To Signed Roof Contract.</span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
+          <p className="text-sm sm:text-lg text-slate-300 leading-relaxed">
             A seamless, battle-tested lead generation engine designed specifically for storm restoration roofing contractors who value high-converting appointments over dead numbers.
           </p>
         </div>
 
         {/* 4 Steps Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 relative">
           {steps.map((step, idx) => {
             const Icon = step.icon;
             return (
               <div 
                 key={idx} 
-                className="bg-fresh-card rounded-2xl border border-fresh-border p-6 flex flex-col justify-between hover:border-fresh-orange/50 transition-all duration-300 group hover:-translate-y-1 shadow-card-dark"
+                className="bg-fresh-card rounded-2xl border border-fresh-border p-5 sm:p-6 flex flex-col justify-between hover:border-fresh-orange/50 transition-all duration-300 group hover:-translate-y-1 shadow-card-dark"
               >
                 <div>
                   {/* Step Top */}
-                  <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center justify-between mb-5 sm:mb-6">
                     <span className="text-3xl font-black text-slate-400 group-hover:text-fresh-orange transition-colors">
                       {step.num}
                     </span>
@@ -78,7 +78,7 @@ export default function HowItWorks({ onOpenTerritoryModal }) {
                   <span className="text-[11px] uppercase font-bold text-fresh-orange tracking-wider block mb-1">
                     {step.subtitle}
                   </span>
-                  <h3 className="text-lg font-bold text-white mb-3">
+                  <h3 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3">
                     {step.title}
                   </h3>
 
@@ -97,10 +97,10 @@ export default function HowItWorks({ onOpenTerritoryModal }) {
         </div>
 
         {/* Bottom CTA Strip */}
-        <div className="mt-14 text-center">
+        <div className="mt-10 sm:mt-14 text-center">
           <button
             onClick={() => onOpenTerritoryModal()}
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-fresh-orange hover:bg-fresh-orangeHover text-slate-950 font-black text-sm uppercase tracking-wider shadow-orange-glow hover:scale-105 transition-all"
+            className="w-full sm:w-auto min-h-[48px] inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-fresh-orange hover:bg-fresh-orangeHover text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wider shadow-orange-glow hover:scale-105 active:scale-95 transition-all"
           >
             <span>Activate Pipeline In My Zip Code</span>
             <ArrowRight className="w-4 h-4 text-slate-950" />

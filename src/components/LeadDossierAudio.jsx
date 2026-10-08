@@ -55,11 +55,11 @@ export default function LeadDossierAudio({ onOpenTerritoryModal }) {
   };
 
   return (
-    <section id="lead-quality" className="py-24 bg-fresh-dark/80 relative border-t border-b border-fresh-border">
+    <section id="lead-quality" className="py-14 sm:py-24 bg-fresh-dark/80 relative border-t border-b border-fresh-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-fresh-card border border-fresh-border text-xs uppercase font-extrabold tracking-wider text-fresh-orange mb-3">
             <Volume2 className="w-4 h-4 text-fresh-orange" />
             <span>Interactive Lead Handoff Preview</span>
@@ -68,7 +68,7 @@ export default function LeadDossierAudio({ onOpenTerritoryModal }) {
             Hear The Homeowner Confirm <br />
             <span className="orange-gradient-text">Before You Roll A Truck.</span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
+          <p className="text-sm sm:text-lg text-slate-300 leading-relaxed">
             Every single lead from FreshLeads.llc includes the full call audio recording. You hear the setter qualify the homeowner, lock in the inspection day/time, confirm active insurance, and verify damage history.
           </p>
 
@@ -78,38 +78,38 @@ export default function LeadDossierAudio({ onOpenTerritoryModal }) {
               <span className="text-3xl font-black text-fresh-orange">60%</span>
               <span className="text-xs font-bold text-slate-300 uppercase tracking-wider mt-0.5">Inspection Rate on All Leads</span>
             </div>
-            <div className="text-sm text-slate-300 max-w-xs text-center sm:text-left leading-relaxed">
+            <div className="text-xs sm:text-sm text-slate-300 max-w-xs text-center sm:text-left leading-relaxed">
               The team at FreshLeads understands the quality of the verified lead. <strong className="text-white">These are above industry standards.</strong> Our clients consistently achieve a 60% inspection completion rate on every lead delivered.
             </div>
           </div>
         </div>
 
-        {/* Lead Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-8">
+        {/* Lead Tabs (Horizontally scrollable on mobile) */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-2 px-1 sm:px-0 sm:flex-wrap sm:justify-center no-scrollbar mb-8">
           {sampleLeads.map((lead, idx) => (
             <button
               key={lead.id}
               onClick={() => setSelectedLeadIndex(idx)}
-              className={`px-4 sm:px-6 py-3 rounded-xl font-black text-xs sm:text-sm tracking-wide transition-all flex items-center gap-2.5 ${
+              className={`shrink-0 sm:shrink min-h-[44px] px-3.5 sm:px-6 py-2.5 sm:py-3 rounded-xl font-black text-xs sm:text-sm tracking-wide transition-all flex items-center gap-2 ${
                 selectedLeadIndex === idx
-                  ? 'bg-fresh-orange text-slate-950 shadow-orange-sm scale-105'
+                  ? 'bg-fresh-orange text-slate-950 shadow-orange-sm sm:scale-105'
                   : 'bg-fresh-card border border-fresh-border text-slate-300 hover:text-white hover:border-fresh-orange/40'
               }`}
             >
-              <span className={`w-2 h-2 rounded-full ${selectedLeadIndex === idx ? 'bg-slate-950' : 'bg-emerald-400'}`}></span>
-              <span>Sample Lead #{lead.id}: {lead.homeownerName.split(' ')[0]} ({lead.carrier.split(' ')[0]})</span>
+              <span className={`w-2 h-2 rounded-full shrink-0 ${selectedLeadIndex === idx ? 'bg-slate-950' : 'bg-emerald-400'}`}></span>
+              <span>Sample #{lead.id}: {lead.homeownerName.split(' ')[0]} ({lead.carrier.split(' ')[0]})</span>
             </button>
           ))}
         </div>
 
         {/* Lead Dossier Deep Dive Container */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
           
           {/* Left Column: Property & Insurance Verification Sheet (7 Cols) */}
-          <div className="lg:col-span-7 bg-fresh-card rounded-2xl border border-fresh-border p-6 sm:p-8 shadow-card-dark">
+          <div className="lg:col-span-7 bg-fresh-card rounded-2xl border border-fresh-border p-4 sm:p-8 shadow-card-dark">
             
             {/* Lead Status Header */}
-            <div className="flex flex-wrap items-center justify-between pb-6 border-b border-fresh-border gap-4">
+            <div className="flex flex-wrap items-center justify-between pb-4 sm:pb-6 border-b border-fresh-border gap-3 sm:gap-4">
               <div>
                 <span className="text-[11px] uppercase font-bold text-fresh-slate tracking-wider block">
                   Lead Packet #FL-{activeLead.id}
@@ -207,7 +207,7 @@ export default function LeadDossierAudio({ onOpenTerritoryModal }) {
           </div>
 
           {/* Right Column: Audio Recording Player & Call Transcript (5 Cols) */}
-          <div className="lg:col-span-5 bg-fresh-card rounded-2xl border border-fresh-border p-6 sm:p-8 shadow-card-dark">
+          <div className="lg:col-span-5 bg-fresh-card rounded-2xl border border-fresh-border p-4 sm:p-8 shadow-card-dark">
             
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
@@ -222,7 +222,7 @@ export default function LeadDossierAudio({ onOpenTerritoryModal }) {
             </div>
 
             {/* Main Audio Player Module */}
-            <div className="bg-fresh-dark rounded-xl border border-fresh-border p-5 mb-6">
+            <div className="bg-fresh-dark rounded-xl border border-fresh-border p-4 sm:p-5 mb-6">
               
               {/* Real HTML5 Audio Element */}
               <audio
@@ -247,7 +247,7 @@ export default function LeadDossierAudio({ onOpenTerritoryModal }) {
 
               {/* Dynamic Animated Waveform (Click any bar to seek) */}
               <div 
-                className="flex items-center justify-between h-14 gap-1 px-2 mb-4 bg-fresh-black/60 rounded-lg cursor-pointer"
+                className="flex items-center justify-between h-14 gap-0.5 sm:gap-1 px-1 sm:px-2 mb-4 bg-fresh-black/60 rounded-lg cursor-pointer"
                 title="Click waveform to jump to section"
               >
                 {activeLead.audioWaveform.map((bar, i) => {

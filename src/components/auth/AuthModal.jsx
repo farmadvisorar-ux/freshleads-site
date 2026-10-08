@@ -60,11 +60,11 @@ export const AuthModal = ({ isOpen, onClose, initialTab = 'login' }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-in fade-in duration-200">
-      <div className="relative w-full max-w-md bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl overflow-hidden text-slate-100">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-3 sm:p-4 animate-in fade-in duration-200">
+      <div className="relative w-full max-w-md bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl overflow-hidden text-slate-100 max-h-[92vh] flex flex-col">
         
         {/* Header banner */}
-        <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-6 text-white relative">
+        <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-5 sm:p-6 text-white relative shrink-0">
           <button
             onClick={onClose}
             className="absolute top-4 right-4 text-white/80 hover:text-white bg-black/20 hover:bg-black/40 p-1.5 rounded-full transition"
@@ -75,15 +75,15 @@ export const AuthModal = ({ isOpen, onClose, initialTab = 'login' }) => {
           <div className="flex items-center gap-2 text-blue-200 text-xs font-semibold uppercase tracking-wider mb-1">
             <ShieldCheck className="w-4 h-4" /> Enterprise Security
           </div>
-          <h2 className="text-2xl font-bold">
+          <h2 className="text-xl sm:text-2xl font-bold">
             {tab === 'login' && 'Welcome Back'}
             {tab === 'signup' && 'Create Your Account'}
             {tab === 'magiclink' && 'Sign in with Magic Link'}
             {tab === 'forgot' && 'Reset Password'}
           </h2>
-          <p className="text-blue-100 text-sm mt-1">
+          <p className="text-blue-100 text-xs sm:text-sm mt-1">
             {tab === 'login' && 'Access your FreshLeads account & verified dossiers'}
-            {tab === 'signup' && 'Start getting exclusive, high-intent HVAC leads'}
+            {tab === 'signup' && 'Start getting exclusive, pre-set roofing appointments'}
             {tab === 'magiclink' && 'No password needed — we will email you a secure link'}
             {tab === 'forgot' && 'We will send instructions to reset your password'}
           </p>
@@ -128,7 +128,7 @@ export const AuthModal = ({ isOpen, onClose, initialTab = 'login' }) => {
         </div>
 
         {/* Form body */}
-        <form onSubmit={handleSubmit} className="p-6 pt-2 space-y-4">
+        <form onSubmit={handleSubmit} className="p-4 sm:p-6 pt-2 space-y-4 overflow-y-auto">
           {error && (
             <div className="p-3 bg-red-950/80 border border-red-500/50 rounded-xl text-red-300 text-xs flex items-center gap-2">
               <AlertCircle className="w-4 h-4 shrink-0 text-red-400" />

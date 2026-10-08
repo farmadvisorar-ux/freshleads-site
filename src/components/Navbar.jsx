@@ -109,20 +109,30 @@ export default function Navbar({ onOpenTerritoryModal, onNavigateToBlog, onNavig
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="lg:hidden flex items-center gap-2">
+          {/* Mobile Action Buttons & Menu Toggle */}
+          <div className="lg:hidden flex items-center gap-1.5 sm:gap-2">
+            <a
+              href="tel:2148314653"
+              className="p-2 rounded-lg bg-fresh-card border border-fresh-border text-fresh-orange hover:text-white transition-colors flex items-center justify-center"
+              title="Call (214) 831-4653"
+              aria-label="Call FreshLeads directly"
+            >
+              <Phone className="w-4 h-4 fill-fresh-orange/20" />
+            </a>
+
             <button
               onClick={() => onOpenTerritoryModal()}
-              className="px-3 py-1.5 rounded bg-fresh-orange text-slate-950 text-xs font-black"
+              className="px-2.5 sm:px-3 py-1.5 rounded-lg bg-fresh-orange text-slate-950 text-xs font-black shadow-sm"
             >
               Check Territory
             </button>
+
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg bg-fresh-card border border-fresh-border text-slate-300 hover:text-white"
+              className="p-2 rounded-lg bg-fresh-card border border-fresh-border text-slate-300 hover:text-white transition-colors"
               aria-label="Toggle Navigation"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
 
@@ -137,53 +147,59 @@ export default function Navbar({ onOpenTerritoryModal, onNavigateToBlog, onNavig
             <span>Statute Active Storm Zones Available</span>
           </div>
 
-          <div className="flex flex-col gap-3 text-base font-medium text-slate-200">
+          <div className="flex flex-col gap-1 text-base font-medium text-slate-200">
             <a 
               href="#how-it-works" 
               onClick={() => setMobileMenuOpen(false)}
-              className="py-2 hover:text-fresh-orange border-b border-fresh-border/50"
+              className="py-3 px-2 rounded-lg hover:bg-fresh-card hover:text-fresh-orange transition-colors flex items-center justify-between border-b border-fresh-border/40"
             >
-              How It Works
+              <span>How It Works</span>
+              <ArrowRight className="w-4 h-4 text-slate-500" />
             </a>
             <a 
               href="#lead-quality" 
               onClick={() => setMobileMenuOpen(false)}
-              className="py-2 hover:text-fresh-orange border-b border-fresh-border/50"
+              className="py-3 px-2 rounded-lg hover:bg-fresh-card hover:text-fresh-orange transition-colors flex items-center justify-between border-b border-fresh-border/40"
             >
-              Lead Quality & Audio Recordings
+              <span>Lead Quality & Audio Recordings</span>
+              <ArrowRight className="w-4 h-4 text-slate-500" />
             </a>
             <a 
               href="#guarantee" 
               onClick={() => setMobileMenuOpen(false)}
-              className="py-2 hover:text-fresh-orange border-b border-fresh-border/50"
+              className="py-3 px-2 rounded-lg hover:bg-fresh-card hover:text-fresh-orange transition-colors flex items-center justify-between border-b border-fresh-border/40"
             >
-              100% Replacement Guarantee
+              <span>100% Replacement Guarantee</span>
+              <ArrowRight className="w-4 h-4 text-slate-500" />
             </a>
             <a 
               href="#consistency" 
               onClick={() => setMobileMenuOpen(false)}
-              className="py-2 hover:text-fresh-orange border-b border-fresh-border/50"
+              className="py-3 px-2 rounded-lg hover:bg-fresh-card hover:text-fresh-orange transition-colors flex items-center justify-between border-b border-fresh-border/40"
             >
-              The 30+ Roofer Proof (Consistency)
+              <span>The 30+ Roofer Proof</span>
+              <ArrowRight className="w-4 h-4 text-slate-500" />
             </a>
             <a 
               href="#pricing" 
               onClick={() => setMobileMenuOpen(false)}
-              className="py-2 hover:text-fresh-orange border-b border-fresh-border/50"
+              className="py-3 px-2 rounded-lg hover:bg-fresh-card hover:text-fresh-orange transition-colors flex items-center justify-between border-b border-fresh-border/40"
             >
-              Pricing & Tiers
+              <span>Pricing & Model ($150–$200)</span>
+              <ArrowRight className="w-4 h-4 text-slate-500" />
             </a>
             <a 
               href="#faq" 
               onClick={() => setMobileMenuOpen(false)}
-              className="py-2 hover:text-fresh-orange border-b border-fresh-border/50"
+              className="py-3 px-2 rounded-lg hover:bg-fresh-card hover:text-fresh-orange transition-colors flex items-center justify-between border-b border-fresh-border/40"
             >
-              FAQ
+              <span>FAQ</span>
+              <ArrowRight className="w-4 h-4 text-slate-500" />
             </a>
             <button 
               type="button" 
-              onClick={() => { setMobileMenuOpen(false); onNavigateToBlog(); }} 
-              className="w-full text-left py-2 hover:text-fresh-orange font-bold text-fresh-orange flex items-center justify-between border-b border-fresh-border/50"
+              onClick={() => { setMobileMenuOpen(false); onNavigateToBlog?.(); }} 
+              className="w-full text-left py-3 px-2 rounded-lg hover:bg-fresh-card hover:text-fresh-orange font-bold text-fresh-orange flex items-center justify-between border-b border-fresh-border/40"
             >
               <span>Blog & 2026 Cost Guide</span>
               <span className="text-[10px] bg-fresh-orange text-slate-950 font-black px-2 py-0.5 rounded-full">New</span>
@@ -192,7 +208,7 @@ export default function Navbar({ onOpenTerritoryModal, onNavigateToBlog, onNavig
               <button 
                 type="button" 
                 onClick={() => { setMobileMenuOpen(false); onNavigateToSmsOptIn(); }} 
-                className="w-full text-left py-2 hover:text-fresh-orange font-bold text-slate-200 flex items-center justify-between"
+                className="w-full text-left py-3 px-2 rounded-lg hover:bg-fresh-card hover:text-fresh-orange font-bold text-slate-200 flex items-center justify-between border-b border-fresh-border/40"
               >
                 <span>SMS Opt-In & Alerts</span>
                 <span className="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded-full">TCPA</span>
@@ -200,13 +216,43 @@ export default function Navbar({ onOpenTerritoryModal, onNavigateToBlog, onNavig
             )}
           </div>
 
-          <div className="pt-2 space-y-2">
+          {/* User Auth Status in Mobile Menu */}
+          <div className="pt-2 border-t border-fresh-border/60">
+            {user ? (
+              <div className="flex items-center justify-between p-3 rounded-xl bg-fresh-card border border-fresh-border">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-full bg-fresh-orange/20 text-fresh-orange flex items-center justify-center font-bold text-xs">
+                    {user.email?.charAt(0).toUpperCase() || 'U'}
+                  </div>
+                  <div className="text-left truncate max-w-[180px]">
+                    <div className="text-xs font-bold text-white truncate">{user.user_metadata?.full_name || 'Logged In'}</div>
+                    <div className="text-[10px] text-slate-400 truncate">{user.email}</div>
+                  </div>
+                </div>
+                <UserDropdown />
+              </div>
+            ) : (
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenAuthModal?.('login');
+                }}
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-fresh-card hover:bg-fresh-cardHover border border-fresh-border text-slate-200 font-bold text-sm transition-colors"
+              >
+                <User className="w-4 h-4 text-blue-400" />
+                <span>Log In to FreshLeads Portal</span>
+              </button>
+            )}
+          </div>
+
+          <div className="pt-2 space-y-2.5">
             <a
               href="tel:2148314653"
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-fresh-card border border-fresh-border hover:border-fresh-orange text-white font-extrabold text-sm transition-colors"
+              className="w-full min-h-[44px] flex items-center justify-center gap-2 py-3 rounded-xl bg-fresh-card border border-fresh-border hover:border-fresh-orange text-white font-black text-sm transition-colors"
             >
               <Phone className="w-4 h-4 text-fresh-orange" />
-              <span>Call Us: (214) 831-4653</span>
+              <span>Call Us Direct: (214) 831-4653</span>
             </a>
 
             <button
@@ -214,7 +260,7 @@ export default function Navbar({ onOpenTerritoryModal, onNavigateToBlog, onNavig
                 setMobileMenuOpen(false);
                 onOpenTerritoryModal();
               }}
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-fresh-orange hover:bg-fresh-orangeHover text-slate-950 font-black text-base shadow-orange-sm"
+              className="w-full min-h-[44px] flex items-center justify-center gap-2 py-3.5 rounded-xl bg-fresh-orange hover:bg-fresh-orangeHover text-slate-950 font-black text-base shadow-orange-sm active:scale-98 transition-all"
             >
               <span>Lock In Your Territory</span>
               <ArrowRight className="w-5 h-5 text-slate-950" />

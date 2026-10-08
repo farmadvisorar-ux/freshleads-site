@@ -32,11 +32,11 @@ export default function FaqSection({ onOpenTerritoryModal }) {
   ];
 
   return (
-    <section id="faq" className="py-24 bg-fresh-dark/90 relative border-t border-fresh-border">
+    <section id="faq" className="py-14 sm:py-24 bg-fresh-dark/90 relative border-t border-fresh-border">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-fresh-card border border-fresh-border text-xs uppercase font-extrabold tracking-wider text-fresh-orange mb-3">
             <HelpCircle className="w-4 h-4 text-fresh-orange" />
             <span>Frequently Asked Questions</span>
@@ -45,13 +45,13 @@ export default function FaqSection({ onOpenTerritoryModal }) {
             Everything You Need To Know <br />
             <span className="orange-gradient-text">About FreshLeads.llc</span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-300">
+          <p className="text-sm sm:text-lg text-slate-300">
             Got questions about our recordings, replacement policy, or storm dates? Here are direct answers.
           </p>
         </div>
 
         {/* FAQ Accordion List */}
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (
@@ -65,7 +65,7 @@ export default function FaqSection({ onOpenTerritoryModal }) {
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
-                  className="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-white"
+                  className="w-full p-4 sm:p-6 min-h-[52px] text-left flex items-center justify-between gap-3 sm:gap-4 font-bold text-sm sm:text-lg text-white"
                 >
                   <span>{faq.q}</span>
                   <div className={`p-1 rounded-lg bg-fresh-dark transition-transform duration-200 shrink-0 ${isOpen ? 'rotate-180 text-fresh-orange' : 'text-slate-400'}`}>
@@ -74,7 +74,7 @@ export default function FaqSection({ onOpenTerritoryModal }) {
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 text-sm text-slate-300 leading-relaxed border-t border-fresh-border/50 pt-4">
+                  <div className="px-4 sm:px-6 pb-4 sm:pb-6 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-fresh-border/50 pt-3 sm:pt-4">
                     {faq.a}
                   </div>
                 )}

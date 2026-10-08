@@ -65,20 +65,20 @@ export default function TerritoryCheckerModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-fresh-black/85 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="relative w-full max-w-lg bg-fresh-card border-2 border-fresh-border rounded-2xl shadow-2xl overflow-hidden">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-fresh-black/85 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="relative w-full max-w-lg bg-fresh-card border-2 border-fresh-border rounded-2xl shadow-2xl overflow-hidden max-h-[92vh] flex flex-col">
         
         {/* Top Header Banner */}
-        <div className="bg-fresh-dark p-6 border-b border-fresh-border flex items-center justify-between">
+        <div className="bg-fresh-dark p-4 sm:p-6 border-b border-fresh-border flex items-center justify-between shrink-0">
           <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-fresh-orange flex items-center justify-center text-white shadow-orange-sm">
+            <div className="w-9 h-9 rounded-xl bg-fresh-orange flex items-center justify-center text-white shadow-orange-sm shrink-0">
               <PhoneCall className="w-5 h-5 fill-white" />
             </div>
             <div>
-              <h3 className="text-base font-extrabold text-white">
+              <h3 className="text-sm sm:text-base font-extrabold text-white">
                 FreshLeads<span className="text-fresh-orange">.llc</span> Callback Request
               </h3>
-              <span className="text-xs text-fresh-slate font-medium">
+              <span className="text-[11px] sm:text-xs text-fresh-slate font-medium">
                 Customer Success Priority Queue
               </span>
             </div>
@@ -93,7 +93,7 @@ export default function TerritoryCheckerModal({
         </div>
 
         {/* Modal Body */}
-        <div className="p-6 sm:p-8">
+        <div className="p-4 sm:p-6 overflow-y-auto">
           
           {submitted ? (
             /* Success State */

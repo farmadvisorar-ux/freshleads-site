@@ -52,14 +52,14 @@ export default function QualityEngine({ onOpenTerritoryModal }) {
   ];
 
   return (
-    <section id="guarantee" className="py-24 bg-fresh-black relative">
+    <section id="guarantee" className="py-14 sm:py-24 bg-fresh-black relative">
       {/* Background radial glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-fresh-orange/5 rounded-full blur-[160px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-fresh-card border border-emerald-500/30 text-xs uppercase font-extrabold tracking-wider text-emerald-400 mb-3">
             <ShieldCheck className="w-4 h-4 text-emerald-400" />
             <span>The FreshLeads Standard</span>
@@ -68,14 +68,14 @@ export default function QualityEngine({ onOpenTerritoryModal }) {
             The 5-Point Quality Engine <br />
             <span className="orange-gradient-text">That Guarantees Your Growth.</span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
+          <p className="text-sm sm:text-lg text-slate-200 leading-relaxed">
             Our standard is simple: <strong className="text-white font-bold">If you do not meet with the homeowner or are not allowed on the roof, we replace the lead. Simple as that.</strong> We eliminate the risk of no-shows and wasted drive time with exclusive, pre-set inspections where active insurance and legal storm dates are already verified.
           </p>
 
           {/* 60% Stat Callout */}
-          <div className="mt-5 inline-flex items-center gap-3 px-5 py-2.5 rounded-xl bg-fresh-card border border-fresh-orange/30">
+          <div className="mt-5 inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 p-4 sm:px-5 sm:py-2.5 rounded-xl bg-fresh-card border border-fresh-orange/30">
             <span className="text-2xl font-black text-fresh-orange shrink-0">60%</span>
-            <span className="text-xs text-slate-200 text-left leading-snug">
+            <span className="text-xs text-slate-200 text-center sm:text-left leading-snug">
               <strong className="text-white block">Above Industry Standards.</strong>
               Our clients maintain a 60% inspection rate on all leads — far above what shared lead companies deliver.
             </span>
@@ -83,20 +83,20 @@ export default function QualityEngine({ onOpenTerritoryModal }) {
         </div>
 
         {/* 5 Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {pillars.map((pillar, idx) => {
             const Icon = pillar.icon;
             return (
               <div
                 key={idx}
-                className={`relative rounded-2xl bg-fresh-card border border-fresh-border p-8 transition-all duration-300 group hover:-translate-y-1 ${pillar.borderGlow} ${
+                className={`relative rounded-2xl bg-fresh-card border border-fresh-border p-5 sm:p-8 transition-all duration-300 group hover:-translate-y-1 ${pillar.borderGlow} ${
                   pillar.isSpecial ? 'lg:col-span-2 bg-gradient-to-br from-fresh-card to-fresh-cardHover border-emerald-500/30' : ''
                 }`}
               >
                 {/* Top Badge */}
-                <div className="flex items-center justify-between mb-6">
-                  <div className={`w-12 h-12 rounded-xl bg-fresh-dark border border-fresh-border flex items-center justify-center ${pillar.color}`}>
-                    <Icon className="w-6 h-6" />
+                <div className="flex items-center justify-between mb-5 sm:mb-6">
+                  <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-fresh-dark border border-fresh-border flex items-center justify-center ${pillar.color}`}>
+                    <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
                   <span className="text-[11px] uppercase font-bold tracking-wider px-2.5 py-1 rounded bg-fresh-dark text-slate-400 border border-fresh-border">
                     Pillar #0{idx + 1}
@@ -107,12 +107,12 @@ export default function QualityEngine({ onOpenTerritoryModal }) {
                 <span className={`text-xs font-bold uppercase tracking-wider block mb-1 ${pillar.color}`}>
                   {pillar.tagline}
                 </span>
-                <h3 className="text-xl sm:text-2xl font-black text-white mb-3">
+                <h3 className="text-lg sm:text-2xl font-black text-white mb-2 sm:mb-3">
                   {pillar.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-sm text-slate-300 leading-relaxed mb-6 font-normal">
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-5 sm:mb-6 font-normal">
                   {pillar.description}
                 </p>
 
@@ -125,14 +125,14 @@ export default function QualityEngine({ onOpenTerritoryModal }) {
                 </div>
 
                 {pillar.isSpecial && (
-                  <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30">
+                  <div className="mt-5 sm:mt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30">
                     <div className="text-xs text-slate-200">
                       <strong className="text-emerald-400 block font-bold text-sm">Didn't Meet The Homeowner Or Walk The Roof? You Don't Pay:</strong>
                       We eliminate the risk so your estimators can focus entirely on inspecting roofs and closing insurance restoration claims.
                     </div>
                     <button
                       onClick={() => onOpenTerritoryModal()}
-                      className="px-5 py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-fresh-black font-extrabold text-xs uppercase tracking-wider shrink-0 transition-colors"
+                      className="w-full sm:w-auto min-h-[44px] px-5 py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-fresh-black font-extrabold text-xs uppercase tracking-wider shrink-0 transition-colors flex items-center justify-center"
                     >
                       Claim Guaranteed Leads
                     </button>
@@ -144,22 +144,22 @@ export default function QualityEngine({ onOpenTerritoryModal }) {
         </div>
 
         {/* Bottom Guarantee Banner */}
-        <div className="mt-12 rounded-2xl bg-gradient-to-r from-fresh-card via-fresh-dark to-fresh-card border-2 border-fresh-orange/40 p-8 sm:p-10 shadow-orange-glow text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="mt-10 sm:mt-12 rounded-2xl bg-gradient-to-r from-fresh-card via-fresh-dark to-fresh-card border-2 border-fresh-orange/40 p-5 sm:p-10 shadow-orange-glow text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-2 max-w-2xl">
             <span className="text-xs font-extrabold uppercase tracking-wider text-fresh-orange block">
               100% REPLACEMENT POLICY IN WRITING
             </span>
-            <h3 className="text-2xl sm:text-3xl font-black text-white">
+            <h3 className="text-xl sm:text-3xl font-black text-white">
               "If You Don't Meet With The Homeowner Or Aren't Allowed On The Roof, We Replace The Lead."
             </h3>
-            <p className="text-sm text-slate-300">
+            <p className="text-xs sm:text-sm text-slate-300">
               Simple as that. Zero loopholes, zero back-and-forth arguments. If your crew rolls a truck and cannot meet the homeowner or perform the roof inspection, your replacement appointment is dispatched at zero cost.
             </p>
           </div>
 
           <button
             onClick={() => onOpenTerritoryModal()}
-            className="px-8 py-4 rounded-xl bg-fresh-orange hover:bg-fresh-orangeHover text-slate-950 font-black text-sm uppercase tracking-wider shadow-orange-sm hover:scale-105 transition-all shrink-0 flex items-center gap-2"
+            className="w-full sm:w-auto min-h-[48px] px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-fresh-orange hover:bg-fresh-orangeHover text-slate-950 font-black text-sm uppercase tracking-wider shadow-orange-sm hover:scale-105 transition-all shrink-0 flex items-center justify-center gap-2"
           >
             <span>Lock Your County In</span>
             <ArrowRight className="w-4 h-4 text-slate-950" />

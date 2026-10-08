@@ -35,11 +35,11 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
   };
 
   return (
-    <section id="pricing" className="py-24 bg-fresh-black relative border-t border-fresh-border">
+    <section id="pricing" className="py-14 sm:py-24 bg-fresh-black relative border-t border-fresh-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-fresh-card border border-fresh-border text-xs uppercase font-extrabold tracking-wider text-fresh-orange mb-3">
             <Zap className="w-4 h-4 text-fresh-orange" />
             <span>Performance-Driven Roofing Model</span>
@@ -48,14 +48,14 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
             Predictable Lead Flow. <br />
             <span className="orange-gradient-text">Zero Lead-Buying Risk.</span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
+          <p className="text-sm sm:text-lg text-slate-300 leading-relaxed">
             Every inspection appointment is backed by our 100% replacement guarantee: <strong className="text-white">if you do not meet with the homeowner or are not allowed on the roof, we replace the lead.</strong>
           </p>
         </div>
 
         {/* Hero Attend-Appointment Pricing Card */}
-        <div className="max-w-4xl mx-auto mb-16">
-          <div className="rounded-3xl bg-gradient-to-b from-fresh-card via-fresh-dark to-fresh-card border-2 border-fresh-orange/50 p-8 sm:p-12 shadow-2xl relative overflow-hidden text-center">
+        <div className="max-w-4xl mx-auto mb-12 sm:mb-16">
+          <div className="rounded-3xl bg-gradient-to-b from-fresh-card via-fresh-dark to-fresh-card border-2 border-fresh-orange/50 p-5 sm:p-12 shadow-2xl relative overflow-hidden text-center">
             <div className="absolute top-0 right-0 w-80 h-80 bg-fresh-orange/10 rounded-full blur-3xl pointer-events-none"></div>
             <div className="absolute bottom-0 left-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -73,7 +73,7 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
               </div>
             </div>
 
-            <p className="text-base sm:text-xl text-slate-200 mt-6 max-w-2xl mx-auto font-medium leading-relaxed">
+            <p className="text-sm sm:text-xl text-slate-200 mt-5 sm:mt-6 max-w-2xl mx-auto font-medium leading-relaxed">
               Most Campaigns run <strong className="text-white font-extrabold">$150–$200 per attend appointment</strong>. You only pay for real, attended roof inspections where you meet directly with the property owner.
             </p>
 
@@ -143,10 +143,10 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
             </div>
 
             {/* Direct Action CTAs */}
-            <div className="mt-10 pt-8 border-t border-fresh-border/80 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-fresh-border/80 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
               <button
                 onClick={() => onOpenTerritoryModal({ volume: '7 Attended Appointments / Week (Recommended)' })}
-                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-fresh-orange hover:bg-fresh-orangeHover text-slate-950 font-black text-sm uppercase tracking-wider shadow-orange-sm hover:scale-[1.02] transition-all flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full sm:w-auto min-h-[48px] px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-fresh-orange hover:bg-fresh-orangeHover text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wider shadow-orange-sm hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Check Territory Availability</span>
                 <ArrowRight className="w-4 h-4" />
@@ -154,7 +154,7 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
 
               <a
                 href="tel:2148314653"
-                className="w-full sm:w-auto px-6 py-4 rounded-xl bg-fresh-dark hover:bg-fresh-cardHover border border-fresh-border text-white font-bold text-sm transition-all flex items-center justify-center gap-2"
+                className="w-full sm:w-auto min-h-[48px] px-5 sm:px-6 py-3.5 sm:py-4 rounded-xl bg-fresh-dark hover:bg-fresh-cardHover border border-fresh-border text-white font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2"
               >
                 <Phone className="w-4 h-4 text-fresh-orange" />
                 <span>Call Direct: (214) 831-4653</span>
@@ -165,15 +165,15 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
         </div>
 
         {/* Short Callback Request Form Container */}
-        <div className="max-w-4xl mx-auto rounded-2xl bg-gradient-to-br from-fresh-card via-fresh-dark to-fresh-card border-2 border-fresh-orange/40 p-8 sm:p-10 shadow-2xl relative overflow-hidden">
+        <div className="max-w-4xl mx-auto rounded-2xl bg-gradient-to-br from-fresh-card via-fresh-dark to-fresh-card border-2 border-fresh-orange/40 p-5 sm:p-10 shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-80 h-80 bg-fresh-orange/5 rounded-full blur-3xl pointer-events-none"></div>
 
-          <div className="text-center max-w-2xl mx-auto mb-8 relative z-10">
+          <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8 relative z-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-fresh-orange/10 border border-fresh-orange/30 text-fresh-orange text-xs font-extrabold uppercase tracking-wider mb-2">
               <PhoneCall className="w-3.5 h-3.5" />
               <span>Direct Customer Success Callback</span>
             </div>
-            <h3 className="text-2xl sm:text-3xl font-black text-white">
+            <h3 className="text-xl sm:text-3xl font-black text-white">
               Request A Call From A Customer Success Agent
             </h3>
             <p className="text-xs sm:text-sm text-slate-300 mt-2">

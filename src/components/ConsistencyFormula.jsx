@@ -3,11 +3,11 @@ import { Target, TrendingUp, Users, CheckCircle2, XCircle, ArrowRight, Award, Za
 
 export default function ConsistencyFormula({ onOpenTerritoryModal }) {
   return (
-    <section id="consistency" className="py-24 bg-fresh-dark relative border-t border-fresh-border">
+    <section id="consistency" className="py-14 sm:py-24 bg-fresh-dark relative border-t border-fresh-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-fresh-card border border-fresh-border text-xs uppercase font-extrabold tracking-wider text-fresh-orange mb-3">
             <Award className="w-4 h-4 text-fresh-orange" />
             <span>Over 30+ Roofing Businesses Transformed</span>
@@ -16,25 +16,25 @@ export default function ConsistencyFormula({ onOpenTerritoryModal }) {
             The Only Thing Holding You Back <br />
             <span className="orange-gradient-text">Is Staying Consistent.</span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
+          <p className="text-sm sm:text-lg text-slate-300 leading-relaxed">
             We have helped over <strong>30+ roofers completely revolutionize their business model</strong>. When we analyzed every single contractor who hit $1.5M to $5M in annual storm claims, they all shared one identical secret: <span className="text-fresh-orange font-bold">relentless, uninterrupted appointment consistency.</span>
           </p>
         </div>
 
         {/* The Two Business Models: Old vs New Consistency Framework */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-10 sm:mb-16">
           
           {/* Card 1: The Broken "Feast or Famine" Trap */}
-          <div className="rounded-2xl bg-fresh-card border border-red-500/20 p-8 relative overflow-hidden">
+          <div className="rounded-2xl bg-fresh-card border border-red-500/20 p-5 sm:p-8 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-red-500/5 rounded-full blur-2xl"></div>
             
-            <div className="flex items-center justify-between pb-6 border-b border-fresh-border mb-6">
+            <div className="flex items-center justify-between pb-5 sm:pb-6 border-b border-fresh-border mb-5 sm:mb-6">
               <div>
                 <span className="text-xs uppercase font-bold text-red-400 tracking-wider">The Old Way</span>
-                <h3 className="text-2xl font-black text-white mt-1">The Feast-or-Famine Trap</h3>
+                <h3 className="text-xl sm:text-2xl font-black text-white mt-1">The Feast-or-Famine Trap</h3>
               </div>
-              <span className="p-2.5 rounded-xl bg-red-500/10 text-red-400 border border-red-500/20">
-                <XCircle className="w-6 h-6" />
+              <span className="p-2 sm:p-2.5 rounded-xl bg-red-500/10 text-red-400 border border-red-500/20">
+                <XCircle className="w-5 h-5 sm:w-6 sm:h-6" />
               </span>
             </div>
 
@@ -63,16 +63,16 @@ export default function ConsistencyFormula({ onOpenTerritoryModal }) {
           </div>
 
           {/* Card 2: The FreshLeads Consistent Machine */}
-          <div className="rounded-2xl bg-gradient-to-b from-fresh-card to-fresh-cardHover border-2 border-fresh-orange/50 p-8 relative overflow-hidden shadow-orange-sm">
+          <div className="rounded-2xl bg-gradient-to-b from-fresh-card to-fresh-cardHover border-2 border-fresh-orange/50 p-5 sm:p-8 relative overflow-hidden shadow-orange-sm">
             <div className="absolute top-0 right-0 w-32 h-32 bg-fresh-orange/10 rounded-full blur-2xl"></div>
 
-            <div className="flex items-center justify-between pb-6 border-b border-fresh-border mb-6">
+            <div className="flex items-center justify-between pb-5 sm:pb-6 border-b border-fresh-border mb-5 sm:mb-6">
               <div>
                 <span className="text-xs uppercase font-extrabold text-fresh-orange tracking-wider">The FreshLeads Standard</span>
-                <h3 className="text-2xl font-black text-white mt-1">The Consistency Engine</h3>
+                <h3 className="text-xl sm:text-2xl font-black text-white mt-1">The Consistency Engine</h3>
               </div>
-              <span className="p-2.5 rounded-xl bg-fresh-orange/15 text-fresh-orange border border-fresh-orange/30">
-                <CheckCircle2 className="w-6 h-6" />
+              <span className="p-2 sm:p-2.5 rounded-xl bg-fresh-orange/15 text-fresh-orange border border-fresh-orange/30">
+                <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6" />
               </span>
             </div>
 
