@@ -72,7 +72,7 @@ export async function submitPaymentConfirmation(paymentData) {
     _replyto: paymentData.customerEmail || paymentData.email || 'admin@freshleads.llc',
     _cc: 'info@freshleads.llc,admin@freshleads.llc',
     Order_Status: 'PAYMENT COMPLETED & VERIFIED',
-    Package_Purchased: paymentData.packageName || '5 Leads / Week ($750/wk or $2,700/mo)',
+    Package_Purchased: paymentData.packageName || 'Attend-Appointment Campaign ($150-$200 per attend appointment)',
     Billing_Cycle: paymentData.billingCycle || 'Active Cycle',
     Amount_Paid: paymentData.amountPaid || 'Confirmed via Stripe',
     Contractor_Name: paymentData.customerName || paymentData.contactName || 'Not Provided',

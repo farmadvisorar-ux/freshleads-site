@@ -5,44 +5,9 @@ import { submitPaymentConfirmation } from '../services/leadService';
 export default function PaymentConfirmation({ onNavigateHome }) {
   // Parse query params if available
   const [formData, setFormData] = useState(() => {
-    let initialPackage = '5 Leads / Week ($750 / week)';
-    let initialCycle = 'Weekly';
-    let initialAmount = '$750';
-
-    if (typeof window !== 'undefined') {
-      const params = new URLSearchParams(window.location.search);
-      const pkgParam = params.get('package') || '';
-      
-      if (pkgParam.includes('5-leads-monthly') || pkgParam.includes('5-monthly')) {
-        initialPackage = '5 Leads / Week ($2,700 / month - 20 leads)';
-        initialCycle = 'Monthly';
-        initialAmount = '$2,700';
-      } else if (pkgParam.includes('5-leads') || pkgParam.includes('5-weekly')) {
-        initialPackage = '5 Leads / Week ($750 / week)';
-        initialCycle = 'Weekly';
-        initialAmount = '$750';
-      } else if (pkgParam.includes('20-leads-monthly') || pkgParam.includes('20-monthly')) {
-        initialPackage = '20 Leads / Week ($8,800 / month - 80 leads)';
-        initialCycle = 'Monthly';
-        initialAmount = '$8,800';
-      } else if (pkgParam.includes('20-leads') || pkgParam.includes('20-weekly')) {
-        initialPackage = '20 Leads / Week ($2,500 / week)';
-        initialCycle = 'Weekly';
-        initialAmount = '$2,500';
-      } else if (pkgParam.includes('7-leads')) {
-        initialPackage = '7 Leads / Week ($1,050 / week)';
-        initialCycle = 'Weekly';
-        initialAmount = '$1,050';
-      } else if (pkgParam.includes('12-leads-monthly') || pkgParam.includes('12-monthly')) {
-        initialPackage = '12 Leads / Week ($5,760 / month - 48 leads)';
-        initialCycle = 'Monthly';
-        initialAmount = '$5,760';
-      } else if (pkgParam.includes('12-leads') || pkgParam.includes('12-weekly')) {
-        initialPackage = '12 Leads / Week ($1,680 / week)';
-        initialCycle = 'Weekly';
-        initialAmount = '$1,680';
-      }
-    }
+    let initialPackage = '7 Attended Appointments / Week (Recommended)';
+    let initialCycle = 'Attend-Appointment Campaign';
+    let initialAmount = 'Most campaigns run $150–$200/appt';
 
     return {
       packageName: initialPackage,
@@ -62,22 +27,11 @@ export default function PaymentConfirmation({ onNavigateHome }) {
 
   const handlePackageChange = (e) => {
     const val = e.target.value;
-    let cycle = 'Weekly';
-    let amount = '$750';
-
-    if (val.includes('$2,700')) { cycle = 'Monthly'; amount = '$2,700'; }
-    else if (val.includes('$1,050')) { cycle = 'Weekly'; amount = '$1,050'; }
-    else if (val.includes('$3,780')) { cycle = 'Monthly'; amount = '$3,780'; }
-    else if (val.includes('$1,680')) { cycle = 'Weekly'; amount = '$1,680'; }
-    else if (val.includes('$5,760')) { cycle = 'Monthly'; amount = '$5,760'; }
-    else if (val.includes('$2,500')) { cycle = 'Weekly'; amount = '$2,500'; }
-    else if (val.includes('$8,800')) { cycle = 'Monthly'; amount = '$8,800'; }
-
     setFormData(prev => ({
       ...prev,
       packageName: val,
-      billingCycle: cycle,
-      amountPaid: amount
+      billingCycle: 'Attend-Appointment Campaign',
+      amountPaid: 'Most campaigns run $150–$200/appt'
     }));
   };
 
@@ -213,29 +167,24 @@ export default function PaymentConfirmation({ onNavigateHome }) {
               {/* Package Purchased Selector */}
               <div>
                 <label className="text-xs uppercase font-extrabold tracking-wider text-slate-200 block mb-1.5">
-                  Package Purchased *
+                  Desired Weekly Appointment Capacity *
                 </label>
                 <select
                   name="packageName"
                   value={formData.packageName}
-                  onChange={handlePackageChange}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-fresh-dark border border-fresh-border rounded-xl text-white font-bold text-sm focus:outline-none focus:border-fresh-orange cursor-pointer"
                 >
-                  <optgroup label="5 Leads / Week Options">
-                    <option value="5 Leads / Week ($750 / week)">5 Leads / Week ($750 / week - $150/lead)</option>
-                    <option value="5 Leads / Week ($2,700 / month - Save $300)">5 Leads / Week ($2,700 / month - 20 leads at $135/lead)</option>
-                  </optgroup>
-                  <optgroup label="20 Leads / Week Options">
-                    <option value="20 Leads / Week ($2,500 / week)">20 Leads / Week ($2,500 / week - $125/lead)</option>
-                    <option value="20 Leads / Week ($8,800 / month - Save $1,200)">20 Leads / Week ($8,800 / month - 80 leads at $110/lead)</option>
-                  </optgroup>
-                  <optgroup label="Other Weekly / Monthly Packages">
-                    <option value="7 Leads / Week ($1,050 / week)">7 Leads / Week ($1,050 / week - $150/lead)</option>
-                    <option value="7 Leads / Week ($3,780 / month)">7 Leads / Week ($3,780 / month - 28 leads)</option>
-                    <option value="12 Leads / Week ($1,680 / week)">12 Leads / Week ($1,680 / week - $140/lead)</option>
-                    <option value="12 Leads / Week ($5,760 / month)">12 Leads / Week ($5,760 / month - 48 leads)</option>
-                  </optgroup>
+                  <option value="5 Attended Appointments / Week (Starter Pace)">5 Attended Appointments / Week (Starter Pace)</option>
+                  <option value="7 Attended Appointments / Week (Recommended)">7 Attended Appointments / Week (Recommended - 1 Daily)</option>
+                  <option value="10 Attended Appointments / Week (Growing Team)">10 Attended Appointments / Week (Growing Team)</option>
+                  <option value="15 Attended Appointments / Week (Multi-Crew)">15 Attended Appointments / Week (Multi-Crew)</option>
+                  <option value="20+ Attended Appointments / Week (High Capacity Pod)">20+ Attended Appointments / Week (High Capacity Pod)</option>
+                  <option value="Custom Enterprise Volume">Custom Enterprise Volume</option>
                 </select>
+                <span className="text-[11px] text-fresh-orange font-semibold block mt-1.5">
+                  Most Campaigns run $150–$200 per attend appointment.
+                </span>
               </div>
 
               {/* Name & Company */}

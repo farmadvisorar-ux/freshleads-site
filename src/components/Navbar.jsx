@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { ShieldCheck, Phone, Zap, Menu, X, ArrowRight } from 'lucide-react';
+import { ShieldCheck, Phone, Zap, Menu, X, ArrowRight, User } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
+import { UserDropdown } from './auth/UserDropdown';
 
-export default function Navbar({ onOpenTerritoryModal, onNavigateToBlog, onNavigateHome, onNavigateToSmsOptIn }) {
+export default function Navbar({ onOpenTerritoryModal, onNavigateToBlog, onNavigateHome, onNavigateToSmsOptIn, onOpenAuthModal }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { user } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -74,7 +77,7 @@ export default function Navbar({ onOpenTerritoryModal, onNavigateToBlog, onNavig
             </button>
           </div>
 
-          {/* Right Action & Territory Status */}
+          {/* Right Action & Auth */}
           <div className="hidden md:flex items-center gap-3">
             <a
               href="tel:2148314653"
@@ -85,10 +88,17 @@ export default function Navbar({ onOpenTerritoryModal, onNavigateToBlog, onNavig
               <span>(214) 831-4653</span>
             </a>
 
-            <div className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-fresh-card border border-fresh-border text-xs text-slate-300">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span className="text-white font-medium">Statute Active Zones</span>
-            </div>
+            {user ? (
+              <UserDropdown />
+            ) : (
+              <button
+                onClick={() => onOpenAuthModal && onOpenAuthModal('login')}
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-semibold text-xs transition-colors"
+              >
+                <User className="w-3.5 h-3.5 text-blue-400" />
+                <span>Log In</span>
+              </button>
+            )}
 
             <button
               onClick={() => onOpenTerritoryModal()}

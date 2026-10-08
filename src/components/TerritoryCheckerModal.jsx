@@ -14,7 +14,7 @@ export default function TerritoryCheckerModal({
 
   const [formData, setFormData] = useState({
     zipOrCounty: initialData.zipOrCounty || '',
-    leadVolume: initialData.volume || '7 Leads / Week (Weekly - $1,050)',
+    leadVolume: initialData.volume || '7 Attended Appointments / Week (Recommended)',
     contactName: '',
     companyName: '',
     email: '',
@@ -141,11 +141,11 @@ export default function TerritoryCheckerModal({
                 </a>
               </div>
 
-              {/* Selected Package Banner */}
+              {/* Desired Appointment Volume Banner */}
               <div className="px-4 py-3 bg-fresh-dark border border-fresh-border rounded-xl">
                 <div className="flex items-center justify-between mb-1.5">
                   <label htmlFor="modalLeadVolume" className="text-[11px] uppercase font-bold text-slate-400 tracking-wider cursor-pointer">
-                    Selected Package:
+                    Desired Weekly Appointments:
                   </label>
                   <span className="text-[11px] text-emerald-400 font-bold flex items-center gap-1">
                     <ShieldCheck className="w-3.5 h-3.5" />
@@ -155,40 +155,31 @@ export default function TerritoryCheckerModal({
                 <select
                   id="modalLeadVolume"
                   name="leadVolume"
-                  aria-label="Selected Package"
+                  aria-label="Desired Weekly Appointments"
                   value={formData.leadVolume}
                   onChange={handleInputChange}
                   className="w-full bg-fresh-card border border-fresh-border rounded-lg text-white font-bold text-sm px-3 py-2 focus:outline-none focus:border-fresh-orange cursor-pointer"
                 >
-                  <optgroup label="Weekly Billing Packages">
-                    <option value="5 Leads / Week (Weekly - $750)">5 Leads / Week ($750 / week - $150/lead)</option>
-                    <option value="7 Leads / Week (Weekly - $1,050)">7 Leads / Week ($1,050 / week - $150/lead) - Most Popular</option>
-                    <option value="12 Leads / Week (Weekly - $1,680)">12 Leads / Week ($1,680 / week - $140/lead)</option>
-                    <option value="20 Leads / Week (Weekly - $2,500)">20 Leads / Week ($2,500 / week - $125/lead)</option>
-                    <option value="25+ Enterprise (Weekly - Connect By Email)">25+ Enterprise (Weekly - Connect By Email for Pricing)</option>
-                  </optgroup>
-                  <optgroup label="Monthly Billing Packages (Discounted)">
-                    <option value="5 Leads / Week (Monthly - $2,700)">5 Leads / Week ($2,700 / month - Save $300)</option>
-                    <option value="7 Leads / Week (Monthly - $3,780)">7 Leads / Week ($3,780 / month - Save $420)</option>
-                    <option value="12 Leads / Week (Monthly - $5,760)">12 Leads / Week ($5,760 / month - Save $960)</option>
-                    <option value="20 Leads / Week (Monthly - $8,800)">20 Leads / Week ($8,800 / month - Save $1,200)</option>
-                    <option value="25+ Enterprise (Monthly - Connect By Email)">25+ Enterprise (Monthly - Connect By Email for Pricing)</option>
-                  </optgroup>
+                  <option value="5 Attended Appointments / Week (Starter Pace)">5 Attended Appointments / Week (Starter Pace)</option>
+                  <option value="7 Attended Appointments / Week (Recommended)">7 Attended Appointments / Week (Recommended - 1 Daily)</option>
+                  <option value="10 Attended Appointments / Week (Growing Team)">10 Attended Appointments / Week (Growing Team)</option>
+                  <option value="15 Attended Appointments / Week (Multi-Crew)">15 Attended Appointments / Week (Multi-Crew)</option>
+                  <option value="20+ Attended Appointments / Week (High Capacity Pod)">20+ Attended Appointments / Week (High Capacity Pod)</option>
+                  <option value="Custom Enterprise Volume">Custom Enterprise Volume</option>
                   {formData.leadVolume && ![
-                    '5 Leads / Week (Weekly - $750)',
-                    '7 Leads / Week (Weekly - $1,050)',
-                    '12 Leads / Week (Weekly - $1,680)',
-                    '20 Leads / Week (Weekly - $2,500)',
-                    '25+ Enterprise (Weekly - Connect By Email)',
-                    '5 Leads / Week (Monthly - $2,700)',
-                    '7 Leads / Week (Monthly - $3,780)',
-                    '12 Leads / Week (Monthly - $5,760)',
-                    '20 Leads / Week (Monthly - $8,800)',
-                    '25+ Enterprise (Monthly - Connect By Email)'
+                    '5 Attended Appointments / Week (Starter Pace)',
+                    '7 Attended Appointments / Week (Recommended)',
+                    '10 Attended Appointments / Week (Growing Team)',
+                    '15 Attended Appointments / Week (Multi-Crew)',
+                    '20+ Attended Appointments / Week (High Capacity Pod)',
+                    'Custom Enterprise Volume'
                   ].includes(formData.leadVolume) && (
                     <option value={formData.leadVolume}>{formData.leadVolume}</option>
                   )}
                 </select>
+                <span className="text-[11px] text-fresh-orange font-semibold block mt-1.5">
+                  Most Campaigns run $150–$200 per attend appointment.
+                </span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">

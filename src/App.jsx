@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { AuthProvider } from './context/AuthContext';
+import { AuthModal } from './components/auth/AuthModal';
+import { PasswordResetModal } from './components/auth/PasswordResetModal';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import LeadDossierAudio from './components/LeadDossierAudio';
@@ -18,6 +21,9 @@ import PaymentConfirmation from './components/PaymentConfirmation';
 export default function App() {
   const [isTerritoryModalOpen, setIsTerritoryModalOpen] = useState(false);
   const [modalInitialData, setModalInitialData] = useState({});
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [authModalTab, setAuthModalTab] = useState('login');
+
   const [currentView, setCurrentView] = useState(() => {
     if (typeof window !== 'undefined') {
       const path = window.location.pathname.toLowerCase();
@@ -118,137 +124,159 @@ export default function App() {
     setIsTerritoryModalOpen(false);
   };
 
+  const handleOpenAuthModal = (tab = 'login') => {
+    setAuthModalTab(tab);
+    setIsAuthModalOpen(true);
+  };
+
+  const handleCloseAuthModal = () => {
+    setIsAuthModalOpen(false);
+  };
+
   return (
-    <div className="min-h-screen bg-fresh-black text-slate-100 flex flex-col font-sans selection:bg-fresh-orange selection:text-white">
-      
-      {currentView === 'payment-confirmation' ? (
-        /* Post-Checkout Payment Confirmation & Lead Setup View */
-        <PaymentConfirmation onNavigateHome={navigateToHome} />
-      ) : currentView === 'blog' ? (
-        /* Blog View */
-        <>
-          <Blog 
-            onNavigateHome={navigateToHome} 
-            onOpenTerritoryModal={handleOpenTerritoryModal} 
-          />
-          <Footer 
-            onOpenTerritoryModal={handleOpenTerritoryModal} 
-            onNavigateToBlog={navigateToBlog}
-            onNavigateHome={navigateToHome}
-            onNavigateToPrivacy={navigateToPrivacy}
-            onNavigateToTerms={navigateToTerms}
-          />
-        </>
-      ) : currentView === 'privacy' ? (
-        /* Privacy Policy View (Zoho Voice & 10DLC Compliance) */
-        <>
-          <PrivacyPolicy 
-            onNavigateHome={navigateToHome}
-            onOpenTerritoryModal={handleOpenTerritoryModal}
-          />
-          <Footer 
-            onOpenTerritoryModal={handleOpenTerritoryModal} 
-            onNavigateToBlog={navigateToBlog}
-            onNavigateHome={navigateToHome}
-            onNavigateToPrivacy={navigateToPrivacy}
-            onNavigateToTerms={navigateToTerms}
-          />
-        </>
-      ) : currentView === 'sms-opt-in' ? (
-        /* Dedicated SMS Opt-In & Verification View (10DLC & TCPA Flow) */
-        <>
-          <SmsOptIn 
-            onNavigateHome={navigateToHome}
-            onNavigateToPrivacy={navigateToPrivacy}
-            onNavigateToTerms={navigateToTerms}
-          />
-          <Footer 
-            onOpenTerritoryModal={handleOpenTerritoryModal} 
-            onNavigateToBlog={navigateToBlog}
-            onNavigateHome={navigateToHome}
-            onNavigateToPrivacy={navigateToPrivacy}
-            onNavigateToTerms={navigateToTerms}
-            onNavigateToSmsOptIn={navigateToSmsOptIn}
-          />
-        </>
-      ) : currentView === 'terms' ? (
-        /* Terms of Service & SMS View (TCPA & CTIA Compliance) */
-        <>
-          <TermsOfService 
-            onNavigateHome={navigateToHome}
-            onOpenTerritoryModal={handleOpenTerritoryModal}
-            onNavigateToPrivacy={navigateToPrivacy}
-          />
-          <Footer 
-            onOpenTerritoryModal={handleOpenTerritoryModal} 
-            onNavigateToBlog={navigateToBlog}
-            onNavigateHome={navigateToHome}
-            onNavigateToPrivacy={navigateToPrivacy}
-            onNavigateToTerms={navigateToTerms}
-            onNavigateToSmsOptIn={navigateToSmsOptIn}
-          />
-        </>
-      ) : (
-        /* Home Landing Page View */
-        <>
-          {/* Sticky Navigation */}
-          <Navbar 
-            onOpenTerritoryModal={handleOpenTerritoryModal} 
-            onNavigateToBlog={navigateToBlog}
-            onNavigateHome={navigateToHome}
-            onNavigateToSmsOptIn={navigateToSmsOptIn}
-          />
-
-          {/* Main Content Sections */}
-          <main className="flex-grow">
-            {/* Hero Section with Live Lead Dossier preview */}
-            <Hero onOpenTerritoryModal={handleOpenTerritoryModal} />
-
-            {/* Interactive Audio Player & Setter Call Dossiers */}
-            <LeadDossierAudio onOpenTerritoryModal={handleOpenTerritoryModal} />
-
-            {/* The 5-Point Quality Engine & Replacement Policy */}
-            <QualityEngine onOpenTerritoryModal={handleOpenTerritoryModal} />
-
-            {/* The Consistency Formula - 30+ Roofers Scaled */}
-            <ConsistencyFormula onOpenTerritoryModal={handleOpenTerritoryModal} />
-
-            {/* How It Works - Storm Radar to Closed Claim */}
-            <HowItWorks onOpenTerritoryModal={handleOpenTerritoryModal} />
-
-            {/* Pricing Tiers & Appointment Packages */}
-            <PricingTiers 
+    <AuthProvider>
+      <div className="min-h-screen bg-fresh-black text-slate-100 flex flex-col font-sans selection:bg-fresh-orange selection:text-white">
+        
+        {currentView === 'payment-confirmation' ? (
+          /* Post-Checkout Payment Confirmation & Lead Setup View */
+          <PaymentConfirmation onNavigateHome={navigateToHome} />
+        ) : currentView === 'blog' ? (
+          /* Blog View */
+          <>
+            <Blog 
+              onNavigateHome={navigateToHome} 
               onOpenTerritoryModal={handleOpenTerritoryModal} 
+            />
+            <Footer 
+              onOpenTerritoryModal={handleOpenTerritoryModal} 
+              onNavigateToBlog={navigateToBlog}
+              onNavigateHome={navigateToHome}
+              onNavigateToPrivacy={navigateToPrivacy}
+              onNavigateToTerms={navigateToTerms}
+            />
+          </>
+        ) : currentView === 'privacy' ? (
+          /* Privacy Policy View (Zoho Voice & 10DLC Compliance) */
+          <>
+            <PrivacyPolicy 
+              onNavigateHome={navigateToHome}
+              onOpenTerritoryModal={handleOpenTerritoryModal}
+            />
+            <Footer 
+              onOpenTerritoryModal={handleOpenTerritoryModal} 
+              onNavigateToBlog={navigateToBlog}
+              onNavigateHome={navigateToHome}
+              onNavigateToPrivacy={navigateToPrivacy}
+              onNavigateToTerms={navigateToTerms}
+            />
+          </>
+        ) : currentView === 'sms-opt-in' ? (
+          /* Dedicated SMS Opt-In & Verification View (10DLC & TCPA Flow) */
+          <>
+            <SmsOptIn 
+              onNavigateHome={navigateToHome}
+              onNavigateToPrivacy={navigateToPrivacy}
+              onNavigateToTerms={navigateToTerms}
+            />
+            <Footer 
+              onOpenTerritoryModal={handleOpenTerritoryModal} 
+              onNavigateToBlog={navigateToBlog}
+              onNavigateHome={navigateToHome}
               onNavigateToPrivacy={navigateToPrivacy}
               onNavigateToTerms={navigateToTerms}
               onNavigateToSmsOptIn={navigateToSmsOptIn}
             />
+          </>
+        ) : currentView === 'terms' ? (
+          /* Terms of Service & SMS View (TCPA & CTIA Compliance) */
+          <>
+            <TermsOfService 
+              onNavigateHome={navigateToHome}
+              onOpenTerritoryModal={handleOpenTerritoryModal}
+              onNavigateToPrivacy={navigateToPrivacy}
+            />
+            <Footer 
+              onOpenTerritoryModal={handleOpenTerritoryModal} 
+              onNavigateToBlog={navigateToBlog}
+              onNavigateHome={navigateToHome}
+              onNavigateToPrivacy={navigateToPrivacy}
+              onNavigateToTerms={navigateToTerms}
+              onNavigateToSmsOptIn={navigateToSmsOptIn}
+            />
+          </>
+        ) : (
+          /* Home Landing Page View */
+          <>
+            {/* Sticky Navigation */}
+            <Navbar 
+              onOpenTerritoryModal={handleOpenTerritoryModal} 
+              onNavigateToBlog={navigateToBlog}
+              onNavigateHome={navigateToHome}
+              onNavigateToSmsOptIn={navigateToSmsOptIn}
+              onOpenAuthModal={handleOpenAuthModal}
+            />
 
-            {/* FAQ Section */}
-            <FaqSection onOpenTerritoryModal={handleOpenTerritoryModal} />
-          </main>
+            {/* Main Content Sections */}
+            <main className="flex-grow">
+              {/* Hero Section with Live Lead Dossier preview */}
+              <Hero onOpenTerritoryModal={handleOpenTerritoryModal} />
 
-          {/* Footer */}
-          <Footer 
-            onOpenTerritoryModal={handleOpenTerritoryModal} 
-            onNavigateToBlog={navigateToBlog}
-            onNavigateHome={navigateToHome}
-            onNavigateToPrivacy={navigateToPrivacy}
-            onNavigateToTerms={navigateToTerms}
-            onNavigateToSmsOptIn={navigateToSmsOptIn}
-          />
-        </>
-      )}
+              {/* Interactive Audio Player & Setter Call Dossiers */}
+              <LeadDossierAudio onOpenTerritoryModal={handleOpenTerritoryModal} />
 
-      {/* Interactive Territory Intake & Email Workflow Modal */}
-      <TerritoryCheckerModal
-        isOpen={isTerritoryModalOpen}
-        onClose={handleCloseTerritoryModal}
-        initialData={modalInitialData}
-        onNavigateToPrivacy={navigateToPrivacy}
-        onNavigateToTerms={navigateToTerms}
-        onNavigateToSmsOptIn={navigateToSmsOptIn}
-      />
-    </div>
+              {/* The 5-Point Quality Engine & Replacement Policy */}
+              <QualityEngine onOpenTerritoryModal={handleOpenTerritoryModal} />
+
+              {/* The Consistency Formula - 30+ Roofers Scaled */}
+              <ConsistencyFormula onOpenTerritoryModal={handleOpenTerritoryModal} />
+
+              {/* How It Works - Storm Radar to Closed Claim */}
+              <HowItWorks onOpenTerritoryModal={handleOpenTerritoryModal} />
+
+              {/* Pricing Tiers & Appointment Packages */}
+              <PricingTiers 
+                onOpenTerritoryModal={handleOpenTerritoryModal} 
+                onNavigateToPrivacy={navigateToPrivacy}
+                onNavigateToTerms={navigateToTerms}
+                onNavigateToSmsOptIn={navigateToSmsOptIn}
+              />
+
+              {/* FAQ Section */}
+              <FaqSection onOpenTerritoryModal={handleOpenTerritoryModal} />
+            </main>
+
+            {/* Footer */}
+            <Footer 
+              onOpenTerritoryModal={handleOpenTerritoryModal} 
+              onNavigateToBlog={navigateToBlog}
+              onNavigateHome={navigateToHome}
+              onNavigateToPrivacy={navigateToPrivacy}
+              onNavigateToTerms={navigateToTerms}
+              onNavigateToSmsOptIn={navigateToSmsOptIn}
+            />
+          </>
+        )}
+
+        {/* Interactive Territory Intake & Email Workflow Modal */}
+        <TerritoryCheckerModal
+          isOpen={isTerritoryModalOpen}
+          onClose={handleCloseTerritoryModal}
+          initialData={modalInitialData}
+          onNavigateToPrivacy={navigateToPrivacy}
+          onNavigateToTerms={navigateToTerms}
+          onNavigateToSmsOptIn={navigateToSmsOptIn}
+        />
+
+        {/* Enterprise Auth Modal (Login / Sign Up / Magic Link) */}
+        <AuthModal
+          isOpen={isAuthModalOpen}
+          onClose={handleCloseAuthModal}
+          initialTab={authModalTab}
+        />
+
+        {/* Password Reset Modal */}
+        <PasswordResetModal />
+      </div>
+    </AuthProvider>
   );
 }

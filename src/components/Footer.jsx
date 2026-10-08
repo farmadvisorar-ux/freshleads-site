@@ -55,7 +55,7 @@ export default function Footer({
               <li><a href="#lead-quality" className="hover:text-fresh-orange transition-colors">Audio Recordings Demo</a></li>
               <li><a href="#guarantee" className="hover:text-fresh-orange transition-colors">5-Point Quality Engine</a></li>
               <li><a href="#consistency" className="hover:text-fresh-orange transition-colors">The 30+ Roofer Proof</a></li>
-              <li><a href="#pricing" className="hover:text-fresh-orange transition-colors">Appointment Packages</a></li>
+              <li><a href="#pricing" className="hover:text-fresh-orange transition-colors">Pricing & Model</a></li>
               <li><a href="#faq" className="hover:text-fresh-orange transition-colors">FAQ</a></li>
               {onNavigateToBlog && (
                 <li>
