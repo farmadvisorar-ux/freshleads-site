@@ -51,12 +51,13 @@ export default function Navbar({ onOpenTerritoryModal, onNavigateToBlog, onNavig
           </a>
 
           {/* Center Navigation Links (Desktop) */}
-          <div className="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-300">
+          <div className="hidden lg:flex items-center gap-5 text-sm font-medium text-slate-300">
             <a href="#how-it-works" className="hover:text-fresh-orange transition-colors">How It Works</a>
-            <a href="#lead-quality" className="hover:text-fresh-orange transition-colors">Lead Quality & Audio</a>
-            <a href="#guarantee" className="hover:text-fresh-orange transition-colors">100% Guarantee</a>
-            <a href="#consistency" className="hover:text-fresh-orange transition-colors">The 30+ Roofer Proof</a>
-            <a href="#pricing" className="hover:text-fresh-orange transition-colors">Pricing</a>
+            <a href="#lead-quality" className="hover:text-fresh-orange transition-colors">Setter Audio</a>
+            <a href="#guarantee" className="hover:text-fresh-orange transition-colors">Guarantee</a>
+            <a href="#comparison" className="hover:text-fresh-orange transition-colors">Comparison</a>
+            <a href="#roi-calculator" className="hover:text-fresh-orange transition-colors">ROI Calculator</a>
+            <a href="#pricing" className="hover:text-fresh-orange transition-colors font-bold text-white">Pricing ($150-$200)</a>
             <a href="#faq" className="hover:text-fresh-orange transition-colors">FAQ</a>
             {onNavigateToSmsOptIn && (
               <button
@@ -170,6 +171,22 @@ export default function Navbar({ onOpenTerritoryModal, onNavigateToBlog, onNavig
               className="py-3 px-2 rounded-lg hover:bg-fresh-card hover:text-fresh-orange transition-colors flex items-center justify-between border-b border-fresh-border/40"
             >
               <span>100% Replacement Guarantee</span>
+              <ArrowRight className="w-4 h-4 text-slate-500" />
+            </a>
+            <a 
+              href="#comparison" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-3 px-2 rounded-lg hover:bg-fresh-card hover:text-fresh-orange transition-colors flex items-center justify-between border-b border-fresh-border/40"
+            >
+              <span>Comparison: FreshLeads vs Shared Leads</span>
+              <ArrowRight className="w-4 h-4 text-slate-500" />
+            </a>
+            <a 
+              href="#roi-calculator" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-3 px-2 rounded-lg hover:bg-fresh-card hover:text-fresh-orange transition-colors flex items-center justify-between border-b border-fresh-border/40"
+            >
+              <span>Interactive ROI Calculator</span>
               <ArrowRight className="w-4 h-4 text-slate-500" />
             </a>
             <a 

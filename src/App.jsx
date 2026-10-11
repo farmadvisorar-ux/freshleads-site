@@ -8,10 +8,13 @@ import LeadDossierAudio from './components/LeadDossierAudio';
 import QualityEngine from './components/QualityEngine';
 import ConsistencyFormula from './components/ConsistencyFormula';
 import HowItWorks from './components/HowItWorks';
+import ComparisonTable from './components/ComparisonTable';
+import RoiCalculator from './components/RoiCalculator';
 import PricingTiers from './components/PricingTiers';
 import FaqSection from './components/FaqSection';
 import Footer from './components/Footer';
 import TerritoryCheckerModal from './components/TerritoryCheckerModal';
+import LiveLeadTicker from './components/LiveLeadTicker';
 import Blog from './components/Blog';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
@@ -218,8 +221,11 @@ export default function App() {
 
             {/* Main Content Sections */}
             <main className="flex-grow">
-              {/* Hero Section with Live Lead Dossier preview */}
+              {/* Hero Section with Live Lead Dossier preview & Territory Radar */}
               <Hero onOpenTerritoryModal={handleOpenTerritoryModal} />
+
+              {/* Real-Time Live Lead Dispatch Activity Ticker */}
+              <LiveLeadTicker onOpenTerritoryModal={handleOpenTerritoryModal} />
 
               {/* Interactive Audio Player & Setter Call Dossiers */}
               <LeadDossierAudio onOpenTerritoryModal={handleOpenTerritoryModal} />
@@ -233,7 +239,13 @@ export default function App() {
               {/* How It Works - Storm Radar to Closed Claim */}
               <HowItWorks onOpenTerritoryModal={handleOpenTerritoryModal} />
 
-              {/* Pricing Tiers & Appointment Packages */}
+              {/* Head-to-Head Comparison: FreshLeads vs Shared Leads & D2D */}
+              <ComparisonTable onOpenTerritoryModal={handleOpenTerritoryModal} />
+
+              {/* Interactive Revenue & ROI Estimator */}
+              <RoiCalculator onOpenTerritoryModal={handleOpenTerritoryModal} />
+
+              {/* Pricing Tiers & Appointment Packages ($150-$200 / appt) */}
               <PricingTiers 
                 onOpenTerritoryModal={handleOpenTerritoryModal} 
                 onNavigateToPrivacy={navigateToPrivacy}

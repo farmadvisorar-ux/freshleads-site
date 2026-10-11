@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { ShieldCheck, Play, Pause, CheckCircle2, CloudRain, Clock, MapPin, Sparkles, AlertTriangle, ArrowRight, Phone } from 'lucide-react';
+import TerritoryRadarWidget from './TerritoryRadarWidget';
 
 export default function Hero({ onOpenTerritoryModal, onSelectLeadSample }) {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -314,6 +315,9 @@ export default function Hero({ onOpenTerritoryModal, onSelectLeadSample }) {
             <div className="text-[10px] sm:text-[11px] text-slate-400 mt-0.5">Bad lead? Replaced fast</div>
           </div>
         </div>
+
+        {/* Live Territory Radar & Roofer Capacity Checker */}
+        <TerritoryRadarWidget onOpenTerritoryModal={onOpenTerritoryModal} />
 
       </div>
     </section>

@@ -333,6 +333,78 @@ export default function LeadDossierAudio({ onOpenTerritoryModal }) {
                 </button>
               </div>
 
+              {/* Clickable Key Qualification Markers */}
+              <div className="mt-4 pt-3 border-t border-fresh-border/60">
+                <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider block mb-2">
+                  Jump To Qualification Highlights:
+                </span>
+                <div className="grid grid-cols-2 gap-1.5 text-[11px]">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (audioRef.current) {
+                        audioRef.current.currentTime = 5;
+                        setCurrentTime(5);
+                        audioRef.current.play().catch(() => {});
+                        setIsPlaying(true);
+                      }
+                    }}
+                    className="p-1.5 rounded bg-fresh-card hover:bg-fresh-cardHover border border-fresh-border/80 text-left text-slate-300 hover:text-white flex items-center gap-1.5 transition-colors"
+                  >
+                    <span className="text-fresh-orange font-mono font-bold">0:05</span>
+                    <span className="truncate">Homeowner Verified</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (audioRef.current) {
+                        audioRef.current.currentTime = 32;
+                        setCurrentTime(32);
+                        audioRef.current.play().catch(() => {});
+                        setIsPlaying(true);
+                      }
+                    }}
+                    className="p-1.5 rounded bg-fresh-card hover:bg-fresh-cardHover border border-fresh-border/80 text-left text-slate-300 hover:text-white flex items-center gap-1.5 transition-colors"
+                  >
+                    <span className="text-fresh-orange font-mono font-bold">0:32</span>
+                    <span className="truncate">Roof Age & Damage</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (audioRef.current) {
+                        audioRef.current.currentTime = 55;
+                        setCurrentTime(55);
+                        audioRef.current.play().catch(() => {});
+                        setIsPlaying(true);
+                      }
+                    }}
+                    className="p-1.5 rounded bg-fresh-card hover:bg-fresh-cardHover border border-fresh-border/80 text-left text-slate-300 hover:text-white flex items-center gap-1.5 transition-colors"
+                  >
+                    <span className="text-emerald-400 font-mono font-bold">0:55</span>
+                    <span className="truncate">Active Policy Check</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (audioRef.current) {
+                        audioRef.current.currentTime = 80;
+                        setCurrentTime(80);
+                        audioRef.current.play().catch(() => {});
+                        setIsPlaying(true);
+                      }
+                    }}
+                    className="p-1.5 rounded bg-fresh-card hover:bg-fresh-cardHover border border-fresh-border/80 text-left text-slate-300 hover:text-white flex items-center gap-1.5 transition-colors"
+                  >
+                    <span className="text-fresh-orange font-mono font-bold">1:20</span>
+                    <span className="truncate">Inspection Slot Locked</span>
+                  </button>
+                </div>
+              </div>
+
             </div>
 
             {/* Simulated Live Call Transcript */}
