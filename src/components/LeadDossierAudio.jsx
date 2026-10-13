@@ -6,7 +6,7 @@ export default function LeadDossierAudio({ onOpenTerritoryModal }) {
   const [selectedLeadIndex, setSelectedLeadIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(107); // ~1m 47s
+  const [duration, setDuration] = useState(sampleLeads[0]?.durationSeconds || 107);
   const audioRef = useRef(null);
 
   const activeLead = sampleLeads[selectedLeadIndex];
@@ -43,9 +43,11 @@ export default function LeadDossierAudio({ onOpenTerritoryModal }) {
     if (audioRef.current) {
       audioRef.current.pause();
       audioRef.current.currentTime = 0;
+      audioRef.current.load();
     }
     setIsPlaying(false);
     setCurrentTime(0);
+    setDuration(activeLead?.durationSeconds || 107);
   }, [selectedLeadIndex]);
 
   const formatTime = (seconds) => {
@@ -85,19 +87,19 @@ export default function LeadDossierAudio({ onOpenTerritoryModal }) {
         </div>
 
         {/* Lead Tabs (Horizontally scrollable on mobile) */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-2 px-1 sm:px-0 sm:flex-wrap sm:justify-center no-scrollbar mb-8">
+        <div className="flex items-center gap-3 overflow-x-auto pb-2 px-1 sm:px-0 sm:flex-wrap sm:justify-center no-scrollbar mb-8">
           {sampleLeads.map((lead, idx) => (
             <button
               key={lead.id}
               onClick={() => setSelectedLeadIndex(idx)}
-              className={`shrink-0 sm:shrink min-h-[44px] px-3.5 sm:px-6 py-2.5 sm:py-3 rounded-xl font-black text-xs sm:text-sm tracking-wide transition-all flex items-center gap-2 ${
+              className={`shrink-0 sm:shrink min-h-[46px] px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-black text-xs sm:text-sm tracking-wide transition-all flex items-center gap-2.5 ${
                 selectedLeadIndex === idx
                   ? 'bg-fresh-orange text-slate-950 shadow-orange-sm sm:scale-105'
                   : 'bg-fresh-card border border-fresh-border text-slate-300 hover:text-white hover:border-fresh-orange/40'
               }`}
             >
-              <span className={`w-2 h-2 rounded-full shrink-0 ${selectedLeadIndex === idx ? 'bg-slate-950' : 'bg-emerald-400'}`}></span>
-              <span>Sample #{lead.id}: {lead.homeownerName.split(' ')[0]} ({lead.carrier.split(' ')[0]})</span>
+              <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${selectedLeadIndex === idx ? 'bg-slate-950 animate-pulse' : 'bg-emerald-400'}`}></span>
+              <span>Recording #{idx + 1}: {lead.homeownerName.split(' ')[0]} ({lead.carrier.split(' ')[0]} • {lead.callDuration})</span>
             </button>
           ))}
         </div>
@@ -227,7 +229,7 @@ export default function LeadDossierAudio({ onOpenTerritoryModal }) {
               {/* Real HTML5 Audio Element */}
               <audio
                 ref={audioRef}
-                src="/setter-call-sample.mp3"
+                src={activeLead.audioUrl || "/setter-call-sample.mp3"}
                 preload="metadata"
                 onTimeUpdate={() => {
                   if (audioRef.current) setCurrentTime(audioRef.current.currentTime);
@@ -339,69 +341,24 @@ export default function LeadDossierAudio({ onOpenTerritoryModal }) {
                   Jump To Qualification Highlights:
                 </span>
                 <div className="grid grid-cols-2 gap-1.5 text-[11px]">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      if (audioRef.current) {
-                        audioRef.current.currentTime = 5;
-                        setCurrentTime(5);
-                        audioRef.current.play().catch(() => {});
-                        setIsPlaying(true);
-                      }
-                    }}
-                    className="p-1.5 rounded bg-fresh-card hover:bg-fresh-cardHover border border-fresh-border/80 text-left text-slate-300 hover:text-white flex items-center gap-1.5 transition-colors"
-                  >
-                    <span className="text-fresh-orange font-mono font-bold">0:05</span>
-                    <span className="truncate">Homeowner Verified</span>
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => {
-                      if (audioRef.current) {
-                        audioRef.current.currentTime = 32;
-                        setCurrentTime(32);
-                        audioRef.current.play().catch(() => {});
-                        setIsPlaying(true);
-                      }
-                    }}
-                    className="p-1.5 rounded bg-fresh-card hover:bg-fresh-cardHover border border-fresh-border/80 text-left text-slate-300 hover:text-white flex items-center gap-1.5 transition-colors"
-                  >
-                    <span className="text-fresh-orange font-mono font-bold">0:32</span>
-                    <span className="truncate">Roof Age & Damage</span>
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => {
-                      if (audioRef.current) {
-                        audioRef.current.currentTime = 55;
-                        setCurrentTime(55);
-                        audioRef.current.play().catch(() => {});
-                        setIsPlaying(true);
-                      }
-                    }}
-                    className="p-1.5 rounded bg-fresh-card hover:bg-fresh-cardHover border border-fresh-border/80 text-left text-slate-300 hover:text-white flex items-center gap-1.5 transition-colors"
-                  >
-                    <span className="text-emerald-400 font-mono font-bold">0:55</span>
-                    <span className="truncate">Active Policy Check</span>
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => {
-                      if (audioRef.current) {
-                        audioRef.current.currentTime = 80;
-                        setCurrentTime(80);
-                        audioRef.current.play().catch(() => {});
-                        setIsPlaying(true);
-                      }
-                    }}
-                    className="p-1.5 rounded bg-fresh-card hover:bg-fresh-cardHover border border-fresh-border/80 text-left text-slate-300 hover:text-white flex items-center gap-1.5 transition-colors"
-                  >
-                    <span className="text-fresh-orange font-mono font-bold">1:20</span>
-                    <span className="truncate">Inspection Slot Locked</span>
-                  </button>
+                  {activeLead.qualificationMarkers?.map((marker, i) => (
+                    <button
+                      key={i}
+                      type="button"
+                      onClick={() => {
+                        if (audioRef.current) {
+                          audioRef.current.currentTime = marker.time;
+                          setCurrentTime(marker.time);
+                          audioRef.current.play().catch(() => {});
+                          setIsPlaying(true);
+                        }
+                      }}
+                      className="p-1.5 rounded bg-fresh-card hover:bg-fresh-cardHover border border-fresh-border/80 text-left text-slate-300 hover:text-white flex items-center gap-1.5 transition-colors"
+                    >
+                      <span className="text-fresh-orange font-mono font-bold">{formatTime(marker.time)}</span>
+                      <span className="truncate">{marker.label}</span>
+                    </button>
+                  ))}
                 </div>
               </div>
 
