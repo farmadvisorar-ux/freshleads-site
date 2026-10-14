@@ -125,9 +125,9 @@ export default function Footer({
           <div className="space-y-3">
             <h3 className="text-xs uppercase font-extrabold text-white tracking-wider">Contact & Inquiries</h3>
             <div className="space-y-2.5 text-xs sm:text-sm">
-              <a href="tel:2148314653" className="flex items-center gap-2 hover:text-fresh-orange transition-colors text-white font-bold group">
+              <a href="tel:9036905969" className="flex items-center gap-2 hover:text-fresh-orange transition-colors text-white font-bold group">
                 <Phone className="w-4 h-4 text-fresh-orange shrink-0 group-hover:scale-110 transition-transform" />
-                <span>(214) 831-4653</span>
+                <span>(903) 690-5969</span>
               </a>
               <a href="mailto:info@freshleads.llc" className="flex items-center gap-2 hover:text-fresh-orange transition-colors text-slate-200">
                 <Mail className="w-4 h-4 text-fresh-orange shrink-0" />
@@ -209,7 +209,7 @@ export default function Footer({
             </a>.
           </p>
           <p className="text-slate-400">
-            <strong className="text-slate-200">Mobile Privacy Guarantee:</strong> We will not share your opt-in to an SMS campaign with any third party for purposes unrelated to providing you with the services of that campaign. All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties. Direct support: <a href="tel:2148314653" className="text-white hover:text-fresh-orange font-bold">(214) 831-4653</a>.
+            <strong className="text-slate-200">Mobile Privacy Guarantee:</strong> We will not share your opt-in to an SMS campaign with any third party for purposes unrelated to providing you with the services of that campaign. All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties. Direct support: <a href="tel:9036905969" className="text-white hover:text-fresh-orange font-bold">(903) 690-5969</a>.
           </p>
         </div>
 

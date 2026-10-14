@@ -366,7 +366,7 @@ export const emailTemplates = {
         Have questions or need to adjust your schedule? Contact our team directly at 
         <a href="mailto:admin@freshleads.llc" style="color: #FF5C00; font-weight: 700;">admin@freshleads.llc</a> or 
         <a href="mailto:info@freshleads.llc" style="color: #FF5C00; font-weight: 700;">info@freshleads.llc</a>, or call 
-        <a href="tel:2148314653" style="color: #FF5C00; font-weight: 700;">(214) 831-4653</a>.
+        <a href="tel:9036905969" style="color: #FF5C00; font-weight: 700;">(903) 690-5969</a>.
       </p>
     </div>
     <div class="footer">

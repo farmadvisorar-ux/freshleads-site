@@ -55,11 +55,11 @@ export default function TerritoryRadarWidget({ onOpenTerritoryModal }) {
           </div>
 
           <a
-            href="tel:2148314653"
+            href="tel:9036905969"
             className="inline-flex items-center gap-1.5 text-xs text-fresh-orange hover:text-white font-extrabold transition-colors shrink-0"
           >
             <Phone className="w-3.5 h-3.5" />
-            <span>Direct Desk: (214) 831-4653</span>
+            <span>Direct Desk: (903) 690-5969</span>
           </a>
         </div>
 

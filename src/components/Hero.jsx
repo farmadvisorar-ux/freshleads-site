@@ -88,11 +88,11 @@ export default function Hero({ onOpenTerritoryModal, onSelectLeadSample }) {
           <div className="mt-4 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 text-xs sm:text-sm text-slate-300">
             <span>Speak with a Customer Success Manager now:</span>
             <a 
-              href="tel:2148314653" 
+              href="tel:9036905969" 
               className="inline-flex items-center gap-1.5 text-fresh-orange hover:text-white font-black underline tracking-wide transition-colors"
             >
               <Phone className="w-3.5 h-3.5 shrink-0" />
-              <span>(214) 831-4653</span>
+              <span>(903) 690-5969</span>
             </a>
           </div>
         </div>

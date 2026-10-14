@@ -81,12 +81,12 @@ export default function Navbar({ onOpenTerritoryModal, onNavigateToBlog, onNavig
           {/* Right Action & Auth */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="tel:2148314653"
+              href="tel:9036905969"
               className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-fresh-card hover:bg-fresh-cardHover border border-fresh-border hover:border-fresh-orange/60 text-white font-extrabold text-xs tracking-wide transition-all group shadow-sm"
-              title="Call FreshLeads Main Line: (214) 831-4653"
+              title="Call FreshLeads Main Line: (903) 690-5969"
             >
               <Phone className="w-3.5 h-3.5 text-fresh-orange group-hover:scale-110 transition-transform" />
-              <span>(214) 831-4653</span>
+              <span>(903) 690-5969</span>
             </a>
 
             {user ? (
@@ -113,9 +113,9 @@ export default function Navbar({ onOpenTerritoryModal, onNavigateToBlog, onNavig
           {/* Mobile Action Buttons & Menu Toggle */}
           <div className="lg:hidden flex items-center gap-1.5 sm:gap-2">
             <a
-              href="tel:2148314653"
+              href="tel:9036905969"
               className="p-2 rounded-lg bg-fresh-card border border-fresh-border text-fresh-orange hover:text-white transition-colors flex items-center justify-center"
-              title="Call (214) 831-4653"
+              title="Call (903) 690-5969"
               aria-label="Call FreshLeads directly"
             >
               <Phone className="w-4 h-4 fill-fresh-orange/20" />
@@ -265,11 +265,11 @@ export default function Navbar({ onOpenTerritoryModal, onNavigateToBlog, onNavig
 
           <div className="pt-2 space-y-2.5">
             <a
-              href="tel:2148314653"
+              href="tel:9036905969"
               className="w-full min-h-[44px] flex items-center justify-center gap-2 py-3 rounded-xl bg-fresh-card border border-fresh-border hover:border-fresh-orange text-white font-black text-sm transition-colors"
             >
               <Phone className="w-4 h-4 text-fresh-orange" />
-              <span>Call Us Direct: (214) 831-4653</span>
+              <span>Call Us Direct: (903) 690-5969</span>
             </a>
 
             <button

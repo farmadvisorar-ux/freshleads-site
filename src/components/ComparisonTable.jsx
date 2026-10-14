@@ -152,11 +152,11 @@ export default function ComparisonTable({ onOpenTerritoryModal }) {
               </button>
 
               <a
-                href="tel:2148314653"
+                href="tel:9036905969"
                 className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-fresh-card border border-fresh-border hover:border-fresh-orange text-white font-bold text-xs transition-colors"
               >
                 <Phone className="w-3.5 h-3.5 text-fresh-orange" />
-                <span>(214) 831-4653</span>
+                <span>(903) 690-5969</span>
               </a>
             </div>
           </div>

@@ -205,7 +205,7 @@ export default function TermsOfService({ onNavigateHome, onOpenTerritoryModal, o
             <div className="font-bold text-white text-base">FreshLeads LLC — Legal & Operations</div>
             <div className="flex items-center gap-2 text-sm text-slate-300">
               <Phone className="w-4 h-4 text-fresh-orange shrink-0" />
-              <span>Telephone: <a href="tel:2148314653" className="text-white font-bold hover:text-fresh-orange">(214) 831-4653</a></span>
+              <span>Telephone: <a href="tel:9036905969" className="text-white font-bold hover:text-fresh-orange">(903) 690-5969</a></span>
             </div>
             <div className="flex items-center gap-2 text-sm text-slate-300">
               <Mail className="w-4 h-4 text-fresh-orange shrink-0" />

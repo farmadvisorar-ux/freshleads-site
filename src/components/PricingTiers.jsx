@@ -153,11 +153,11 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
               </button>
 
               <a
-                href="tel:2148314653"
+                href="tel:9036905969"
                 className="w-full sm:w-auto min-h-[48px] px-5 sm:px-6 py-3.5 sm:py-4 rounded-xl bg-fresh-dark hover:bg-fresh-cardHover border border-fresh-border text-white font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2"
               >
                 <Phone className="w-4 h-4 text-fresh-orange" />
-                <span>Call Direct: (214) 831-4653</span>
+                <span>Call Direct: (903) 690-5969</span>
               </a>
             </div>
 
@@ -181,9 +181,9 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
             </p>
             <p className="text-xs text-slate-400 mt-2">
               Prefer to speak right now? Call our direct line:{' '}
-              <a href="tel:2148314653" className="text-fresh-orange hover:text-white font-extrabold underline inline-flex items-center gap-1">
+              <a href="tel:9036905969" className="text-fresh-orange hover:text-white font-extrabold underline inline-flex items-center gap-1">
                 <Phone className="w-3 h-3 inline" />
-                <span>(214) 831-4653</span>
+                <span>(903) 690-5969</span>
               </a>
             </p>
           </div>
@@ -255,7 +255,7 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
                       type="tel"
                       name="phone"
                       required
-                      placeholder="e.g. (214) 831-4653"
+                      placeholder="e.g. (903) 690-5969"
                       value={inlineForm.phone}
                       onChange={handleInlineChange}
                       className="w-full pl-10 pr-4 py-3 bg-fresh-dark border border-fresh-border rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-fresh-orange text-sm font-medium"

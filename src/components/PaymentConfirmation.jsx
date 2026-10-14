@@ -72,11 +72,11 @@ export default function PaymentConfirmation({ onNavigateHome }) {
           </button>
 
           <a
-            href="tel:2148314653"
+            href="tel:9036905969"
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-fresh-card border border-fresh-border hover:border-fresh-orange text-xs font-bold text-white transition-all"
           >
             <Phone className="w-3.5 h-3.5 text-fresh-orange" />
-            <span>(214) 831-4653</span>
+            <span>(903) 690-5969</span>
           </a>
         </div>
 
@@ -317,7 +317,7 @@ export default function PaymentConfirmation({ onNavigateHome }) {
         {/* Footer Support Info */}
         <div className="text-center text-xs text-slate-500 space-y-1 pb-8">
           <div>FreshLeads.llc • Operations & Client Success Desk</div>
-          <div>Need direct assistance? Call <a href="tel:2148314653" className="text-fresh-orange underline">(214) 831-4653</a> or email <a href="mailto:admin@freshleads.llc" className="text-fresh-orange underline">admin@freshleads.llc</a> / <a href="mailto:info@freshleads.llc" className="text-fresh-orange underline">info@freshleads.llc</a></div>
+          <div>Need direct assistance? Call <a href="tel:9036905969" className="text-fresh-orange underline">(903) 690-5969</a> or email <a href="mailto:admin@freshleads.llc" className="text-fresh-orange underline">admin@freshleads.llc</a> / <a href="mailto:info@freshleads.llc" className="text-fresh-orange underline">info@freshleads.llc</a></div>
         </div>
 
       </div>

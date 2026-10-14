@@ -135,9 +135,9 @@ export default function TerritoryCheckerModal({
               {/* Direct Call Banner */}
               <div className="flex items-center justify-between px-3.5 py-2 bg-fresh-dark/90 border border-fresh-border rounded-xl text-xs">
                 <span className="text-slate-400">Need immediate help?</span>
-                <a href="tel:2148314653" className="flex items-center gap-1.5 text-fresh-orange hover:text-white font-extrabold transition-colors">
+                <a href="tel:9036905969" className="flex items-center gap-1.5 text-fresh-orange hover:text-white font-extrabold transition-colors">
                   <Phone className="w-3.5 h-3.5" />
-                  <span>Call (214) 831-4653</span>
+                  <span>Call (903) 690-5969</span>
                 </a>
               </div>
 
@@ -232,7 +232,7 @@ export default function TerritoryCheckerModal({
                       type="tel"
                       name="phone"
                       required
-                      placeholder="e.g. (214) 555-0198"
+                      placeholder="e.g. (903) 690-5969"
                       value={formData.phone}
                       onChange={handleInputChange}
                       className="w-full pl-10 pr-3 py-2.5 bg-fresh-dark border border-fresh-border rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-fresh-orange text-sm font-medium"
