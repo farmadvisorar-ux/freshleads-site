@@ -129,9 +129,9 @@ export default function Footer({
                 <Phone className="w-4 h-4 text-fresh-orange shrink-0 group-hover:scale-110 transition-transform" />
                 <span>(903) 690-5969</span>
               </a>
-              <a href="mailto:info@freshleads.llc" className="flex items-center gap-2 hover:text-fresh-orange transition-colors text-slate-200">
+              <a href="mailto:admin@freshleads.com" className="flex items-center gap-2 hover:text-fresh-orange transition-colors text-slate-200">
                 <Mail className="w-4 h-4 text-fresh-orange shrink-0" />
-                <span>info@freshleads.llc</span>
+                <span>admin@freshleads.com</span>
               </a>
               <div className="flex items-center gap-2 text-slate-300">
                 <MapPin className="w-4 h-4 text-fresh-orange shrink-0" />

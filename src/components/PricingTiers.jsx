@@ -199,7 +199,7 @@ export default function PricingTiers({ onOpenTerritoryModal, onNavigateToPrivacy
               </p>
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-fresh-dark border border-fresh-border text-xs text-slate-400">
                 <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                <span>Notification dispatched directly to info@freshleads.llc</span>
+                <span>Notification dispatched directly to admin@freshleads.com</span>
               </div>
             </div>
           ) : (

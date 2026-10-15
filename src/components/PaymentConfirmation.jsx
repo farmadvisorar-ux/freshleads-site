@@ -93,7 +93,7 @@ export default function PaymentConfirmation({ onNavigateHome }) {
             Thank You For Your Payment!
           </h1>
           <p className="text-sm sm:text-base text-slate-300 mt-2 max-w-xl mx-auto leading-relaxed">
-            Your package subscription is confirmed. Email notifications with your package details are being routed to your inbox and our operations desk at <strong className="text-white">admin@freshleads.llc</strong> and <strong className="text-white">info@freshleads.llc</strong>.
+            Your package subscription is confirmed. Email notifications with your package details are being routed to your inbox and our operations desk at <strong className="text-white">admin@freshleads.com</strong>.
           </p>
         </div>
 
@@ -139,7 +139,7 @@ export default function PaymentConfirmation({ onNavigateHome }) {
               <span>Confirm Your Dispatch Details & Send Email Confirmation</span>
             </h3>
             <p className="text-xs text-slate-300 mt-1">
-              Confirm your contact details below so our lead-routing system immediately triggers your automated email confirmation to you, <strong className="text-white">admin@freshleads.llc</strong>, and <strong className="text-white">info@freshleads.llc</strong>.
+              Confirm your contact details below so our lead-routing system immediately triggers your automated email confirmation to you and <strong className="text-white">admin@freshleads.com</strong>.
             </p>
           </div>
 
@@ -150,7 +150,7 @@ export default function PaymentConfirmation({ onNavigateHome }) {
               </div>
               <h4 className="text-2xl font-black text-white">Confirmation Dispatched!</h4>
               <p className="text-sm text-slate-300 max-w-md mx-auto">
-                Thank you, <strong className="text-white">{formData.customerName || 'Contractor'}</strong>. An email confirmation for <strong className="text-fresh-orange">{formData.packageName}</strong> has been transmitted to your email, <strong className="text-white">admin@freshleads.llc</strong>, and <strong className="text-white">info@freshleads.llc</strong>.
+                Thank you, <strong className="text-white">{formData.customerName || 'Contractor'}</strong>. An email confirmation for <strong className="text-fresh-orange">{formData.packageName}</strong> has been transmitted to your email and <strong className="text-white">admin@freshleads.com</strong>.
               </p>
               <div className="pt-2">
                 <button
@@ -294,7 +294,7 @@ export default function PaymentConfirmation({ onNavigateHome }) {
                   {isSubmitting ? (
                     <>
                       <Loader2 className="w-4 h-4 animate-spin" />
-                      <span>Dispatching Confirmation To admin@freshleads.llc & info@freshleads.llc...</span>
+                      <span>Dispatching Confirmation To admin@freshleads.com...</span>
                     </>
                   ) : (
                     <>
@@ -307,7 +307,7 @@ export default function PaymentConfirmation({ onNavigateHome }) {
 
               <div className="flex items-center justify-center gap-2 text-center text-[11px] text-slate-400 pt-1">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                <span>Dispatches immediate receipt copies to your email, admin@freshleads.llc, and info@freshleads.llc</span>
+                <span>Dispatches immediate receipt copies to your email and admin@freshleads.com</span>
               </div>
             </form>
           )}
@@ -317,7 +317,7 @@ export default function PaymentConfirmation({ onNavigateHome }) {
         {/* Footer Support Info */}
         <div className="text-center text-xs text-slate-500 space-y-1 pb-8">
           <div>FreshLeads.llc • Operations & Client Success Desk</div>
-          <div>Need direct assistance? Call <a href="tel:9036905969" className="text-fresh-orange underline">(903) 690-5969</a> or email <a href="mailto:admin@freshleads.llc" className="text-fresh-orange underline">admin@freshleads.llc</a> / <a href="mailto:info@freshleads.llc" className="text-fresh-orange underline">info@freshleads.llc</a></div>
+          <div>Need direct assistance? Call <a href="tel:9036905969" className="text-fresh-orange underline">(903) 690-5969</a> or email <a href="mailto:admin@freshleads.com" className="text-fresh-orange underline">admin@freshleads.com</a></div>
         </div>
 
       </div>

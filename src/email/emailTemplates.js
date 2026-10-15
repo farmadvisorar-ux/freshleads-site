@@ -1,7 +1,7 @@
 /**
  * FreshLeads.llc - Transactional & Lead Workflow Email Templates
  * Domain: FreshLeads.llc
- * Contact: info@freshleads.llc
+ * Contact: admin@freshleads.com
  */
 
 export const emailTemplates = {
@@ -152,7 +152,7 @@ export const emailTemplates = {
       </p>
     </div>
     <div class="footer">
-      © ${new Date().getFullYear()} FreshLeads.llc • Exclusive Roofing Appointments • info@freshleads.llc
+      © ${new Date().getFullYear()} FreshLeads.llc • Exclusive Roofing Appointments • admin@freshleads.com
     </div>
   </div>
 </body>
@@ -364,8 +364,7 @@ export const emailTemplates = {
 
       <p style="margin-top: 24px; font-size: 13px; color: #94A3B8;">
         Have questions or need to adjust your schedule? Contact our team directly at 
-        <a href="mailto:admin@freshleads.llc" style="color: #FF5C00; font-weight: 700;">admin@freshleads.llc</a> or 
-        <a href="mailto:info@freshleads.llc" style="color: #FF5C00; font-weight: 700;">info@freshleads.llc</a>, or call 
+        <a href="mailto:admin@freshleads.com" style="color: #FF5C00; font-weight: 700;">admin@freshleads.com</a>, or call 
         <a href="tel:9036905969" style="color: #FF5C00; font-weight: 700;">(903) 690-5969</a>.
       </p>
     </div>
@@ -380,7 +379,7 @@ export const emailTemplates = {
 
   /**
    * Template 5: High Priority Alert to FreshLeads Admin & Operations Team
-   * Dispatched immediately to admin@freshleads.llc and info@freshleads.llc upon completed payment
+   * Dispatched immediately to admin@freshleads.com upon completed payment
    */
   paymentConfirmationAdmin: (data) => ({
     subject: `💰 [NEW PAID CLIENT] ${data.packageName || 'Lead Package'} - ${data.companyName || data.customerName || 'Contractor'}`,
@@ -453,7 +452,7 @@ export const emailTemplates = {
       </div>
     </div>
     <div class="footer">
-      Dispatched to admin@freshleads.llc & info@freshleads.llc • Timestamp: ${new Date().toLocaleString()}
+      Dispatched to admin@freshleads.com • Timestamp: ${new Date().toLocaleString()}
     </div>
   </div>
 </body>

@@ -159,7 +159,7 @@ export default function PrivacyPolicy({ onNavigateHome, onOpenTerritoryModal }) 
                 <span>Immediate Opt-Out (STOP)</span>
               </strong>
               <p className="text-xs text-slate-400 leading-relaxed">
-                You may opt out of SMS messages at any time by replying <strong className="text-white">STOP</strong>, <strong className="text-white">CANCEL</strong>, or <strong className="text-white">UNSUBSCRIBE</strong> to any text message, or by emailing info@freshleads.llc.
+                You may opt out of SMS messages at any time by replying <strong className="text-white">STOP</strong>, <strong className="text-white">CANCEL</strong>, or <strong className="text-white">UNSUBSCRIBE</strong> to any text message, or by emailing admin@freshleads.com.
               </p>
             </div>
           </div>
@@ -210,7 +210,7 @@ export default function PrivacyPolicy({ onNavigateHome, onOpenTerritoryModal }) 
             </div>
             <div className="flex items-center gap-2 text-sm text-slate-300">
               <Mail className="w-4 h-4 text-fresh-orange shrink-0" />
-              <span>Email: <a href="mailto:info@freshleads.llc" className="text-fresh-orange underline hover:text-white">info@freshleads.llc</a></span>
+              <span>Email: <a href="mailto:admin@freshleads.com" className="text-fresh-orange underline hover:text-white">admin@freshleads.com</a></span>
             </div>
             <div className="flex items-center gap-2 text-sm text-slate-300">
               <Lock className="w-4 h-4 text-fresh-orange shrink-0" />

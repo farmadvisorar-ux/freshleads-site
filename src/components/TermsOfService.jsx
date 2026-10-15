@@ -100,7 +100,7 @@ export default function TermsOfService({ onNavigateHome, onOpenTerritoryModal, o
 
             <div className="p-3.5 rounded-xl bg-fresh-card border border-fresh-border">
               <strong className="text-white block font-bold mb-1">Customer Support & Help (HELP):</strong>
-              <span>For assistance, reply <strong className="text-white">HELP</strong> to any SMS, call our customer success team, or email us at <a href="mailto:info@freshleads.llc" className="text-fresh-orange underline hover:text-white">info@freshleads.llc</a>.</span>
+              <span>For assistance, reply <strong className="text-white">HELP</strong> to any SMS, call our customer success team, or email us at <a href="mailto:admin@freshleads.com" className="text-fresh-orange underline hover:text-white">admin@freshleads.com</a>.</span>
             </div>
 
             <div className="p-3.5 rounded-xl bg-fresh-card border border-fresh-border">
@@ -167,7 +167,7 @@ export default function TermsOfService({ onNavigateHome, onOpenTerritoryModal, o
               <li>The homeowner has no active insurance policy.</li>
             </ul>
             <p className="pt-2 text-xs text-slate-400">
-              Contractors simply notify their Customer Success Agent via email at info@freshleads.llc or by phone, and an immediate replacement appointment is dispatched.
+              Contractors simply notify their Customer Success Agent via email at admin@freshleads.com or by phone, and an immediate replacement appointment is dispatched.
             </p>
           </div>
         </section>
@@ -209,7 +209,7 @@ export default function TermsOfService({ onNavigateHome, onOpenTerritoryModal, o
             </div>
             <div className="flex items-center gap-2 text-sm text-slate-300">
               <Mail className="w-4 h-4 text-fresh-orange shrink-0" />
-              <span>Email: <a href="mailto:info@freshleads.llc" className="text-fresh-orange underline hover:text-white">info@freshleads.llc</a></span>
+              <span>Email: <a href="mailto:admin@freshleads.com" className="text-fresh-orange underline hover:text-white">admin@freshleads.com</a></span>
             </div>
             <div className="flex items-center gap-2 text-sm text-slate-300">
               <Globe className="w-4 h-4 text-fresh-orange shrink-0" />

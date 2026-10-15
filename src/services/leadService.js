@@ -10,7 +10,7 @@ export async function submitTerritoryInquiry(formData) {
 
   console.log('[FreshLeads] Lead & Package inquiry received for:', formData);
 
-  // 2. Dispatch to info@freshleads.llc via FormSubmit.co & Web3Forms
+  // 2. Dispatch to admin@freshleads.com via FormSubmit.co & Web3Forms
   try {
     const payload = {
       _subject: `🔥 Success Agent Call Request: ${formData.leadVolume || 'Package'} - ${formData.companyName || formData.contactName || 'Contractor'}`,
@@ -27,8 +27,8 @@ export async function submitTerritoryInquiry(formData) {
       Submission_Time: new Date().toLocaleString()
     };
 
-    // Primary dispatch directly to info@freshleads.llc
-    const response = await fetch('https://formsubmit.co/ajax/info@freshleads.llc', {
+    // Primary dispatch directly to admin@freshleads.com
+    const response = await fetch('https://formsubmit.co/ajax/admin@freshleads.com', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -54,7 +54,7 @@ export async function submitTerritoryInquiry(formData) {
 
     return { 
       success: true, 
-      result: { message: 'Inquiry successfully received and routed to info@freshleads.llc' }, 
+      result: { message: 'Inquiry successfully received and routed to admin@freshleads.com' }, 
       mock: true 
     };
   }
@@ -62,15 +62,14 @@ export async function submitTerritoryInquiry(formData) {
 
 /**
  * Payment Confirmation Dispatcher
- * Dispatches completed Stripe order confirmations to admin@freshleads.llc, info@freshleads.llc, and the customer
+ * Dispatches completed Stripe order confirmations to admin@freshleads.com and the customer
  */
 export async function submitPaymentConfirmation(paymentData) {
   console.log('[FreshLeads] Dispatching Payment Confirmation Email for:', paymentData);
 
   const payload = {
     _subject: `🎉 [PAID CLIENT CONFIRMED] ${paymentData.packageName || 'Roofing Package'} - ${paymentData.companyName || paymentData.customerName || 'Contractor'}`,
-    _replyto: paymentData.customerEmail || paymentData.email || 'admin@freshleads.llc',
-    _cc: 'info@freshleads.llc,admin@freshleads.llc',
+    _replyto: paymentData.customerEmail || paymentData.email || 'admin@freshleads.com',
     Order_Status: 'PAYMENT COMPLETED & VERIFIED',
     Package_Purchased: paymentData.packageName || 'Attend-Appointment Campaign ($150-$200 per attend appointment)',
     Billing_Cycle: paymentData.billingCycle || 'Active Cycle',
@@ -86,8 +85,8 @@ export async function submitPaymentConfirmation(paymentData) {
   };
 
   try {
-    // 1. Dispatch primary alert to admin@freshleads.llc with info@freshleads.llc cc'd
-    const respAdmin = await fetch('https://formsubmit.co/ajax/admin@freshleads.llc', {
+    // 1. Dispatch primary alert to admin@freshleads.com
+    const respAdmin = await fetch('https://formsubmit.co/ajax/admin@freshleads.com', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -96,25 +95,12 @@ export async function submitPaymentConfirmation(paymentData) {
       body: JSON.stringify(payload)
     });
 
-    // 2. Dispatch secondary backup alert directly to info@freshleads.llc
-    await fetch('https://formsubmit.co/ajax/info@freshleads.llc', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({
-        ...payload,
-        _subject: `💰 [COPY] Paid Order: ${paymentData.packageName} - ${paymentData.companyName || paymentData.customerName || 'Contractor'}`
-      })
-    });
-
-    // 3. Save to localStorage order history
+    // 2. Save to localStorage order history
     const existingOrders = JSON.parse(localStorage.getItem('freshleads_orders') || '[]');
     existingOrders.push({ ...paymentData, timestamp: new Date().toISOString() });
     localStorage.setItem('freshleads_orders', JSON.stringify(existingOrders));
 
-    return { success: true, result: { message: 'Confirmation sent to admin@freshleads.llc, info@freshleads.llc, and customer' } };
+    return { success: true, result: { message: 'Confirmation sent to admin@freshleads.com and customer' } };
   } catch (error) {
     console.error('[FreshLeads] Payment confirmation dispatch network fallback:', error);
     const existingOrders = JSON.parse(localStorage.getItem('freshleads_orders') || '[]');
